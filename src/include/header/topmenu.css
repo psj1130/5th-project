@@ -1,0 +1,23 @@
+#topmeun-container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 200px 140px 140px 140px 140px 140px;
+  grid-template-rows: 60px;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.logo-style {
+  font-family: 'SBAggroB';
+  font-weight: normal;
+  font-size: 32px;
+}
+
+.topmenu-list > a{
+  color: white;
+  font-size: 18px;
+  font-family: 'Pretendard-Regular';
+  font-weight: 500;
+}

@@ -1,0 +1,18 @@
+#footerlogo-box {
+  width: 100%;
+  height: 100px;  
+}
+
+#footerlogo-box > p {
+  font-size: 14px;
+  font-family: 'SBAggroB';
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+.footerlogo-style {
+  color: white;
+  font-family: 'SBAggroB';
+  font-weight: normal;
+  font-size: 40px;
+}

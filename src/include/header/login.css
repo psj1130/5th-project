@@ -1,0 +1,30 @@
+#login-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  text-align: center;
+}
+
+.login-style {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.login-style > a {
+  font-size: 16px;
+  font-family: 'Pretendard-Regular';
+  color: white;
+}
+
+.login-style > img {
+  width: 18px;
+  height: 18px;
+  margin-right: 5px;
+}
+
+
