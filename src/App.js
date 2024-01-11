@@ -1,6 +1,8 @@
 import React from 'react';
-import { AnimatePresence } from "framer-motion";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './App.css';
+
+import { AnimatePresence } from "framer-motion";
 
 import Header from './include/header';
 import Footer from './include/footer';
@@ -18,6 +20,7 @@ function App() {
           <Routes>
             <Route path='/' element={<AnimatePresence><Intropage /></AnimatePresence>} />
             <Route path='/main' element={<AnimatePresence><Mainpage/></AnimatePresence>} />
+            <Route path='/simulator' element={<LiveChart/>}/>
           </Routes>
         </div>
         <Footer />
