@@ -1,29 +1,38 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import './intro.css';
+import '../font.css';
 
 function Intropage() {
-  
-  return(
-    <div>
-    <motion.p
-      initial={{ opacity: 0, x: 200 }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: -20 }}
-      transition={{ duration: 1.1, ease: "easeInOut" }}
-    >
-      쩐의 전쟁
-    </motion.p>
-    <motion.button
-      initial={{ opacity: 0, y: 0 }}
-      animate={{ opacity: 1, y: 100 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 1.1, ease: "easeInOut" }}
-    >
-      <Link to='/main'>페이지 이동</Link>
-    </motion.button>
-  </div>
+  return (
+    <div id='intro-body'>
+      <motion.h1
+        className='intro-logo-style'
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          duration: 0.8,
+          delay: 0.5,
+          ease: [0, 0.71, 0.2, 1.01]
+        }}
+      >
+        쩐의 전쟁
+      </motion.h1>
+    <div className="intro-btn-con">  
+      <motion.button
+        className='custom-btn btn-7'
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        transition={{ ease: "easeOut", 
+        duration: 2,
+        delay: 1.5 }}
+      >
+        <Link to='/main'>참여하기</Link>
+      </motion.button>
+      </div>
+    </div>
   );
 }
 
