@@ -25,7 +25,7 @@ const Simulator = () => {
         type:'USER_REGISTER',
         data: {
           cash: res.data.balance,
-          coin: res.data.coin[0]
+          // coin: res.data.coin[0]
         }
       })
     }

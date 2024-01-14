@@ -11,7 +11,7 @@ const CoinDetail = () => {
   return (
     <div className="Coin__Detail">
       <CoinSummary code={code} name={name} />
-      <ChartComp/>
+      {/* <ChartComp/> */}
       <OrderContainer code={code} />
     </div>
   );

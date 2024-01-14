@@ -1,5 +1,9 @@
 @charset "utf-8";
 
+.Coin__Summary {
+  width: 60%;
+}
+
 .Select__Coin__Loading {
     height: 200px;
     display: flex;

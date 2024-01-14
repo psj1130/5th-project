@@ -3,7 +3,7 @@
 .Trade__Head {
   display: flex;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.9rem;
 }
 .Trade__Head .Trade__Method {
   margin: 0 20px;
@@ -18,7 +18,7 @@
   color: #333;
 }
 .Trade__Form {
-  padding: 0 3rem;
+  padding: 0 1rem;
 }
 .Form__List {
   padding: 1rem 0;
