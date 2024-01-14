@@ -1,0 +1,75 @@
+#simulator-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#simulator-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scroll::-webkit-scrollbar {
+  display: none;
+}
+
+@media all and (min-width:1414px) {
+  .Coin__List__Container {
+    display: block;
+  }
+} 
+
+/* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px) */
+@media all and (min-width:939px) and (max-width:1414px) {
+  .Coin__Detail {
+    width: 100%;
+  }
+  .Coin__List__Container{
+    display: none;
+    position: absolute;
+    right: 0;
+    width: 100vh;
+    height: 100%;
+  }
+  .Info .Others p{
+    font-size: 1.5em;
+  }
+  .Selected .Name_button {
+    display: block;
+  }
+  .Listing__Method {
+    font-size: 18px;
+  }
+  .close-coin-container {
+    display: block;
+  }
+}
+
+/* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px) */ 
+@media all and (max-width:938px) {
+  #simulator-container {
+    flex-direction: column;
+  }
+  .Coin__List__Container{
+    display: none;
+  }
+  .Info .Others p{
+    font-size: 1.5em;
+  }
+  .Orderbook__Wrap p{
+    font-size: 1.2em;
+  }
+  .Selected {
+    width: 100%;
+  }
+  .Selected .Info {
+    align-items: normal;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .Info .Others p{
+    font-size: 12px;
+  }
+}
