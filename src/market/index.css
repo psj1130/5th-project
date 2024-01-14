@@ -1,10 +1,14 @@
 #simulator-wrapper {
   width: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #simulator-container {
   width: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .scroll::-webkit-scrollbar {

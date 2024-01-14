@@ -17,18 +17,16 @@ import Intropage from './main/intropage';
 function App() {
   return (
     <div className="App">
-      <Router>
         <Header />
         <div className='App-Main'>
           <Routes>
             <Route path='/' element={<AnimatePresence><Intropage /></AnimatePresence>} />
             <Route path='/main' element={<AnimatePresence><Mainpage/></AnimatePresence>} />
             <Route path='/simulator/:id' element={<LiveChart/>}/>
-          <Route path='/test' element={<ChartComp/>}/>
+            <Route path='/test' element={<ChartComp/>}/>
           </Routes>
         </div>
         <Footer />
-      </Router>
     </div>
   );
 }

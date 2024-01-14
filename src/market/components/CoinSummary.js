@@ -4,6 +4,7 @@ import {
   useSummaryDispatch,
   useExchangeState,
 } from '../context/ExchangeContext';
+import ChartComp from '../chart/chart';
 
 const CoinSummary = ({ code, name }) => {
   const dispatch = useSummaryDispatch();
@@ -137,6 +138,7 @@ const CoinSummary = ({ code, name }) => {
             </div>
           </div>
         </div>
+        <ChartComp/>
       </div>
     );
   }
