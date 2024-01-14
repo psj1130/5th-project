@@ -73,6 +73,12 @@ const CoinSummary = ({ code, name }) => {
               {name}
               <span>{code}</span>
             </h3>
+            <div>
+              <button className='Name_button' type='click' onClick={() => {
+                document.querySelector('.Coin__List__Container').style.display = 'block';
+                
+              }} ><i className='xi-bars'></i></button>
+            </div>
           </div>
           <div className="Info">
             <div className={`Price ${change}`}>

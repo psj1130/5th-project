@@ -4,7 +4,7 @@ import Simulator from '../components/simulator';
 
 const Exchange = () => {
   return (
-    <div>
+    <div id='simulator-wrapper'>
       <Simulator/>
     </div>
   )

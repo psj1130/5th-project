@@ -1,8 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import Cleave from 'cleave.js/react';
 import { useUserState, useUserDispatch } from '../context/ExchangeContext';
+import { useParams } from 'react-router-dom';
 
 const TradeForm = ({ type, orderbookData, code }) => {
+  const { id } = useParams();
   const typeToStr = useCallback(() => {
     if (type === 'ASK') {
       return '매수';
@@ -46,6 +48,7 @@ const TradeForm = ({ type, orderbookData, code }) => {
         userDispatch({
           type: 'TRADE_ASK',
           data: {
+            id: id,
             coin: {
               totalPrice: totalPrice,
               code: fnCodeStr(1),

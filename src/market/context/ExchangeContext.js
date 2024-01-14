@@ -1,5 +1,6 @@
 import React, { createContext, useReducer, useContext } from 'react';
 import axios from 'axios';
+import { API_URL } from '../../config/config';
 
 /// 실시간 정보
 // StockExchange 에서 사용 할 기본상태
@@ -163,7 +164,7 @@ export async function getMarket(dispatch) {
       const { data } = e;
       const text = await new Response(data).text();
       // console.log(text);
-      console.log(JSON.parse(text));
+      // console.log(JSON.parse(text));
       dispatch({
         type: 'GET_REALTIME_DATA_SUCCESS',
         data: JSON.parse(text),
@@ -236,6 +237,7 @@ export function useSummaryDispatch() {
 /// 유저 정보
 // 유저 기본정보
 const userData = {
+  id: null,
   cash: null,
   coin: null,
 };
@@ -308,12 +310,24 @@ function userReducer(state, action) {
       return {
         ...state,
         cash: action.data.cash,
+        // coin: action.data.coin
       };
     case 'TRADE_ASK':
       if (state.cash < action.data.coin.totalPrice) {
         alert('보유 현금이 부족합니다.');
         return { ...state };
       } else {
+        const data = {
+          balance: state.cash - action.data.coin.totalPrice,
+          coin: {
+            totalPrice: action.data.coin.totalPrice,
+            code: action.data.coin.code,
+            fullcode: action.data.coin.fullcode,
+            volume: action.data.coin.volume
+          }
+        }
+        axios.patch(`${API_URL}/user/ask/${action.data.id}`, data);
+        console.log(action.data.coin.code);
         return {
           ...state,
           cash: state.cash - action.data.coin.totalPrice,
