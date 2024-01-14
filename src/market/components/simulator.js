@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {
   getMarket,
   useExchangeDispatch,
@@ -10,32 +10,34 @@ import CoinDetail from './CoinDetail';
 import CoinListContainer from './CoinListContainer';
 import { useParams } from "react-router-dom";
 
-const getUserData = async (id) => {
-  const res = await axios.get(`${API_URL}/user/data`);
-  return res.data;
-}
-
 const Simulator = () => {
   const { id } = useParams();
+  const [user, setUser] = useState();
   const dispatch = useExchangeDispatch();
   const userDispatch = useUserDispatch();
 
   useEffect(() => {
-    userDispatch({
-      type:'USER_REGISTER',
-      data: {
-        cash: 100,
-        coin: {}
-      }
-    })
-  })
+    const getUser = async () => {
+      const res = await axios.get(`${API_URL}/user/data/${id}`)
+      console.log(res.data);
+      setUser(res.data);
+      userDispatch({
+        type:'USER_REGISTER',
+        data: {
+          cash: res.data.balance,
+          coin: res.data.coin[0]
+        }
+      })
+    }
+    getUser();
+  }, [])
 
   useEffect(() => {
     getMarket(dispatch);
   }, [dispatch]);
 
   return(
-    <div>
+    <div id="simulator-container">
       <CoinDetail/>
       <CoinListContainer/>
     </div>

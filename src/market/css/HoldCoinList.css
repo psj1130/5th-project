@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 .Hold__Coin__List {
-  height: 100%;
+  height: calc(100% - 24px);
 }
 .Hold__Coin__List .List__Head {
   display: flex;

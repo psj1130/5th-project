@@ -2,6 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 
+import LiveChart from './market';
+import ChartComp from './market/chart/chart';
+
 import { AnimatePresence } from "framer-motion";
 
 import Header from './include/header';
@@ -20,7 +23,8 @@ function App() {
           <Routes>
             <Route path='/' element={<AnimatePresence><Intropage /></AnimatePresence>} />
             <Route path='/main' element={<AnimatePresence><Mainpage/></AnimatePresence>} />
-            <Route path='/simulator' element={<LiveChart/>}/>
+            <Route path='/simulator/:id' element={<LiveChart/>}/>
+          <Route path='/test' element={<ChartComp/>}/>
           </Routes>
         </div>
         <Footer />

@@ -9,6 +9,9 @@
 .Selected .Name {
     padding-bottom: 1rem;
     border-bottom: 1px solid #d9d9d9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .Selected .Name h3 {
     margin: 0;
@@ -21,6 +24,15 @@
 .Selected .Name h3 span {
     font-size: 1rem;
     margin-left: 0.8rem;
+}
+.Selected .Name_button {
+    display: none;
+    margin: 0;
+    font-size: 35px;
+    padding: 1px;
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
 }
 .Selected .Info {
     padding: 1rem;

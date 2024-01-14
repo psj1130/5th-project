@@ -7,6 +7,11 @@ const CoinListContainer = () => {
   const [type, setType] = useState('KRW');
   return (
     <div className="Coin__List__Container">
+      <div className='Listing__Close'>
+        <button type='click' className='close-coin-container' onClick={() => {
+          document.querySelector('.Coin__List__Container').style.display = 'none';
+        }}><i className='xi-close'></i></button>
+      </div>
       <div className="Listing__Method">
         <div className="Method">
           <p className={type === 'KRW' ? 'on' : ''} onClick={() => setType('KRW')}>

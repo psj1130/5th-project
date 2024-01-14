@@ -2,7 +2,7 @@
 
 .Coin__List__Container {
     max-width: 430px;
-    height: calc(100vh - 4rem);
+    height: calc(100vh - 3rem);
     -webkit-box-flex: 1;
     -webkit-flex: 1;
     -moz-box-flex: 1;
@@ -16,6 +16,7 @@
     border-radius: 0.5rem;
     box-shadow: 4px 4px 8px rgba(0, 0, 0, .12);
     padding: 1rem 0;
+    overflow-y: hidden;
 }
 
 .Listing__Method {
@@ -36,4 +37,20 @@
 }
 .Listing__Method .Method p.on {
     color: #333;
+}
+
+.Listing__Close {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.close-coin-container{
+  display: none;
+  border: none;
+  background-color: #fff;
+  font-size: 2em;
+  /* float: right; */
+  cursor: pointer;
+  margin: 5px 12px 0 0;
 }
