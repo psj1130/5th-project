@@ -1,13 +1,27 @@
-.login-style > a {
+#login-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-main-text-style{
   font-size: 16px;
   font-family: 'Pretendard-Regular';
   color: white;
 }
 
-.login-style > img {
+.login-img-style{
   width: 18px;
   height: 18px;
-  margin-right: 5px;
+  margin-right: 10px;
 }
 
-
+/* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/ 
+@media all and (max-width:767px) {
+  #login-container {
+    display: none;
+  }
+}

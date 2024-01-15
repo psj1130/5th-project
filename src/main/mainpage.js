@@ -1,16 +1,26 @@
 import React from 'react';
+import Background from './components/background/background';
 import { motion } from 'framer-motion';
 import './mainpage.css';
 
 function MainPage() {
   
   return(
+
     <motion.div
-    initial={{ opacity: 0, y: -50 }}
-    animate={{ opacity: 1, y: 0 }}
-    exit={{ opacity: 0, y: -50 }}
-  >
-    <h1>메인페이지 입니다.</h1>
+      id="main-body"
+      initial={{ opacity: 1, x: 1920 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: 200 }}
+      transition={{
+        duration: 0.8,
+        delay: 0.5,
+        ease: [0, 0.71, 0.2, 1.01]
+      }}
+    >
+    <div id="background-body">
+      <Background/>
+    </div>
   </motion.div>
   );
 }

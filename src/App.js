@@ -6,8 +6,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LiveChart from './market';
 import ChartComp from './market/chart/chart';
 
-import { AnimatePresence } from "framer-motion";
-
 import Header from './include/header';
 import Footer from './include/footer';
 

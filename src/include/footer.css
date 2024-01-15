@@ -4,6 +4,7 @@
   background-color: black;
   color: rgb(179, 179, 179);
   font-family: 'Pretendard-Regular';
+  padding: 25px 0;
 }
 
 #footer-container {
@@ -24,18 +25,17 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  border: 1px solid;
 }
 
 /* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/ 
 @media all and (min-width:768px) and (max-width:1023px) {
   #footer-body {
     max-width: 1023px;
-
+    height: 250px;
   }
 
   #footer-container {
-    max-width: 1000px;
+    max-width: 750px;
     height: 250px;
     display: flex;
     flex-direction: row;
@@ -43,10 +43,9 @@
   }
 
   .footer-box {
-    width: 300px;
-    height: 200px;
+    width: 230px;
+    height: 125px;
   }
-
 } 
 
 /* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/ 

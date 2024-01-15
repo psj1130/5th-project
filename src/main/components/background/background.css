@@ -1,0 +1,179 @@
+#background-container {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  background: url('../images/main-bg.jpg');
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.background-intro-box {
+  width: 500px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.background-title {
+  width: 100%;
+  height: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.background-title > p {
+  font-size: 50px;
+  font-family: 'SBAggroB';
+  color: white;
+}
+
+.background-sub-title {
+  width: 500px;
+  height: 110px;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-size: 32px;
+  font-family: 'KNUTRUTHTTF';
+}
+
+.sub-title-top-box {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+}
+
+.sub-title-top-box > p{
+  padding-left: 55px;
+}
+
+.sub-title-bottom-box > p{
+  padding-right: 55px;
+}
+
+.sub-title-bottom-box {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.background-start-box {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-btn {
+  width: 150px;
+  height: 100%;
+  font-family: 'TheJamsil5Bold';
+  border-radius: 25px;
+}
+
+.background-btn > a {
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.back-btn-style {
+  border-radius: 25px;
+  background: #000;
+  color: #fff;
+  line-height: 42px;
+  padding: 0;
+  border: none;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+.back-btn-style:hover {
+ background: transparent;
+ color: #000;
+}
+.back-btn-style:before,
+.back-btn-style:after {
+ position: absolute;
+ content: "";
+ left: 0;
+ width: 100%;
+ height: 50%;
+ right: 0;
+ z-index: -1;
+ background: #000;
+ transition: all 0.3s ease;
+}
+.back-btn-style:before {
+ top: 0;
+}
+.back-btn-style:after {
+ bottom: 0;
+}
+.back-btn-style:hover:before,
+.back-btn-style:hover:after {
+ height: 0;
+ background-color: #000;
+}
+
+
+/* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/ 
+@media all and (min-width:768px) and (max-width:1023px) {
+  #background-container {
+    max-width: 1023px;
+    height: 450px;
+    background-image: url('../images/main-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .background-intro-box {
+    width: 500px;
+    height: 250px;
+  }
+} 
+
+/* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/ 
+@media all and (max-width:767px) {
+  #background-container {
+    max-width: 766px;
+    height: 450px;
+    background-image: url('../images/main-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .background-intro-box {
+    width: 350px;
+    height: 250px;
+  }
+  .background-sub-title {
+    width: 100%;
+    height: 150px;
+  }
+  .sub-title-top-box > p{
+    padding: 0;
+  }
+  .sub-title-bottom-box > p{
+    padding: 0;
+  }
+}

@@ -5,13 +5,14 @@ import './login.css';
 function Login() {
 
   return(
+    //모바일 픽셀 이상일때
     <div id="login-container">
-      <span className="login-style">
-        <img src="/main/login_icon.png" alt="icon" />
-          <Link to='#'>
-            로그인
-          </Link>
-      </span>
+      <img className="login-img-style" src="/main/login_icon.png" alt="icon" />
+        <Link
+        className='login-main-text-style'
+        to='#'>
+          로그인
+        </Link>
     </div>
   );
 }
