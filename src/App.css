@@ -3,6 +3,14 @@
   padding: 0;
 }
 
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
 .App {
   display: flex;
   flex-direction: column;

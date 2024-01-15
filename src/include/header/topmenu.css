@@ -1,0 +1,13 @@
+.logo-style {
+  font-family: 'SBAggroB';
+  font-weight: normal;
+  font-size: 32px;
+}
+
+.topmenu-list > a{
+  color: white;
+  font-size: 18px;
+  font-family: 'Pretendard-Regular';
+  font-weight: 500;
+}
+

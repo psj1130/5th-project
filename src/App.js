@@ -1,6 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
+import { AnimatePresence } from "framer-motion";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import LiveChart from './market';
 import ChartComp from './market/chart/chart';

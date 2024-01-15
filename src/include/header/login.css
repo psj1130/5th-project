@@ -1,0 +1,13 @@
+.login-style > a {
+  font-size: 16px;
+  font-family: 'Pretendard-Regular';
+  color: white;
+}
+
+.login-style > img {
+  width: 18px;
+  height: 18px;
+  margin-right: 5px;
+}
+
+

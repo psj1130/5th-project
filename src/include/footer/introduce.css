@@ -1,0 +1,29 @@
+#introduce-box {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#introduce-table {
+  font-family: 'Pretendard-Regular';
+  font-size: 14px;
+}
+
+.tr-box {
+  width: 100%;
+  height: 20px;
+  display: flex;
+}
+
+.tr-box > td {
+  width: 65px;
+  text-align: start;
+}
+
+.td-body-style {
+  width: 180px;
+  text-decoration: underline;
+}
