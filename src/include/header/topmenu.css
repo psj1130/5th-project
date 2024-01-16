@@ -1,3 +1,13 @@
+#topmeun-container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 200px 140px 140px 140px 140px 140px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 .logo-style {
   font-family: 'SBAggroB';
   font-weight: normal;
@@ -11,3 +21,31 @@
   font-weight: 500;
 }
 
+/* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/ 
+@media all and (min-width:768px) and (max-width:1023px) {
+  #topmeun-container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 150px 120px 120px 120px 120px 120px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/ 
+@media all and (max-width:767px) {
+  #topmeun-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+ .topmenu-list {
+  display: none;
+ }
+}

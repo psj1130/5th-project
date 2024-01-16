@@ -22,19 +22,19 @@
   margin-top: 30px;
 }
 
-.custom-btn {
+.intro-btn {
   width: 200px;
   height: 50px;
 }
 
-.custom-btn > a {
+.intro-btn > a {
   color: white;
   font-size: 20px;
   font-family: 'PuradakGentleGothicR';
   letter-spacing: 5px;
 }
 
-.btn-7 {
+.intro-btn-style {
   background: #000;
  color: #fff;
  line-height: 42px;
@@ -46,12 +46,12 @@
  cursor: pointer;
  border-radius: 35px;
 }
-.btn-7:hover {
+.intro-btn-style:hover {
  background: transparent;
  color: #000;
 }
-.btn-7:before,
-.btn-7:after {
+.intro-btn-style:before,
+.intro-btn-style:after {
  position: absolute;
  content: "";
  left: 0;
@@ -62,14 +62,14 @@
  background: #000;
  transition: all 0.3s ease;
 }
-.btn-7:before {
+.intro-btn-style:before {
  top: 0;
 }
-.btn-7:after {
+.intro-btn-style:after {
  bottom: 0;
 }
-.btn-7:hover:before,
-.btn-7:hover:after {
+.intro-btn-style:hover:before,
+.intro-btn-style:hover:after {
  height: 0;
  background-color: #000;
 }

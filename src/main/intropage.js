@@ -21,7 +21,7 @@ function Intropage() {
       </motion.h1>
     <div className="intro-btn-con">  
       <motion.button
-        className='custom-btn btn-7'
+        className='intro-btn intro-btn-style'
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}

@@ -1,17 +1,24 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import './mainpage.css';
+
+// 컴포넌트
+import Background from './components/background/background';
+import Intro from './components/intro/intro';
+import Main1 from './components/main1/main1';
+import Main2 from './components/main2/main2';
 
 function MainPage() {
   
   return(
-    <motion.div
-    initial={{ opacity: 0, y: -50 }}
-    animate={{ opacity: 1, y: 0 }}
-    exit={{ opacity: 0, y: -50 }}
-  >
-    <h1>메인페이지 입니다.</h1>
-  </motion.div>
+
+  <div id="main-body">
+    <div id='main-container'>
+      <Background/>
+      <Intro/>
+      <Main1/>
+      <Main2/>
+    </div>
+  </div>
   );
 }
 

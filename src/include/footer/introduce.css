@@ -27,3 +27,25 @@
   width: 180px;
   text-decoration: underline;
 }
+
+/* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/ 
+@media all and (min-width:768px) and (max-width:1023px) {
+  #introduce-box {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #introduce-table {
+    font-family: 'Pretendard-Regular';
+    font-size: 12px;
+  }
+  
+  .tr-box {
+    width: 200px;
+    height: 20px;
+    display: flex;
+  }
+} 

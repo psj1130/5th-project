@@ -11,13 +11,13 @@ function Footer() {
     <div id='footer-body'>
       <div id="footer-container">
         <div className="footer-box">
-
+          <Footerlogo/>
         </div>
         <div className="footer-box">
-
+          <Map/>
         </div>
         <div className="footer-box">
-
+          <Introduce/>
         </div>
       </div>
     </div>
