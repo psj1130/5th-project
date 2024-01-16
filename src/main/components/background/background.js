@@ -47,7 +47,7 @@ function Background() {
               delay: 3.5,
               ease: [0, 0.71, 0.2, 1.01]
             }}
-          className='background-btn back-btn-style'>
+            className='background-btn back-btn-style'>
             <Link to='#'>시작하기</Link>
           </motion.button>
         </div>

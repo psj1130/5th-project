@@ -7,7 +7,7 @@
 @media all and (min-width:768px) and (max-width:1023px) {
   #main-body {
     max-width: 1023px;
-    height: 450px;
+    height: 100%;
   }
 } 
 
@@ -15,6 +15,6 @@
 @media all and (max-width:767px) {
   #main-body {
     max-width: 767px;
-    height: 450px;
+    height: 100%;
   }
 }
