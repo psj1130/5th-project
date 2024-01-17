@@ -1,0 +1,79 @@
+#header-wrapper {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+#header-container {
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 50px;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  top: 0px;
+  position: fixed;
+}
+
+/* 맨 위 메뉴바 */
+#header-topmenu-container {
+  width: 100%;
+  height: 50px;
+  /* background-color: #243C84; */
+  background-color: black;
+  display: flex;
+  justify-content: flex-end;
+}
+#header-topmenu {
+  width: auto;
+  display: flex;
+  height: 100%;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-right: 30px;
+}
+#header-topmenu-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+#header-topmenu-navigation li {
+  margin-left: 17px;
+  padding-left: 18px;
+  border-left: 1px solid #fff;
+}
+#header-topmenu-navigation li:first-child {
+  border: none;
+}
+#header-topmenu-navigation li a {
+  color: #fff;
+  font-size: 13px;
+  font-weight: bold;
+}
+#header-topmenu-navigation li p {
+  color: #fff;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+
+/* searchbar */
+#custom_input_searchbar{
+  width: 700px;
+  height: 55px;
+  font-size: 20px;
+  border-radius: 20px;
+}
+
+
+
+
