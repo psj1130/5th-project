@@ -33,3 +33,6 @@ a {
   flex-direction: column;
 }
 
+.App-Main {
+  margin-top: 60px;
+}
