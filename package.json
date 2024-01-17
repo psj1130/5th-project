@@ -14,6 +14,7 @@
     "react-kakao-maps": "^0.0.13",
     "react-router-dom": "^6.21.1",
     "react-scripts": "5.0.1",
+    "recharts": "^2.10.4",
     "socket.io-client": "^4.7.3",
     "use-upbit-api": "^2.0.9",
     "web-vitals": "^2.1.4"
