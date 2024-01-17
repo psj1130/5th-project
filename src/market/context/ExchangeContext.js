@@ -243,7 +243,7 @@ const userData = {
 };
 
 // fn ASK
-const fnAsk = (coin, askCoin) => {
+const fnAsk = async (coin, askCoin) => {
   if (!coin) {
     return [askCoin];
   } else {
@@ -317,17 +317,10 @@ function userReducer(state, action) {
         alert('보유 현금이 부족합니다.');
         return { ...state };
       } else {
-        const data = {
+        const askData = {
           balance: state.cash - action.data.coin.totalPrice,
-          coin: {
-            totalPrice: action.data.coin.totalPrice,
-            code: action.data.coin.code,
-            fullcode: action.data.coin.fullcode,
-            volume: action.data.coin.volume
-          }
         }
-        axios.patch(`${API_URL}/user/ask/${action.data.id}`, data);
-        console.log(action.data.coin.code);
+        axios.patch(`${API_URL}/user/ask/${action.data.id}`, askData);
         return {
           ...state,
           cash: state.cash - action.data.coin.totalPrice,

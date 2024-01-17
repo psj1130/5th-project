@@ -1,7 +1,7 @@
 @charset "utf-8";
 .Orderbook {
   flex: 1;
-  height: 400px;
+  height: 80vh;
   overflow: auto;
 }
 .Order__Form {

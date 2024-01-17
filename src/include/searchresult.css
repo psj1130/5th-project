@@ -1,0 +1,9 @@
+#search_container_a{
+  width: 800px;
+  height: 50px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  flex-direction: row;
+  /* border: 1px solid #000; */
+}
