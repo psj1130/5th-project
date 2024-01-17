@@ -1,0 +1,13 @@
+Framer-Motion
+
+motion 개념
+motion 컴포넌트를 사용하여 애니메이션을 적용합니다. motion.h1은 h1 태그에 애니메이션을 적용하고, motion.button은 button 태그에 애니메이션을 적용합니다.
+
+motion 속성
+initial: 애니메이션의 초기 상태를 설정합니다. 여기서는 초기에 opacity가 0이며, y 속성을 사용하여 수직 방향으로 20만큼 이동한 상태입니다.
+animate: 애니메이션 중에 적용되는 상태입니다. 여기서는 opacity를 1로, y를 0으로 설정하여 나타날 때의 상태를 정의합니다.
+exit: 애니메이션이 끝난 후에 적용되는 상태입니다. 여기서는 opacity를 0으로, y를 -20으로 설정하여 사라질 때의 상태를 정의합니다.
+
+transition 속성
+transition: 애니메이션의 지속 시간과 이징 함수를 설정합니다. 여기서는 duration를 2.1초로, ease를 
+"easeInOut"으로 설정하여 부드러운 입출력 효과를 부여합니다.

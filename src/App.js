@@ -1,21 +1,38 @@
+import React from 'react';
 import './App.css';
+
 // import { BrowserRouter, Route, Routes, Router } from "react-router-dom"; 
 import { Routes, Route, Router } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom'
 // 컴포넌트 불러오기
 import LiveChart from './market';
 
+import Boarder from './include/board';
+import Header from './include/header';
+
 // 동명
 import Htmlboard from "./noticeboard/htmlboard";
 import Htmlboard_p from "./noticeboard/htmlboard_p";
 import Htmlreview from './noticeboard/htmlreview';
 import Htmlreview_p from './noticeboard/htmlreview_p';
-import Boarder from './include/board';
-import Header from './include/header';
+
 import SearchComponent from './include/searchresult';
 
 import LoginPage from './customer/login';
 import SignUpPage from './customer/signup';
+
+
+
+// 메인페이지
+import Mainpage from './main/mainpage';
+import Intropage from './main/intropage';
+import MyPage from './user/mypage';
+
+import LiveChart from './market';
+
+// 테스트
+import GoogleLogin from './test/googleLogin';
+import GoogleRegister from './user/register/googleRegister';
 
 
 
@@ -35,6 +52,16 @@ function App() {
                 <Route path='/htmlboard_p' element={<Htmlboard_p/>}/>
                 <Route path='/htmlreview' element={<Htmlreview/>}/>
                 <Route path='/htmlreview_p' element={<Htmlreview_p/>}/>
+                  
+                 {/* 이유준 */}
+                <Route path='/' element={<AnimatePresence><Intropage /></AnimatePresence>} />
+                <Route path='/main' element={<AnimatePresence><Mainpage/></AnimatePresence>} />
+
+                {/* 박성종 */}
+                <Route path='/simulator/:id' element={<LiveChart/>}/>
+                <Route path='/mypage/:id' element={<MyPage/>}/>
+                <Route path='/test' element={<GoogleLogin/>}/>
+                <Route path='/success' element={<GoogleRegister/>}/>
               </Routes>
           </div>
           {/* <Footer/> */}
