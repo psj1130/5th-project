@@ -1,19 +1,24 @@
 import React from 'react';
 import './App.css';
-import { AnimatePresence } from "framer-motion";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import LiveChart from './market';
-import ChartComp from './market/chart/chart';
+
 
 import { AnimatePresence } from "framer-motion";
 
 import Header from './include/header';
 import Footer from './include/footer';
 
-//메인페이지
+// 메인페이지
 import Mainpage from './main/mainpage';
 import Intropage from './main/intropage';
+import MyPage from './user/mypage';
+
+import LiveChart from './market';
+
+// 테스트
+import GoogleLogin from './test/googleLogin';
+import GoogleRegister from './user/register/googleRegister';
 
 function App() {
   return (
@@ -21,10 +26,16 @@ function App() {
         <Header />
         <div className='App-Main'>
           <Routes>
+            {/* 이유준 */}
             <Route path='/' element={<AnimatePresence><Intropage /></AnimatePresence>} />
             <Route path='/main' element={<AnimatePresence><Mainpage/></AnimatePresence>} />
+            
+            {/* 박성종 */}
             <Route path='/simulator/:id' element={<LiveChart/>}/>
-            <Route path='/test' element={<ChartComp/>}/>
+            <Route path='/mypage/:id' element={<MyPage/>}/>
+            <Route path='/test' element={<GoogleLogin/>}/>
+            <Route path='/success' element={<GoogleRegister/>}/>
+
           </Routes>
         </div>
         <Footer />
