@@ -7,6 +7,23 @@ li {
   list-style: none;
 }
 
+/* em {
+  font-style: normal;
+}
+a {
+  text-decoration: none;
+}
+header {
+  z-index: 10;
+}
+body {
+  z-index: 5;
+}
+footer{
+  z-index: 6;
+} */
+
+
 a {
   text-decoration: none;
 }
@@ -15,6 +32,7 @@ a {
   display: flex;
   flex-direction: column;
 }
+
 .App-Main {
   margin-top: 60px;
 }
