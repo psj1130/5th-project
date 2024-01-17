@@ -10,7 +10,7 @@ function TopMenu() {
         <span className='logo-style'>쩐의 전쟁</span>
       </div>
       <div className="topmenu-list">
-        <Link to='/'>메뉴</Link>
+        <Link to='/simulator'>메뉴</Link>
       </div>
       <div className="topmenu-list">
         <Link to='/'>메뉴</Link>

@@ -15,3 +15,6 @@ a {
   display: flex;
   flex-direction: column;
 }
+.App-Main {
+  margin-top: 60px;
+}
