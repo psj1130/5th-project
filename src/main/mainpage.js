@@ -6,6 +6,7 @@ import Background from './components/background/background';
 import Intro from './components/intro/intro';
 import Main1 from './components/main1/main1';
 import Main2 from './components/main2/main2';
+import Main3 from './components/main3/main3';
 
 function MainPage() {
   
@@ -17,6 +18,7 @@ function MainPage() {
       <Intro/>
       <Main1/>
       <Main2/>
+      <Main3/>
     </div>
   </div>
   );

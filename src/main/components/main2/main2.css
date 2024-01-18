@@ -46,11 +46,14 @@
   #main2-container {
     width: 1023px;
     height: 100%;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   #main2-box-con {
-    width: 850px;
+    width: 950px;
     height: 400px;
     display: flex;
     flex-direction: row;
@@ -84,5 +87,32 @@
 
 /* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/ 
 @media all and (max-width:767px) {
+  #main2-container {
+    width: 500px;
+    height: 1000px;
+  }
 
+  #main2-box-con {
+    width: 450px;
+    height: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid;
+  }
+
+  .main2-box {
+    width: 100%;
+    height: 425px;
+    border: 1px solid;
+  }
+
+  #chart-container {
+    width: 100%;
+    
+  }
+
+  #stocks-container {
+    
+  }
 }
