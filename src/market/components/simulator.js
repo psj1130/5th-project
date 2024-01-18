@@ -18,13 +18,15 @@ const Simulator = () => {
 
   useEffect(() => {
     const getUser = async () => {
-      const res = await axios.get(`${API_URL}/user/data/${id}`)
+      const res = await axios.get(`${API_URL}/user/data/${id}`);
+      // const coindata = await axios.get(`${API_URL}/user/wallet/data/${id}`);
       console.log(res.data);
       setUser(res.data);
       userDispatch({
         type:'USER_REGISTER',
         data: {
           cash: res.data.balance,
+          coin: null,
           // coin: res.data.coin[0]
         }
       })
