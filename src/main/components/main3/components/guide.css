@@ -1,15 +1,38 @@
-
-
-
-
-
-
-/* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/ 
-@media all and (min-width:768px) and (max-width:1023px) {
+#guide-box {
+  width: 100%;
+  height: 390px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
 }
 
-/* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/ 
-@media all and (max-width:767px) {
+.guide-list {
+  width: 100%;
+  height: 100px;
+  background-color: white;
+  border-radius: 45px;
+  display: flex;
 
+}
+
+.guide-number-box {
+  width: 100px;
+  color: black;
+  border-right: 3px solid #a2a2a2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.giude-detail-box {
+  width: 450px;
+  height: 100%;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 }

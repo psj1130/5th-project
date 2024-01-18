@@ -1,0 +1,28 @@
+#notice-box {
+  width: 100%;
+  height: 100%;
+
+}
+
+#notice-title {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#notice-list-box {
+  width: 100%;
+  height: 350px;
+  border: 1px solid;
+}
+
+#notice-list-box > li {
+  width: 100%;
+  height: 70px;
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
