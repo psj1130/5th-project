@@ -16,8 +16,8 @@ import Htmlreview_p from './noticeboard/htmlreview_p';
 
 import SearchComponent from './include/searchresult';
 
-import LoginPage from './customer/login';
-import SignUpPage from './customer/signup';
+import LoginPage from './player/login';
+import SignUpPage from './player/signup';
 
 
 
