@@ -5,78 +5,6 @@ import axios from "axios";
 
 const clientid = '1087352918812-0sng7c0ne7imi2npab9fev8vj2ivvg16.apps.googleusercontent.com'
 
-function generateRandomCode(n) {
-  let str = ''
-  for (let i = 0; i < n; i++) {
-    str += Math.floor(Math.random() * 10)
-  }
-  return str
-}
-
-const RegisterForm = () => {
-  // const [searchParams, setSearchParams] = useSearchParams();
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [checkpw, setCheckpw] = useState('');
-  const handleRegister = async () => {
-    const data = {
-      name : name,
-      email : email,
-      password : password,
-      method : 'local',
-      wallet_code: generateRandomCode(6)
-    }
-    await axios.post(`${API_URL}/auth/join`, data)
-      .then((res) => {
-        console.log(res.data);
-        // window.location.href('/');
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-  }
-  return (
-    <div className="google-login-container">
-        <p>닉네임</p><input type="text" onChange={(e) => {
-          setName(e.target.value);
-        }}></input>
-        <p>이메일</p><input type="text" onChange={(e) => {
-          setEmail(e.target.value);
-        }} value={email? email: ''}></input>
-        <p>비밀번호</p><input type="password" onChange={(e) => {
-          setPassword(e.target.value);
-        }}></input>
-        {/* <p>비밀번호 확인</p><input type="password" onChange={(e) => {
-          setCheckpw(e.target.value);
-        }}></input> */}
-        <button type="submit" onClick={handleRegister}>회원가입</button>
-    </div>
-  )
-}
-
-const LoginForm = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  return(
-    <div>
-      <input name='email' id="email" type="text" onChange={(e) => {
-        setEmail(e.target.value);
-      }}></input>
-      <input name='password' id="password" type="password" onChange={(e) => {
-        setPassword(e.target.value);
-      }}></input>
-      <button type="click" onClick={async () => {
-        await axios.post(`${API_URL}/auth/locallogin`, {
-          email : email,
-          password : password
-        })
-      }}>로컬 로그인</button>
-    </div>
-  )
-}
-
 const GoogleLogin = () => {
   const [naverLoginButton, setNaverLoginButton] = useState();
   const navigate = useNavigate();
@@ -144,16 +72,14 @@ const GoogleLogin = () => {
           window.location.href = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${clientid}&redirect_uri=http://localhost:3000/success&response_type=code&scope=email+profile`;
         }}>구글 로그인 하기</button>
         <button type="click" onClick={ async () => {
-          await axios.get(`${API_URL}/auth/google`, {
-            headers: "Access-Control-Allow-Origin: *"
+          await axios.get(`${API_URL}/auth/googlelogin`, {
+            headers: {"Access-Control-Allow-Origin" : "http://localhost:3000"}
           })
         }}>구글 로그인 하기</button>
       </div>
       <div>
         {naverLoginButton}
       </div>
-      <RegisterForm/>
-      <LoginForm/>
     </div>
   )
 }

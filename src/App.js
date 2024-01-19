@@ -41,8 +41,8 @@ function App() {
           <div id='App_Main'>
               <Routes>
                 {/* <Route path='/' element={<Main/>}/> */}
-                <Route path='/members/login' element={<LoginPage/>}/>
-                <Route path='/members/signup' element={<SignUpPage/>}/>
+                <Route path='/login' element={<LoginPage/>}/>
+                <Route path='/signup' element={<SignUpPage/>}/>
                 <Route path='/include/boarder' element={<Boarder/>}/>
                 <Route path='/search/:keyword' element={<SearchComponent/>}/>
                 <Route path='/htmlboard' element={<Htmlboard/>}/>

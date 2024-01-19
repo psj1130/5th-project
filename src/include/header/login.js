@@ -11,7 +11,7 @@ function Login() {
         <img className="login-img-style" src="/main/login_icon.png" alt="icon" />
           <Link
           className='login-main-text-style'
-          to='#'>
+          to='/login'>
             로그인
           </Link>
         </div>
