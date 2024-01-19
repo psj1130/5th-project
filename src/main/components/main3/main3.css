@@ -89,7 +89,7 @@
   }
 
   #main3-box-con {
-    width: 500px;
+    width: 450px;
     height: 1000px;
     display: flex;
     flex-direction: column;
@@ -98,7 +98,7 @@
   }
 
   .main3-box {
-    width: 450px;
+    width: 400px;
     height: 100%;
   }
 }

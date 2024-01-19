@@ -18,10 +18,10 @@ function MainPage() {
     <div id='main-container'>
       <Background/>
       <Intro/>
-      <Main1/>
+      {/* <Main1/> */}
       <Main2/>
-      <Main3/>
-      <Main4/>
+      {/* <Main3/> */}
+      {/* <Main4/> */}
     </div>
   </div>
   );

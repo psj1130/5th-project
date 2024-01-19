@@ -8,7 +8,10 @@ export default function Luck() {
         <img src="/main/test.png" alt="png" />
       </div>
       <div id="luck-detail-box">
-        <h1>테스트 글</h1>
+        <p><span className='luck-logo-style'>쩐의 전쟁</span> 운세는 재미로 보는 운세입니다 !<br/>
+        <span className='luck-logo-style'>쩐의 전쟁</span> 운세로 모의투자를 즐겨주세요 !<br/>
+        <span className='luck-logo-style'>쩐의 전쟁</span> 운세를 확인해주세요 !
+        </p>
       </div>
     </div>
   );

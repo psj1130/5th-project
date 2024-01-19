@@ -11,17 +11,11 @@ export default function Main4() {
     <div id='main4-container'>
       <div id="main4-box-con">
         <div className="main4-box">
-         <div id="main4-title-box">
-          <Link to='/' className='component-link'>더 보기</Link>
-         </div>
             <div id="notice-container">
               <Notice/>
             </div>
         </div>
         <div className="main4-box">
-          <div id="main4-title-box">
-            <Link to='/' className='component-link'>더 보기</Link>
-          </div>
             <div id="service-container">
               <Service/>
             </div>
