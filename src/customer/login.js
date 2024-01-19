@@ -40,7 +40,7 @@ const LoginForm = (props) => {
           pw_css.current.style.setProperty('border', '1px solid red')
           setContext('아이디 또는 비밀번호를 입력해주세요 !');
         }
-        await axios.post(`${API_URL}/login`, { id: id, password: password})
+        await axios.post(`${API_URL}/auth/login`, { email: id, password: password})
         .then((res) => {
           if(res.data == '1') {
             console.log('로그인 성공');

@@ -2,9 +2,12 @@ import React, { useCallback, useEffect, useState } from 'react';
 import Cleave from 'cleave.js/react';
 import { useUserState, useUserDispatch } from '../context/ExchangeContext';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
+import { API_URL } from '../../config/config';
 
 const TradeForm = ({ type, orderbookData, code }) => {
   const { id } = useParams();
+  const [wallet, setWallet] = useState();
   const typeToStr = useCallback(() => {
     if (type === 'ASK') {
       return '매수';
@@ -41,7 +44,7 @@ const TradeForm = ({ type, orderbookData, code }) => {
 
   const { cash } = userState;
   // console.log(userState);
-  const trade = useCallback(() => {
+  const trade = useCallback( async () => {
     if (type === 'ASK') {
       const confirm = window.confirm('매수하시겠습니까?');
       if(confirm) {

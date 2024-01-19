@@ -1,6 +1,6 @@
 import React, { createContext, useReducer, useContext } from 'react';
-import axios from 'axios';
 import { API_URL } from '../../config/config';
+import axios from 'axios';
 
 /// 실시간 정보
 // StockExchange 에서 사용 할 기본상태
@@ -16,6 +16,7 @@ const initialState = {
     error: null,
   },
 };
+
 // 로딩중 상태
 const loadingState = {
   isLoad: true,
@@ -163,7 +164,6 @@ export async function getMarket(dispatch) {
       // 실시간 데이터 수신
       const { data } = e;
       const text = await new Response(data).text();
-      // console.log(text);
       // console.log(JSON.parse(text));
       dispatch({
         type: 'GET_REALTIME_DATA_SUCCESS',
@@ -240,11 +240,13 @@ const userData = {
   id: null,
   cash: null,
   coin: null,
+  wallet_code: null
 };
 
 // fn ASK
-const fnAsk = async (coin, askCoin) => {
+const fnAsk = (coin, askCoin, code) => {
   if (!coin) {
+    console.log(askCoin);
     return [askCoin];
   } else {
     const exist = coin.filter(list => list.code === askCoin.code);
@@ -259,6 +261,7 @@ const fnAsk = async (coin, askCoin) => {
         }
       });
     } else {
+      axios.post(`${API_URL}/user/wallet/ask/${code}`, askCoin);
       return coin.concat(askCoin);
     }
   }
@@ -279,7 +282,7 @@ const fnBid = (state, bidCoin) => {
       };
     } else {
       return {
-        cash: (state.cash + bidCoin.totalPrice),
+        cash: (state.cash += bidCoin.totalPrice),
         coin: state.coin.reduce((acc, cur) => {
           if (cur.code === bidCoin.code) {
             if (cur.volume !== bidCoin.volume) {
@@ -308,9 +311,11 @@ function userReducer(state, action) {
   switch (action.type) {
     case 'USER_REGISTER':
       return {
-        ...state,
+        // ...state,
+        id: action.data.id,
         cash: action.data.cash,
-        // coin: action.data.coin
+        coin: action.data.coin,
+        wallet_code: action.data.wallet_code
       };
     case 'TRADE_ASK':
       if (state.cash < action.data.coin.totalPrice) {
@@ -321,10 +326,12 @@ function userReducer(state, action) {
           balance: state.cash - action.data.coin.totalPrice,
         }
         axios.patch(`${API_URL}/user/ask/${action.data.id}`, askData);
+        console.log(state.coin);
+        console.log(state.wallet_code);
         return {
           ...state,
           cash: state.cash - action.data.coin.totalPrice,
-          coin: fnAsk(state.coin, action.data.coin),
+          coin: fnAsk(state.coin, action.data.coin, state.wallet_code),
         };
       }
     case 'TRADE_BID':

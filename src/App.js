@@ -1,12 +1,8 @@
 import React from 'react';
 import './App.css';
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Router, Routes, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
-
-// import { BrowserRouter, Route, Routes, Router } from "react-router-dom"; 
-// 컴포넌트 불러오기
-// import LiveChart from './market';
 
 import Boarder from './include/board';
 import Header from './include/header';
@@ -45,8 +41,8 @@ function App() {
           <div id='App_Main'>
               <Routes>
                 {/* <Route path='/' element={<Main/>}/> */}
-                <Route path='/members/login' element={<LoginPage/>}/>
-                <Route path='/members/signup' element={<SignUpPage/>}/>
+                <Route path='/login' element={<LoginPage/>}/>
+                <Route path='/signup' element={<SignUpPage/>}/>
                 <Route path='/include/boarder' element={<Boarder/>}/>
                 <Route path='/search/:keyword' element={<SearchComponent/>}/>
                 <Route path='/htmlboard' element={<Htmlboard/>}/>

@@ -5,16 +5,13 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 
 export default function GoogleRegister() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [checkpw, setCheckpw] = useState('');
+
   const code = searchParams.get('code');
   const navigate = useNavigate();
   // console.log(code);
   useEffect(() => {
     axios
-      .get(`${API_URL}/auth/google/callback`, {
+      .get(`${API_URL}/auth/google`,{
         headers: { accept: `application/json` }
       })
       .then((result) => {
