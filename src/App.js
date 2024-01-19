@@ -1,15 +1,12 @@
 import React from 'react';
 import './App.css';
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Router, Routes, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
-
-// import { BrowserRouter, Route, Routes, Router } from "react-router-dom"; 
-// 컴포넌트 불러오기
-// import LiveChart from './market';
 
 import Boarder from './include/board';
 import Header from './include/header';
+import Footer from './include/footer';
 
 // 동명
 import Htmlboard from "./noticeboard/htmlboard";
@@ -64,7 +61,7 @@ function App() {
                 <Route path='/success' element={<GoogleRegister/>}/>
               </Routes>
           </div>
-          {/* <Footer/> */}
+          <Footer/>
         </div>
   );
 }

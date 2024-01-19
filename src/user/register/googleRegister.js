@@ -14,7 +14,9 @@ export default function GoogleRegister() {
   // console.log(code);
   useEffect(() => {
     axios
-      .get(`${API_URL}/auth/google/callback`, {
+      .post(`${API_URL}/auth/google/data`, {
+        code: code
+      },{
         headers: { accept: `application/json` }
       })
       .then((result) => {

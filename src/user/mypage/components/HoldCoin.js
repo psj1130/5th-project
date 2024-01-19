@@ -1,9 +1,8 @@
 import React, { useCallback } from 'react';
 import '../css/Coin.css';
-import { useSummaryDispatch } from '../context/ExchangeContext';
+import { useSummaryDispatch } from '../../../market/context/ExchangeContext';
 
 const HoldCoin = ({ data, name, realtimePrice }) => {
-  // console.log(data);
   const { fullcode, totalPrice, volume } = data;
   const average = parseFloat((totalPrice / data.volume).toFixed(2));
   const earnReturn = ((realtimePrice - average) / realtimePrice) * 100;
