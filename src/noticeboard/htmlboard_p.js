@@ -42,11 +42,16 @@ function Html_p() {
     }
   };
 
+  const handleClose = () => {
+    // 추가로 작성하고 싶은 닫기 버튼의 클릭 핸들러
+    navigate('/htmlboard');
+  };
+
   return (
-    <div className="sell">
-      <div>
+    <div className="htmlboard_p_body">
+      <div id='htmlboard_p_body_a'>
         <div id='htmlboard_p_container'>
-          <h2>HTML 작성</h2>
+          <h2>글 작성</h2>
           <div id='htmlboard_p_top'>
             <TextField
               label="제목"
@@ -65,14 +70,13 @@ function Html_p() {
               onChange={(e) => setNewData({ ...newData, author: e.target.value })}
             />
             <label htmlFor="file-style">
-                사진 올리기
               <div id='imgupload'>
                 <input
                   id='file-style' 
                   className='htmlemodal-img'
                   type="file"
                   name="img_url"
-                  />
+                />
               </div>
             </label>
           </div>
@@ -91,9 +95,14 @@ function Html_p() {
             />
           </div>
         </div>
-        <Button variant="contained" onClick={handleAdd}>
-          추가
-        </Button>
+        <div id="plusBtns">
+          <button id='submit_btn' variant="contained" onClick={handleAdd}>
+            완료
+          </button>
+          <button id='submit_btn' variant="contained" onClick={handleClose}>
+            닫기
+          </button>
+        </div>
       </div>  
     </div>
   );

@@ -20,10 +20,10 @@ import {
 } from '@mui/material';
 import { Delete, Edit } from '@mui/icons-material';
 
-const initialData = [
-  { id: 1, title: '첫22 번째 게시물', content: '안녕하세요, 첫 번째 게시물입니다.' },
-  { id: 2, title: '두22 번째 게시물', content: '두 번째 게시물입니다.' },
-];
+// const initialData = [
+//   { id: 1, title: '첫 번째 게시물', content: '안녕하세요, 첫 번째 게시물입니다.' },
+//   { id: 2, title: '두 번째 게시물', content: '두 번째 게시물입니다.' },
+// ];
 
 const Cssboard = () => {
   const [posts, setPosts] = useState(initialData);

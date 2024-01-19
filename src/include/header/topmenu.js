@@ -22,7 +22,7 @@ function TopMenu() {
         <Link to='/'>메뉴</Link>
       </div>
       <div className="topmenu-list">
-        <Link to='/'>메뉴</Link>
+        <Link to='/htmlboard'>커뮤니티</Link>
       </div>
     </div>
   );
