@@ -5,6 +5,13 @@ import axios from "axios";
 
 const clientid = '1087352918812-0sng7c0ne7imi2npab9fev8vj2ivvg16.apps.googleusercontent.com'
 
+function generateRandomCode(n) {
+  let str = ''
+  for (let i = 0; i < n; i++) {
+    str += Math.floor(Math.random() * 10)
+  }
+  return str
+}
 
 const RegisterForm = () => {
   // const [searchParams, setSearchParams] = useSearchParams();
@@ -17,7 +24,8 @@ const RegisterForm = () => {
       name : name,
       email : email,
       password : password,
-      method : 'local'
+      method : 'local',
+      wallet_code: generateRandomCode(6)
     }
     await axios.post(`${API_URL}/auth/join`, data)
       .then((res) => {
