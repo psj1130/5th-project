@@ -5,10 +5,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
 // import { BrowserRouter, Route, Routes, Router } from "react-router-dom"; 
-import { Routes, Route, Router } from 'react-router-dom';
-import { BrowserRouter } from 'react-router-dom'
 // 컴포넌트 불러오기
-import LiveChart from './market';
+// import LiveChart from './market';
 
 import Boarder from './include/board';
 import Header from './include/header';
@@ -21,8 +19,8 @@ import Htmlreview_p from './noticeboard/htmlreview_p';
 
 import SearchComponent from './include/searchresult';
 
-import LoginPage from './customer/login';
-import SignUpPage from './customer/signup';
+import LoginPage from './player/login';
+import SignUpPage from './player/signup';
 
 
 
@@ -41,7 +39,6 @@ import GoogleRegister from './user/register/googleRegister';
 
 function App() {
   return (
-      <BrowserRouter>
         <div className="App">
           <Header/>
           <div id='App_Main'>
@@ -69,7 +66,6 @@ function App() {
           </div>
           {/* <Footer/> */}
         </div>
-      </BrowserRouter>
   );
 }
 

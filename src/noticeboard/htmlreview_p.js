@@ -5,7 +5,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import './htmlboard.css';
 import { useNavigate } from 'react-router';
-import {useSearchParams} from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 import { getCookie } from "../customer/cookies";
 const cookie = getCookie("loginCookie");
@@ -14,13 +14,13 @@ function Htmlreview_p() {
   const [searchParams, setSearchParams] = useSearchParams();
   const rid = searchParams.get('id');
   const [newData, setNewData] = useState({
-    reviewid:rid,
+    reviewid: rid,
     title: '',
     content: '',
     author: cookie,
     created_at: ''
   });
-  
+
   const navigate = useNavigate();
 
   const handleAdd = async () => {
@@ -31,6 +31,11 @@ function Htmlreview_p() {
     } catch (err) {
       console.log(err);
     }
+  };
+
+  const handleClose = () => {
+    // 추가로 작성하고 싶은 닫기 버튼의 클릭 핸들러
+    navigate('/htmlboard');
   };
 
   return (
@@ -63,16 +68,21 @@ function Htmlreview_p() {
             size="small"
             multiline
             maxRows={40}
-            minRows={10}
+            minRows={11}
             // style={{ width: '1200px', height: '400px',marginBottom: '20px' }}
             value={newData.content}
             onChange={(e) => setNewData({ ...newData, content: e.target.value })}
           />
         </div>
       </div>
-      <Button variant="contained" onClick={handleAdd}>
-        추가
-      </Button>
+      <div id="plusBtns">
+        <button id='submit_btn' variant="contained" onClick={handleAdd}>
+          완료
+        </button>
+        <button id='submit_btn' variant="contained" onClick={handleClose}>
+          닫기
+        </button>
+      </div>
     </div>
   );
 }
