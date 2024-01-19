@@ -1,12 +1,13 @@
 import React from 'react';
 import './chart.css';
+import Recharts from './recharts';
 
 export default function Chart() {
 
   return(
     <div id="chart-box">
       <div id="chart-top-box">
-        
+        <Recharts/>
       </div>
       <div id="chart-bottom-box">
       <p>

@@ -28,6 +28,10 @@
   margin-right: 10px;
 }
 
+.login-style > a {
+  color: white;
+}
+
 #login-mobile-container {
   display: none;
 }

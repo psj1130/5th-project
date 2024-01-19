@@ -20,7 +20,6 @@ function Htmlreview_p() {
     author: cookie,
     created_at: ''
   });
-
   const navigate = useNavigate();
 
   const handleAdd = async () => {
@@ -37,7 +36,6 @@ function Htmlreview_p() {
     // 추가로 작성하고 싶은 닫기 버튼의 클릭 핸들러
     navigate('/htmlboard');
   };
-
   return (
     <div className="htmlreview_main">
       <div id='htmlreview_p_container'>

@@ -1,0 +1,104 @@
+#main3-container {
+  width: 100%;
+  height: 600px;
+  background-color: black;
+  color: white;
+  font-family: 'GmarketSansMedium';
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#main3-box-con {
+  width: 1200px;
+  height: 450px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.main3-box {
+  width: 550px;
+  height: 100%;
+}
+
+#main3-title-box {
+  width: 100%;
+  height: 40px;
+}
+
+#main3-title-guide-box {
+  width: 100%;
+  height: 40px;
+  padding-bottom: 20px;
+  font-size: 32px;
+  font-family: 'KNUTRUTHTTF';
+}
+
+#guide-container {
+  width: 100%;
+  height: 410px;
+}
+
+#luck-container {
+  width: 100%;
+  height: 410px;
+}
+
+
+
+/* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/ 
+@media all and (min-width:768px) and (max-width:1023px) {
+  #main3-container {
+    max-width: 1022px;
+    height: 600px;
+    background-color: black;
+    color: white;
+    font-family: 'GmarketSansMedium';
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #main3-box-con {
+    width: 950px;
+    height: 450px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .main3-box {
+    width: 450px;
+    height: 100%;
+  }
+}
+
+/* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/ 
+@media all and (max-width:767px) {
+  #main3-container {
+    max-width: 766px;
+    height: 1100px;
+    background-color: black;
+    color: white;
+    font-family: 'GmarketSansMedium';
+    display: flex;
+    flex-direction: column;
+  }
+
+  #main3-box-con {
+    width: 450px;
+    height: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .main3-box {
+    width: 400px;
+    height: 100%;
+  }
+}

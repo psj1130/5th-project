@@ -1,8 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
 /* ModalStyles.css */
 .MuiDialog-paper {
   width: 90vw; /* 120% of the viewport width */
@@ -89,10 +84,6 @@ button {
   justify-content: center;
 }
 
-
-
-
-
 /* htmlboard_p 글작성 */
 #htmlboard_p_container{
   width: 100%;
@@ -133,6 +124,7 @@ button {
   justify-content: center;
   /* border: 3px solid #000; */
 }
+
 #img_container {
   width: 100%;
   display: flex;

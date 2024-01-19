@@ -1,12 +1,13 @@
-/* #search_container_a{
+#search_container_a{
   width: 800px;
   height: 50px;
   display: flex;
   align-items: flex-start;
   justify-content: space-evenly;
   flex-direction: row;
-} */
-/* #searchresult_main{
+  /* border: 1px solid #000; */
+}
+#searchresult_main{
   width: 100%;
   margin-top: 300px;
-} */
+}

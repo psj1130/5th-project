@@ -15,7 +15,6 @@ import useAsync from '../customHook/useAsync';
 import './noticeboard.css';
 import './htmlboard.css';
 
-
 const scrollStyle = {
   overflowY: 'scroll',
 };
@@ -92,7 +91,6 @@ function Htmlreview(props) {
       console.error('Error updating views:', error);
     }
   };
-  
   // const handleRowClick = (row) => {
   //   setSelectedRow(row); // 선택한 행의 데이터를 상태에 저장
   //   setShowModal(true); // 모달 창 열기
@@ -121,8 +119,6 @@ function Htmlreview(props) {
       console.log(err);
     }
   };
-  
-
   if (loading) return <div>로딩중입니다.....</div>;
   if (error) return <div>에러가 발생했습니다.</div>;
   if (!rdata) return null;
@@ -163,7 +159,6 @@ function Htmlreview(props) {
         onRowClick={(row) => handleRowClick(row.row)}
         checkboxSelection={false} // 기본 체크박스 기능 비활성화
       />
-
       {/* 모달 */}
       <ModalWrapper open={showModal} maxWidth="xl" maxHeight='90vh' onClose={() => setShowModal(false)}>
         <Container>

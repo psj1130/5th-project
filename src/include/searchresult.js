@@ -25,7 +25,6 @@ function SearchComponent() {
     fetchData();
   }, [keyword]);
 
-
   const columns = [
     { field: 'id', headerName: '게시물번호', width: 100, headerAlign: 'center', align: 'center' },
     { field: 'title', headerName: '제목', width: 110, headerAlign: 'center', align: 'center' },

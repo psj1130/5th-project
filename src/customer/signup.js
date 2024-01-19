@@ -21,8 +21,6 @@ const SignUpForm = () => {
   const pw_css = useRef(document.getElementById('pw'));
   const pw2_css = useRef(document.getElementById('pw2'));
   const navigate = useNavigate();
-  
-
   return (
     <div className="signup-form-container">
       <p><span>닉네임</span></p>
@@ -46,6 +44,27 @@ const SignUpForm = () => {
             setPassword2(e.target.value);
           }}></input>
         </div>
+      </div>
+      <p><span>이메일</span></p>
+      <input id="email" type="text" placeholder="이메일을 입력해주세요." onChange={(e) => {
+        setEmail(e.target.value);
+      }}></input>
+      <p><span>핸드폰 번호</span></p>
+      <div className="phone-number">
+        <select>
+          <option key="skt" value='SKT'>SKT</option>
+          <option key="lg" value='LG U+'>LG U+</option>
+          <option key="kt" value='KT'>KT</option>
+        </select>
+        <p>010</p>
+        <p>-</p>
+        <input id="second" type="text" placeholder=""  maxLength={4} onChange={(e) => {
+          setSecond(e.target.value);
+        }}></input>
+        <p>-</p>
+        <input id="third" type="text" placeholder=""  maxLength={4} onChange={(e) => {
+          setThird(e.target.value);
+        }}></input>
       </div>
       <div id="warning">
         {context}

@@ -56,6 +56,7 @@ function Html() {
       editable: false,
       headerAlign: 'center',
       renderCell: (params) => {
+
         let imgUrl = params.row.img_url;
         return (
           <>
@@ -131,7 +132,6 @@ function Html() {
     setEditMode(true); // 수정 모드를 true로 설정
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const updateImg = document.getElementById('file-style').files[0];
@@ -139,7 +139,6 @@ function Html() {
       if (updateImg) {
         const formData = new FormData();
         formData.append('img_url', updateImg);
-
         const imgUploadRes = await axios.post(`${API_URL}/html/images`, formData);
         const data = {
           title: editedTitle,
@@ -175,7 +174,6 @@ function Html() {
         <Boarder />
         <SearchComponent />
       </div>
-
       <Toolbar>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           커뮤니티 게시판
@@ -212,7 +210,6 @@ function Html() {
         onRowClick={(row) => handleRowClick(row.row)}
         checkboxSelection={false} // 기본 체크박스 기능 비활성화
       />
-
       {/* 모달 */}
       <ModalWrapper id='modal_container' open={showModal} maxWidth="xl" maxHeight='100vh' onClose={() => setShowModal(false)}>
         <Container>
@@ -233,7 +230,6 @@ function Html() {
                       onChange={(e) => setEditedTitle(e.target.value)}
                     />
                     <label id='img_container' htmlFor="file-style">
-
                       {/* <img
                         src={updateImg ? URL.createObjectURL(updateImg) : selectedRow.img_url}
                         alt="게시물 이미지"
@@ -274,9 +270,7 @@ function Html() {
                         className='textarea-autosize'
                       />
                     </Box>
-
                   </div>
-
                   {/* 작성자와 작성 날짜 */}
                   <div id='detail_container'>
                     <Box sx={{ textAlign: 'right', marginTop: '10px' }}>
@@ -287,7 +281,6 @@ function Html() {
                     </Box>
                   </div>
                 </form>
-
                 {/* 모달 수정, 닫기, 삭제 버튼 */}
                 <div id='modal_btn'>
                   {selectedRow && (editMode || !editMode) ? (

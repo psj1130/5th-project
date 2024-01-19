@@ -7,15 +7,15 @@ function Login() {
   let context = null;
 
   if(cookie) {
-    context = <><p onClick={() => {
+    context = <><li className='login-style'><p onClick={() => {
       delCookie('loginCookie');
       document.location.reload(true);
-    }}>로그아웃</p>
+    }}>로그아웃</p></li>
     </>
   } else if(!cookie) {
-    context = <li><a href='/members/login' onClick={() => {
+    context = <li className='login-style'><Link to='/members/login' onClick={() => {
       window.sessionStorage.setItem('BeforePage', window.location.pathname);
-    }}>로그인</a></li>
+    }}>로그인</Link></li>
   }
 
   return(

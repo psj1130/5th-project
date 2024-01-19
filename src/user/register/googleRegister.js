@@ -5,6 +5,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 
 export default function GoogleRegister() {
   const [searchParams, setSearchParams] = useSearchParams();
+
   const code = searchParams.get('code');
   const navigate = useNavigate();
   // console.log(code);
