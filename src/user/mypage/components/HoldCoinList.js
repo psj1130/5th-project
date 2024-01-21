@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../css/HoldCoinList.css';
 import { useExchangeState, useUserState } from '../../../market/context/ExchangeContext';
 import HoldCoin from './HoldCoin';
 
 const HoldCoinList = () => {
   const marketState = useExchangeState();
+  // console.log(marketState);
   const { data: markets } = marketState.market;
-  // console.log(marketState.market);
+  // console.log(markets);
 
   const userState = useUserState();
-  // console.log(userState);
+  
+  console.log(userState);
 
   return (
     <div className="Hold__Coin__List">
@@ -36,8 +38,7 @@ const HoldCoinList = () => {
               data={list}
               key={list.fullcode}
               name={
-                markets.filter(market => market.market === list.fullcode)[0]
-                  .korean_name
+                markets.filter(market => market.market === list.fullcode)[0].korean_name
               }
               realtimePrice={
                 marketState.realtimeData.data.filter(
@@ -52,4 +53,4 @@ const HoldCoinList = () => {
   );
 };
 
-export default HoldCoinList;
+export default React.memo(HoldCoinList);

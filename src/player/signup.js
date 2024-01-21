@@ -4,14 +4,21 @@ import React, { useRef, useState } from "react";
 import { API_URL } from "../config/config";
 import { useNavigate } from "react-router";
 
+function generateRandomCode(n) {
+  let str = ''
+  for (let i = 0; i < n; i++) {
+    str += Math.floor(Math.random() * 10)
+  }
+  return str
+}
+
 const SignUpForm = () => {
   const [name, setName] = useState('');
-  const [id, setId] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [Context, setContext] = useState('');
   const [password2, setPassword2] = useState('');
-  const pw_css = useRef(document.getElementById('pw'));
+  const pw_css = useRef(document.getElementById('password'));
   const pw2_css = useRef(document.getElementById('pw2'));
   const navigate = useNavigate();
 
@@ -24,17 +31,17 @@ const SignUpForm = () => {
   return (
     <div className="signup-form-container">
       <p><span>닉네임</span></p>
-      <input id="id" type="text" placeholder="회원님의 이름을 입력해주세요." onChange={(e) => {
+      <input id="name" type="text" placeholder="회원님의 이름을 입력해주세요." onChange={(e) => {
         setName(e.target.value);
       }}></input>
-      <p><span>아이디</span></p>
-      <input id="id" type="text" placeholder="아이디를 입력해주세요." onChange={(e) => {
-        setId(e.target.value);
+      <p><span>이메일</span></p>
+      <input id="email" type="text" name='email' placeholder="이메일을 입력해주세요." onChange={(e) => {
+        setEmail(e.target.value);
       }}></input>
       <div className="password-container">
         <div>
           <p><span>비밀번호</span></p>
-          <input ref={pw_css} id="pw" type="password" placeholder="비밀번호를 입력해주세요." onChange={(e) => {
+          <input ref={pw_css} id="password" type="password" name="password" placeholder="비밀번호를 입력해주세요." onChange={(e) => {
             setPassword(e.target.value);
           }}></input>
         </div>
@@ -46,11 +53,6 @@ const SignUpForm = () => {
         </div>
         
       </div>
-     
-      <p><span>이메일</span></p>
-      <input id="email" type="email" placeholder="이메일을 입력해주세요." onChange={(e) => {
-        setEmail(e.target.value);
-      }}></input>
        <div id="warning">
           {Context}
         </div>
@@ -69,17 +71,18 @@ const SignUpForm = () => {
           setContext('')
         }else {
           const data = {
-            id: id,
             name: name,
             email: email,
             password: password,
+            method: 'local',
+            wallet_code: generateRandomCode(6)
           };
-
+          console.log(data);
           try {
-            const res = await axios.post(`${API_URL}/signup`, data);
+            const res = await axios.post(`${API_URL}/auth/join`, data);
             if (res.data === 'success') {
               alert('회원가입을 축하드립니다 !');
-              navigate('/members/login');
+              navigate('/login');
             } else if (res.data === 'fail') {
               alert('다시 확인해주세요 !');
             }
