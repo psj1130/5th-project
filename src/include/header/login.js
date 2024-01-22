@@ -39,12 +39,12 @@ function Login() {
           </label>
             <div id="side-menu">
               <ul id='side-menu-container'>
-                <li><Link to='#'>메뉴1</Link></li>
-                <li><Link to='#'>메뉴2</Link></li>
-                <li><Link to='#'>메뉴3</Link></li>
-                <li><Link to='#'>메뉴4</Link></li>
-                <li><Link to='#'>메뉴5</Link></li>
-                <li><Link to='#'>메뉴6</Link></li>
+                <li><Link to='#'>홈</Link></li>
+                <li><Link to='#'>차트</Link></li>
+                <li><Link to='#'>종목 상세</Link></li>
+                <li><Link to='#'>운세</Link></li>
+                <li><Link to='#'>커뮤니티</Link></li>
+                <li><Link to='#'>고객센터</Link></li>
                 <li><Link to='/members/login'>로그인</Link></li>
               </ul>
             </div>
