@@ -1,0 +1,10 @@
+.MyPage__Wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.MyPage__Container {
+  width: 1300px;
+}

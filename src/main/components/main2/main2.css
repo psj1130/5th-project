@@ -1,0 +1,107 @@
+#main2-container {
+  width: 100%;
+  height: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#main2-box-con {
+  width: 1100px;
+  height: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  align-items: center;
+}
+
+.main2-box {
+  width: 500px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#main2-title-box {
+  width: 100%;
+  height: 40px;
+}
+
+#chart-container {
+  width: 100%;
+  height: 360px;
+}
+
+#stocks-container {
+  width: 100%;
+}
+
+
+
+
+/* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/ 
+@media all and (min-width:768px) and (max-width:1023px) {
+  #main2-container {
+    width: 1023px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #main2-box-con {
+    width: 950px;
+    height: 400px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .main2-box {
+    width: 450px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #main2-title-box {
+    width: 100%;
+    height: 40px;
+  }
+
+  #chart-container {
+    width: 100%;
+    height: 360px;
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid; */
+  }
+  
+  #stocks-container {
+    width: 100%;
+    height: 360px;
+  }
+} 
+
+/* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/ 
+@media all and (max-width:767px) {
+  #main2-container {
+    max-width: 766px;
+    height: 1000px;
+  }
+
+  #main2-box-con {
+    width: 400px;
+    height: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .main2-box {
+    width: 100%;
+    height: 425px;
+  }
+
+}

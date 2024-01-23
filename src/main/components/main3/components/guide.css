@@ -1,0 +1,45 @@
+#guide-box {
+  width: 100%;
+  height: 390px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+
+.guide-list {
+  width: 100%;
+  height: 100px;
+  background-color: white;
+  border-radius: 45px;
+  display: flex;
+  box-shadow: -10px 15px 14px rgb(97, 97, 97);
+}
+
+.guide-number-box {
+  width: 100px;
+  color: black;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.guide-number-box > p {
+  font-size: 42px;
+}
+
+.giude-detail-box {
+  width: 450px;
+  height: 100%;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.giude-detail-box > P {
+  font-size: 20px;
+}

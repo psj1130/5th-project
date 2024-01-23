@@ -1,0 +1,55 @@
+/* 로고 */ /* 코스피 코스닥 */
+@font-face {
+  font-family: 'SBAggroB';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 메뉴 */
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 메인배경 타이틀 */
+@font-face {
+  font-family: 'KNUTRUTHTTF';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2312-1@1.1/KNUTRUTHTTF.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 배경버튼 */
+@font-face {
+  font-family: 'TheJamsil5Bold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* 인트로버튼 */
+@font-face {
+  font-family: 'PuradakGentleGothicR';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.1/PuradakGentleGothicR.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 모바일 반응형 사이드 메뉴 */
+@font-face {
+  font-family: 'ONE-Mobile-Title';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-Title.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 소개내용 */
+@font-face {
+  font-family: 'GmarketSansMedium';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
