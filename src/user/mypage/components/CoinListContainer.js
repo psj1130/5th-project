@@ -5,11 +5,22 @@ import '../css/CoinListContainer.css';
 
 const CoinListContainer = () => {
   const [type, setType] = useState('None');
+
+  useEffect(() => {
+    setTimeout(() => {
+      clickHandle()
+    }, 1000)
+  })
+
+  const clickHandle = () => {
+    setType('HOLD_COIN');
+  }
+  
   return (
     <div className="Coin__List__Container__mypage">
       <div className="Listing__Method">
         <div className="Method">
-          <p className='on' onClick={() => setType('HOLD_COIN')}>
+          <p className='on'>
             내가 보유중인 코인
           </p>
         </div>

@@ -1,32 +1,53 @@
-import React, { useEffect } from 'react';
-import ReactApexChart from 'react-apexcharts';
+import React, { useEffect, useState } from 'react';
+import Chart from 'react-apexcharts';
 
-const CandleChart = ({ data }) => {
-  const series = [{
-    data: data.map(item => ({
-      x: new Date(item.timestamp),
-      y: [item.opening_price, item.high_price, item.low_price, item.prev_closing_price],
-    })),
-  }];
-
-  const options = {
+const ChartComp = ({ data }) => {
+  const [options, setOptions] = useState({
     chart: {
       type: 'candlestick',
-      // height: 400,
     },
     xaxis: {
       type: 'datetime',
     },
-  };
+  });
+
+  const [series, setSeries] = useState([
+    {
+      data: [], // 초기에는 빈 배열로 시작
+    },
+  ]);
 
   useEffect(() => {
-    // 여기에서 소켓 이벤트 등의 추가 작업을 수행할 수 있습니다.
-    // 예를 들어, 실시간으로 차트를 업데이트하거나 추가 데이터를 수신할 때 실행되는 로직을 추가할 수 있습니다.
-  }, [data]);
+    // data가 변경될 때마다 series 업데이트
+    if (data) {
+      setSeries([
+        {
+          data: [
+            // 기존 데이터 유지
+            ...series[0].data,
+
+            // 새로운 데이터 추가
+            {
+              x: new Date(data.trade_timestamp),
+              y: [
+                data.opening_price,
+                data.high_price,
+                data.low_price,
+                data.trade_price,
+              ],
+            },
+          ],
+        },
+      ]);
+    }
+  }, [data, series]);
 
   return (
-    <ReactApexChart options={options} series={series} type="candlestick" height={400} />
+    <div>
+      <h2>Real-time Candlestick Chart</h2>
+      <Chart options={options} series={series} type="candlestick" height={350} />
+    </div>
   );
 };
 
-export default CandleChart;
+export default ChartComp;

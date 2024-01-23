@@ -10,8 +10,6 @@ const HoldCoinList = () => {
   // console.log(markets);
 
   const userState = useUserState();
-  
-  console.log(userState);
 
   return (
     <div className="Hold__Coin__List">

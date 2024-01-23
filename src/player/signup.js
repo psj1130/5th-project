@@ -67,9 +67,7 @@ const SignUpForm = () => {
           setContext('비밀번호는 숫자와 영문자를 모두 포함해야 합니다.');
         } else if (!validateEmail(email)) {
           setContext('올바른 이메일 형식이 아닙니다.');
-        } else if (validateEmail(email)){
-          setContext('')
-        }else {
+        } else if(name && password && password2 && email){
           const data = {
             name: name,
             email: email,

@@ -20,7 +20,7 @@ const CoinPage = () => {
       let coinData = null
       const res = await axios.get(`${API_URL}/user/data/${id}`)
       const coin = await axios.get(`${API_URL}/user/wallet/get/${res.data.wallet_code}`);
-      console.log(res.data);
+      // console.log(res.data);
       if(coin) {
         coinData = coin.data.map(c => {
           const data = {
