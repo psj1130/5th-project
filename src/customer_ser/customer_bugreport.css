@@ -1,0 +1,78 @@
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+#bug_body{
+  height: 1200px;
+  font-family: 'Pretendard-Regular';
+  background-color: rgb(233, 236, 241);
+}
+#bug_container{
+  height: 800px;
+  width: 1000px;
+  background-color: white;
+}
+#bug_innercontainer{
+  margin: 0 auto;
+  width: 900px;
+}
+#bug_reporttext{
+  display: flex;
+  align-items: center;
+  font-size: 32px;
+  font-weight: 700;
+  width: 450px;
+  height: 120px;
+}
+#b_point{
+  margin-right: 10px;
+  color: red;
+}
+#bug_inputdiv1{
+  border-top: 1px solid #66666642;
+  border-bottom: 1px solid #66666642;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#bug_inputdiv2{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+#bug_input1{
+  border: 1px solid rgb(228, 228, 228);
+  height: 30px;
+  width: 700px;
+}
+#bug_input2{
+  resize: none;
+  margin-top: 10px;
+  height: 500px;
+  border: 1px solid rgb(228, 228, 228);
+  width: 700px;
+}
+#bug_filediv{
+  align-items: center;
+  display: flex;
+}
+#bug_inputfile{
+  margin-left: 140px;
+}
+#bug_sendbtn{
+  
+  cursor: pointer;
+  font-weight: 600;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  width: 80px;
+  height: 40px;
+  border: 1px solid #666666;
+}

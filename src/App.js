@@ -19,7 +19,8 @@ import SearchComponent from './include/searchresult';
 import LoginPage from './player/login';
 import SignUpPage from './player/signup';
 
-
+import Customer from "./customer_ser/customer_service";
+import Stock_detail from "./stock_details/stock_details";
 
 // 메인페이지
 import Mainpage from './main/mainpage';
@@ -40,6 +41,7 @@ function App() {
           <Header/>
           <div id='App_Main'>
               <Routes>
+                {/* 이동명 */}
                 {/* <Route path='/' element={<Main/>}/> */}
                 <Route path='/login' element={<LoginPage/>}/>
                 <Route path='/signup' element={<SignUpPage/>}/>
@@ -59,6 +61,10 @@ function App() {
                 <Route path='/mypage/:id' element={<MyPage/>}/>
                 <Route path='/test' element={<GoogleLogin/>}/>
                 <Route path='/success' element={<GoogleRegister/>}/>
+                  
+                 {/* 민원기 */}
+                <Route path="/customer/*"  element={<Customer />} />
+                <Route path="/Stock_detail/:code" element={<Stock_detail/>}/>
               </Routes>
           </div>
           <Footer/>
