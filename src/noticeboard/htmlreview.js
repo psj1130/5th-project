@@ -12,23 +12,24 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import axios from 'axios';
 import useAsync from '../customHook/useAsync';
-import './noticeboard.css';
 import './htmlboard.css';
-
+import './board.css';
+import Htmlreview_p from './htmlreview_p';
 const scrollStyle = {
   overflowY: 'scroll',
 };
 
 // 모달의 스타일을 적용할 컴포넌트 생성
 const ModalWrapper = styled(Dialog)``;
-//                     여기 건듦
-async function htmlboard(id) {
+
+const htmlboard = async (id) => {
   const res = await axios.get(`${API_URL}/htmlreview/${id}`);
   console.log(res);
   return res.data;
 }
 
 function Htmlreview(props) {
+  console.log("props.id: ", props.id);
   const [selectedRow, setSelectedRow] = useState(null); // 선택한 행의 데이터 상태
   const [showModal, setShowModal] = useState(false); // 모달 열림 상태
   const [editedTitle, setEditedTitle] = useState(''); // 수정된 제목 상태
@@ -37,20 +38,35 @@ function Htmlreview(props) {
   const cookie = getCookie('loginCookie');
   const navigate = useNavigate();
 
-  const columns = [
-    { field: 'id', headerName: '댓글 번호', width: 100, headerAlign: 'center', align: 'center' },
-    { field: 'title', headerName: '제목', width: 110, headerAlign: 'center', align: 'center' },
-    { field: 'content', headerName: '내용', width: 700, headerAlign: 'center', align: 'center' },
-    { field: 'author', headerName: '작성자', width: 90, headerAlign: 'center', align: 'center' },
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+
+  const [columns, setColumns] = useState([
+    { field: 'id', headerName: '댓글 번호', width: 150, headerAlign: 'center', align: 'center' },
+    { field: 'title', headerName: '제목', width: 120, headerAlign: 'center', align: 'center' },
+    { field: 'content', headerName: '내용', width: 460, headerAlign: 'center', align: 'center' },
+    { field: 'author', headerName: '작성자', width: 120, headerAlign: 'center', align: 'center' },
+    { field: 'created_at', headerName: '작성날짜', width: 180, headerAlign: 'center', align: 'center' },
     {
       field: 'edit',
       headerName: '수정',
       headerAlign: 'center',
-      width: 80,
+      width: 110,
       renderCell: (params) => {
         return (
           <>
-            {/* 수정 */}
             <IconButton
               onClick={() => {
                 if (cookie) {
@@ -66,8 +82,24 @@ function Htmlreview(props) {
           </>
         );
       },
+    },
+  ]);
+
+  useEffect(() => {
+    if (windowWidth <= 767) {
+      setColumns((prevColumns) =>
+        prevColumns.filter((col) => col.field !== 'author')
+      );
+      // 480px ~ 767px 범위에서 edit 필드를 포함한 컬럼 추가
+      if (!columns.find((col) => col.field === 'edit')) {
+        setColumns((prevColumns) => [...prevColumns, { field: 'edit', headerName: '수정', headerAlign: 'center', width: 120 }]);
+      }
+    } else if (windowWidth <= 1023) {
+      setColumns((prevColumns) => prevColumns.filter((col) => col.field !== 'img_url'));
     }
-  ];
+  }, [windowWidth]);
+
+
   const { id } = useParams();
   const [state] = useAsync(() => htmlboard(props.id), [props.id]);
   const { loading, data: rdata, error } = state;
@@ -110,7 +142,7 @@ function Htmlreview(props) {
         title: editedTitle,
         content: editedContent,
       };
-  
+
       await axios.patch(`${API_URL}/htmlreview/update/${selectedRow.id}`, data);
       console.log("보냄");
       setEditMode(false); // Add this line to disable edit mode after submit
@@ -126,25 +158,26 @@ function Htmlreview(props) {
   return (
     <div className="sell">
       <Toolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          댓글
-        </Typography>
-        <button type='click' className='writeButton' onClick={() => {
+        <Htmlreview_p id={props.id} />
+        {/* <  type='click' className='writeButton' onClick={() => {
           if (cookie) {
             navigate(`/htmlreview_p/?id=${props.id}`);
           } else if (!cookie) {
             alert('로그인 후 이용해주세요 !');
             navigate('/members/login');
           }
-        }}> 글 작성 </button>
+        }}> 글 작성 </button> */}
       </Toolbar>
 
       <DataGrid
+        className='board_datagrid_container2'
         rows={rdata.map((a) => ({
           id: a.id,
           title: a.title,
           content: a.content,
           author: a.author,
+          img_url: a.img_url,
+          views: a.views,
           created_at: new Date(a.createdAt).toLocaleDateString('ko-KR', {
             year: '2-digit',
             month: '2-digit',
@@ -153,16 +186,19 @@ function Htmlreview(props) {
           }),
         }))}
         columns={columns}
-        pageSize={5}
-        rowsPerPageoptions={[5]}
-        disableSelectionOnClick // 행을 클릭했을 때 선택되는 기본 동작 비활성화
+        pageSizeOptions={[5]}
+        disableRowSelectionOnClick
         onRowClick={(row) => handleRowClick(row.row)}
-        checkboxSelection={false} // 기본 체크박스 기능 비활성화
+        checkboxSelection={false}
       />
+
       {/* 모달 */}
-      <ModalWrapper open={showModal} maxWidth="xl" maxHeight='90vh' onClose={() => setShowModal(false)}>
-        <Container>
-          <div className="modal-content2">
+      <ModalWrapper open={showModal}
+        maxWidth="xl" maxHeight='90vh'
+
+        onClose={() => setShowModal(false)}>
+        <Container className="modal-content2">
+          <div className="modal-content3">
             <h2>댓글 수정</h2>
             {selectedRow && (
               <>
@@ -171,7 +207,7 @@ function Htmlreview(props) {
                   {/* 수정할 제목 */}
                   <TextField
                     type="text"
-                    label="수정할 제목"
+                    label="제목"
                     variant="outlined"
                     fullWidth
                     margin="normal"
@@ -181,7 +217,7 @@ function Htmlreview(props) {
                   {/* 수정할 내용 */}
                   <Box sx={{ position: 'relative' }}>
                     <TextareaAutosize
-                      id='memo_container'
+                      id='memo_container3'
                       style={{ ...scrollStyle }}
                       value={editedContent}
                       onChange={(e) => setEditedContent(e.target.value)}
@@ -192,11 +228,13 @@ function Htmlreview(props) {
                     />
                   </Box>
                   {/* 작성자와 작성 날짜 */}
-                  <Box sx={{ textAlign: 'center', marginTop: '10px' }}>
-                    <Typography variant="subtitle2">댓글 번호: {selectedRow.id}</Typography>
-                    <Typography variant="subtitle2">작성자: {selectedRow.author}</Typography>
-                    <Typography variant="subtitle2">작성 날짜: {selectedRow.created_at}</Typography>
-                  </Box>
+                  <div id="review_num">
+                    <Box sx={{ textAlign: 'end', marginTop: '10px' }}>
+                      <Typography variant="subtitle2">댓글 번호: {selectedRow.id}</Typography>
+                      <Typography variant="subtitle2">작성자: {selectedRow.author}</Typography>
+                      <Typography variant="subtitle2">작성 날짜: {selectedRow.created_at}</Typography>
+                    </Box>
+                  </div>
                 </form>
 
                 {/* 모달 수정, 닫기 버튼 */}

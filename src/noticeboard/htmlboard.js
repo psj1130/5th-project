@@ -12,9 +12,8 @@ import { Link } from 'react-router-dom';
 import { styled } from '@mui/system';
 import { getCookie } from '../customer/cookies';
 import { Box, Typography, TextField, TextareaAutosize, Button, Container, TableContainer, Toolbar } from '@mui/material';
-
 import './htmlboard.css';
-import './noticeboard.css';
+import './board.css';
 import Htmlreview from './htmlreview';
 import Boarder from '../include/board';
 import SearchComponent from '../include/searchresult';
@@ -38,25 +37,38 @@ function Html() {
 
   const cookie = getCookie('loginCookie');
   const navigate = useNavigate();
+// 
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+// 
   const scrollStyle = {
     overflowY: 'scroll',
   };
 
-  const columns = [
-    { field: 'id', headerName: '게시물번호', width: 100, headerAlign: 'center', align: 'center' },
-    { field: 'title', headerName: '제목', width: 110, headerAlign: 'center', align: 'center' },
-    { field: 'content', headerName: '내용', width: 550, headerAlign: 'center', align: 'center' },
-    { field: 'author', headerName: '작성자', width: 90, headerAlign: 'center', align: 'center' },
-    { field: 'created_at', headerName: '작성날짜', width: 200, headerAlign: 'center', align: 'center' },
+  const [columns, setColumns] = useState([
+    { field: 'id', headerName: '게시물번호', width: 150, headerAlign: 'center', align: 'center' },
+    { field: 'title', headerName: '제목', width: 120, headerAlign: 'center', align: 'center' },
+    { field: 'content', headerName: '내용', width: 260, headerAlign: 'center', align: 'center' },
+    { field: 'author', headerName: '작성자', width: 120, headerAlign: 'center', align: 'center' },
+    { field: 'created_at', headerName: '작성날짜', width: 180, headerAlign: 'center', align: 'center' },
     {
       field: 'img_url',
       headerName: '사진',
-      width: 200,
+      width: 150,
       editable: false,
       headerAlign: 'center',
       renderCell: (params) => {
-
         let imgUrl = params.row.img_url;
         return (
           <>
@@ -71,16 +83,15 @@ function Html() {
         );
       },
     },
-    { field: 'views', headerName: '조회수', width: 70, align: 'center' },
+    { field: 'views', headerName: '조회수', width: 120, align: 'center' },
     {
       field: 'edit',
       headerName: '수정',
       headerAlign: 'center',
-      width: 80,
+      width: 110,
       renderCell: (params) => {
         return (
           <>
-            {/* 수정 */}
             <IconButton
               onClick={() => {
                 if (cookie) {
@@ -96,8 +107,18 @@ function Html() {
           </>
         );
       },
+    },
+  ]);
+
+  useEffect(() => {
+    if (windowWidth <= 767) {
+      setColumns((prevColumns) =>
+        prevColumns.filter((col) => col.field !== 'img_url' && col.field !== 'author')
+      );
+    } else if (windowWidth <= 1023) {
+      setColumns((prevColumns) => prevColumns.filter((col) => col.field !== 'img_url'));
     }
-  ];
+  }, [windowWidth]);
 
   const { id } = useParams();
   const [state] = useAsync(() => htmlboard(id), [id]);
@@ -169,174 +190,183 @@ function Html() {
   if (!rdata) return null;
 
   return (
-    <div className="sell">
-      <div id='SearchComponent_box'>
-        <Boarder />
-        <SearchComponent />
+    <div id='board_body'>
+      <div id='board_box'>
+        <div id='SearchComponent_box'>
+          <Boarder />
+          <SearchComponent />
+        </div>
+       <div id='board_box2'>
+          <Toolbar id='board_title'>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              커뮤니티 게시판
+            </Typography>
+            <button type='click' className='writeButton' onClick={() => {
+              if (cookie) {
+                navigate('/htmlboard_p');
+              } else if (!cookie) {
+                alert('로그인 후 이용해주세요 !');
+                navigate('/members/login');
+              }
+            }}> 글 작성 </button>
+          </Toolbar>
+    
+          <div id='board_datagrid_container'>
+            <DataGrid
+              className='board_datagrid_container'
+              rows={rdata.map((a) => ({
+                id: a.id,
+                title: a.title,
+                content: a.content,
+                author: a.author,
+                img_url: a.img_url,
+                views: a.views,
+                created_at: new Date(a.createdAt).toLocaleDateString('ko-KR', {
+                  year: '2-digit',
+                  month: '2-digit',
+                  day: '2-digit',
+                  hour: '2-digit',
+                }),
+              }))}
+              columns={columns}
+              pageSizeOptions={[5]}
+              // rowsPerPageOptions={false}
+              disableRowSelectionOnClick // 행을 클릭했을 때 선택되는 기본 동작 비활성화
+              onRowClick={(row) => handleRowClick(row.row)}
+              checkboxSelection={false} // 기본 체크박스 기능 비활성화
+              
+            />
+          </div>
+       </div>
       </div>
-      <Toolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          커뮤니티 게시판
-        </Typography>
-        <button type='click' className='writeButton' onClick={() => {
-          if (cookie) {
-            navigate('/htmlboard_p');
-          } else if (!cookie) {
-            alert('로그인 후 이용해주세요 !');
-            navigate('/members/login');
-          }
-        }}> 글 작성 </button>
-      </Toolbar>
-
-      <DataGrid
-        rows={rdata.map((a) => ({
-          id: a.id,
-          title: a.title,
-          content: a.content,
-          author: a.author,
-          img_url: a.img_url,
-          views: a.views,
-          created_at: new Date(a.createdAt).toLocaleDateString('ko-KR', {
-            year: '2-digit',
-            month: '2-digit',
-            day: '2-digit',
-            hour: '2-digit',
-          }),
-        }))}
-        columns={columns}
-        pageSizeOptions={[5]}
-        // rowsPerPageOptions={false}
-        disableRowSelectionOnClick // 행을 클릭했을 때 선택되는 기본 동작 비활성화
-        onRowClick={(row) => handleRowClick(row.row)}
-        checkboxSelection={false} // 기본 체크박스 기능 비활성화
-      />
       {/* 모달 */}
-      <ModalWrapper id='modal_container' open={showModal} maxWidth="xl" maxHeight='100vh' onClose={() => setShowModal(false)}>
-        <Container>
-          <div className="modal-content">
-            {selectedRow && (
-              <>
-                {/* 수정 폼 */}
-                <form onSubmit={handleSubmit} id='title_container1'>
-                  {/* 수정할 제목 */}
-                  <div id='title_container2'>
-                    <TextField
-                      type="text"
-                      label="수정할 제목"
-                      variant="outlined"
-                      fullWidth
-                      margin="normal"
-                      value={editedTitle}
-                      onChange={(e) => setEditedTitle(e.target.value)}
-                    />
-                    <label id='img_container' htmlFor="file-style">
-                      {/* <img
-                        src={updateImg ? URL.createObjectURL(updateImg) : selectedRow.img_url}
-                        alt="게시물 이미지"
-                        className="modal-image"
-                        id='img_box'
-                        style={{ width: '990px', height: '600px' }}
-                      /> */}
-                      <input
-                        id='file-style'
-                        className='htmlemodal-img'
-                        type="file"
-                        name="img_url"
-                        onChange={(e) => setupdateImg(e.target.files[0])}
-                      />
-                    </label>
-                  </div>
-                  {/* 수정할 내용 */}
-                  <div id="border1">
-                    <Box id="border1" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
-                      {updateImg || selectedRow.img_url ? (
-                        <div id='img_container' className='modal-image-container'>
-                          <img
+          <ModalWrapper id='modal_container' open={showModal} maxWidth="xl" maxHeight='100%' onClose={() => setShowModal(false)}>
+              <div className="content">
+                {selectedRow && (
+                  <>
+                    {/* 수정 폼 */}
+                    <form onSubmit={handleSubmit} id='title_container1'>
+                      {/* 수정할 제목 */}
+                      <div id='title_container2'>
+                        <TextField
+                          type="text"
+                          label="제목"
+                          variant="outlined"
+                          fullWidth
+                          margin="normal"
+                          value={editedTitle}
+                          onChange={(e) => setEditedTitle(e.target.value)}
+                        />
+                        <label id='img_container' htmlFor="file-style">
+                          {/* <img
                             src={updateImg ? URL.createObjectURL(updateImg) : selectedRow.img_url}
                             alt="게시물 이미지"
                             className="modal-image"
-                            style={{ width: '900px', height: 'auto' }}
+                            id='img_box'
+                            style={{ width: '990px', height: '600px' }}
+                          /> */}
+                          <input
+                            id='file-style'
+                            className='htmlemodal-img'
+                            type="file"
+                            name="img_url"
+                            onChange={(e) => setupdateImg(e.target.files[0])}
                           />
-                        </div>
-                      ) : null}
-                      <TextareaAutosize
-                        id='memo_container'
-                        style={{ ...scrollStyle }}
-                        value={editedContent}
-                        onChange={(e) => setEditedContent(e.target.value)}
-                        placeholder="수정할 내용"
-                        rows={37}
-                        minRows={20}
-                        className='textarea-autosize'
-                      />
-                    </Box>
-                  </div>
-                  {/* 작성자와 작성 날짜 */}
-                  <div id='detail_container'>
-                    <Box sx={{ textAlign: 'right', marginTop: '10px' }}>
-                      {/* <p>게시물번호: {selectedRow.id}</p> */}
-                      <Typography variant="subtitle2">게시물 번호: {selectedRow.id}</Typography>
-                      <Typography variant="subtitle2">작성자: {selectedRow.author}</Typography>
-                      <Typography variant="subtitle2">작성 날짜: {selectedRow.created_at}</Typography>
-                    </Box>
-                  </div>
-                </form>
-                {/* 모달 수정, 닫기, 삭제 버튼 */}
-                <div id='modal_btn'>
-                  {selectedRow && (editMode || !editMode) ? (
-                    <>
-                      {editMode && cookie && (
+                        </label>
+                      </div>
+                      {/* 수정할 내용 */}
+                      <div id="border3">
+                        <Box id="border3" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
+                          {updateImg || selectedRow.img_url ? (
+                            <div id='img_container' className='modal-image-container'>
+                              <img
+                                src={updateImg ? URL.createObjectURL(updateImg) : selectedRow.img_url}
+                                alt="게시물 이미지"
+                                className="modal-image"
+                                style={{ width: '900px', height: 'auto' }}
+                              />
+                            </div>
+                          ) : null}
+                          <div id='memo_container_a'>
+                            <TextareaAutosize
+                              id='memo_container_a'
+                              style={{ ...scrollStyle }}
+                              value={editedContent}
+                              onChange={(e) => setEditedContent(e.target.value)}
+                              placeholder="수정할 내용"
+                              rows={37}
+                              minRows={20}
+                              className='textarea-autosize'
+                            />
+                          </div>
+                        </Box>
+                      </div>
+                      {/* 작성자와 작성 날짜 */}
+                      <div id='detail_container'>
+                        <Box sx={{ textAlign: 'right', marginTop: '10px' }}>
+                          {/* <p>게시물번호: {selectedRow.id}</p> */}
+                          <Typography variant="subtitle2">게시물 번호: {selectedRow.id}</Typography>
+                          <Typography variant="subtitle2">작성자: {selectedRow.author}</Typography>
+                          <Typography variant="subtitle2">작성 날짜: {selectedRow.created_at}</Typography>
+                        </Box>
+                      </div>
+                    </form>
+                    {/* 모달 수정, 닫기, 삭제 버튼 */}
+                    <div id='modal_btns'>
+                      {selectedRow && (editMode || !editMode) ? (
                         <>
-                          <button
-                            id='submit_btn'
-                            onClick={async () => {
-                              await axios.delete(`${API_URL}/html/delete/${selectedRow.id}`)
-                                .then(res => {
-                                  console.log(res.data);
-                                  window.location.reload();
-                                })
-                                .catch(err => {
-                                  console.log(err);
-                                });
-                              navigate('/htmlboard');
+                          {editMode && cookie && (
+                            <>
+                              <button
+                                id='submit_btn'
+                                onClick={async () => {
+                                  await axios.delete(`${API_URL}/html/delete/${selectedRow.id}`)
+                                    .then(res => {
+                                      console.log(res.data);
+                                      window.location.reload();
+                                    })
+                                    .catch(err => {
+                                      console.log(err);
+                                    });
+                                  navigate('/htmlboard');
+                                }}
+                              >
+                                삭제
+                              </button>
+    
+                              <button
+                                id='submit_btn'
+                                className='userListPatch'
+                                onClick={async (e) => {
+                                  if (e) e.preventDefault();
+                                  navigate('/htmlboard');
+                                  await handleSubmit(e);
+                                }}
+                              >
+                                수정 완료
+                              </button>
+                            </>
+                          )}
+                          <Button
+                            variant="outlined"
+                            id='outlined_btn'
+                            onClick={() => {
+                              setShowModal(false);
+                              window.location.reload();
                             }}
                           >
-                            삭제
-                          </button>
-
-                          <button
-                            id='submit_btn'
-                            className='userListPatch'
-                            onClick={async (e) => {
-                              if (e) e.preventDefault();
-                              navigate('/htmlboard');
-                              await handleSubmit(e);
-                            }}
-                          >
-                            수정 완료
-                          </button>
+                            닫기
+                          </Button>
                         </>
-                      )}
-                      <Button
-                        variant="outlined"
-                        id='outlined_btn'
-                        onClick={() => {
-                          setShowModal(false);
-                          window.location.reload();
-                        }}
-                      >
-                        닫기
-                      </Button>
-                    </>
-                  ) : null}
-                </div>
-                <Htmlreview id={selectedRow.id} />
-              </>
-            )}
-          </div>
-        </Container>
-      </ModalWrapper>
+                      ) : null}
+                    </div>
+                    <Htmlreview id={selectedRow.id} />
+                  </>
+                )}
+              </div>
+          </ModalWrapper>
     </div>
+    
   );
 }
 export default Html;

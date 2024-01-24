@@ -29,7 +29,7 @@ function Searchbar(props) {
   };
 
   return (
-    <Box sx={{ minWidth: '800px', margin: 'auto' }}>
+    <Box sx={{ margin: 'auto' }}>
       <TextField
         type="text"
         name="search"

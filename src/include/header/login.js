@@ -13,7 +13,7 @@ function Login() {
     }}>로그아웃</p></li>
     </>
   } else if(!cookie) {
-    context = <li className='login-style'><Link to='/members/login' onClick={() => {
+    context = <li className='login-style'><Link to='/login' onClick={() => {
       window.sessionStorage.setItem('BeforePage', window.location.pathname);
     }}>로그인</Link></li>
   }

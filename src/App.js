@@ -40,9 +40,10 @@ function App() {
           <Header/>
           <div id='App_Main'>
               <Routes>
-                {/* <Route path='/' element={<Main/>}/> */}
                 <Route path='/login' element={<LoginPage/>}/>
-                <Route path='/signup' element={<SignUpPage/>}/>
+                <Route path='/signup' element={<SignUpPage/>}/>              
+
+                {/* 이동명 */}
                 <Route path='/include/boarder' element={<Boarder/>}/>
                 <Route path='/search/:keyword' element={<SearchComponent/>}/>
                 <Route path='/htmlboard' element={<Htmlboard/>}/>

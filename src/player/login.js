@@ -6,7 +6,7 @@ import axios from "axios";
 import { API_URL } from "../config/serverurl";
 
 const LoginForm = (props) => {
-  const [id, setId] = useState();
+  const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [context, setContext] = useState(null);
   const id_css = useRef(document.getElementById('id'));
@@ -21,30 +21,30 @@ const LoginForm = (props) => {
         <p>
           <span>아이디</span>
         </p>
-        <input ref={id_css} id='id' type="text" placeholder="아이디를 입력해 주세요." onChange={(e) => {
-          setId(e.target.value);
+        <input ref={id_css} id='email' name='email' type="text" placeholder="아이디를 입력해 주세요." onChange={(e) => {
+          setEmail(e.target.value);
         }}></input>
       </div>
       <div className="login-input-container">
         <p>
           <span>비밀번호</span>
         </p>
-        <input ref={pw_css} id="password" type="text" placeholder="비밀번호를 입력해 주세요." onChange={(e) => {
+        <input ref={pw_css} id="password" name='password' type="text" placeholder="비밀번호를 입력해 주세요." onChange={(e) => {
           setPassword(e.target.value);
         }}></input>
       </div>
       <p id="fail-login">{context}</p>
       <div className="login-button" onClick={async () => {
-        if(!id || !password) {
+        if(!email || !password) {
           id_css.current.style.setProperty('border', '1px solid red')
           pw_css.current.style.setProperty('border', '1px solid red')
           setContext('아이디 또는 비밀번호를 입력해주세요 !');
         }
-        await axios.post(`${API_URL}/login`, { id: id, password: password})
+        await axios.post(`${API_URL}/auth/login`, { email: email, password: password})
         .then((res) => {
           if(res.data == '1') {
             console.log('로그인 성공');
-            setCookie('loginCookie', id, {
+            setCookie('loginCookie', email, {
               path: '/',
               secure: '/',
               expires: new Date(Date.now() + setTime),
