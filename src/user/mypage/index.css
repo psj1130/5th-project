@@ -8,3 +8,7 @@
 .MyPage__Container {
   width: 1300px;
 }
+
+.Exchange__wrapper {
+  display: flex;
+}

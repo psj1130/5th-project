@@ -1,6 +1,5 @@
 import React, { useCallback } from 'react';
 import '../css/Coin.css';
-import { useSummaryDispatch } from '../../../market/context/ExchangeContext';
 
 const HoldCoin = ({ data, name, realtimePrice }) => {
   const { fullcode, totalPrice, volume } = data;
@@ -8,16 +7,8 @@ const HoldCoin = ({ data, name, realtimePrice }) => {
   const earnReturn = ((realtimePrice - average) / realtimePrice) * 100;
   const est = volume * realtimePrice;
 
-  const dispatch = useSummaryDispatch();
-  const selectCoin = useCallback(() => {
-    dispatch({
-      type: 'SELECT_COIN',
-      code: fullcode,
-      name,
-    });
-  }, [dispatch, fullcode, name]);
   return (
-    <div className="Hold__Coin Coin" onClick={selectCoin}>
+    <div className="Hold__Coin Coin">
       <div className="Coin__Name">
         <p>{name}</p>
         <span>{fullcode}</span>
@@ -57,4 +48,4 @@ const HoldCoin = ({ data, name, realtimePrice }) => {
     </div>
   );
 };
-export default HoldCoin;
+export default React.memo(HoldCoin);

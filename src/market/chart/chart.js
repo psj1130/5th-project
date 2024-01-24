@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import './chart.css';
+import { useExchangeState} from '../../market/context/ExchangeContext';
+import CandleChart from "./CandleChart";
 
-const ChartComp = () => {
-  return(
-    <div id="Chart_wrapper">
-
+const ChartComp = ({data}) => {
+  return (
+    <div>
+      {/* {data ? (
+        <p>Loading...</p>
+      ) : ( */}
+        <CandleChart data={data} />
+      {/* )} */}
     </div>
-  )
-}
+  );
+};
 
 export default ChartComp;

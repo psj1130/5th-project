@@ -34,7 +34,7 @@ const SignUpForm = () => {
       <div className="password-container">
         <div>
           <p><span>비밀번호</span></p>
-          <input ref={pw_css} id="pw" type="text" placeholder="비밀번호를 입력해주세요." onChange={(e) => {
+          <input ref={pw_css} id="password" type="password" name="password" placeholder="비밀번호를 입력해주세요." onChange={(e) => {
             setPassword(e.target.value);
           }}></input>
         </div>
