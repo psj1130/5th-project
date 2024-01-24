@@ -29,7 +29,8 @@ function Searchbar(props) {
   };
 
   return (
-    <Box sx={{ margin: 'auto' }}>
+    // 
+    <Box  sx={{ margin: 'auto' }} textAlign="center">
       <TextField
         type="text"
         name="search"
@@ -38,7 +39,6 @@ function Searchbar(props) {
         onKeyDown={enterHandler}
         onChange={changeHandler}
         placeholder="검색어를 입력해주세요"
-        fullWidth
         value={enteredKeyword}
         InputProps={{
           endAdornment: (
