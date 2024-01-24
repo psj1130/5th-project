@@ -11,7 +11,6 @@
 }
 #noticedetail_container{
   overflow: auto;
-  border: 1px solid #000;
   margin: 0 auto;
   height: 95%;
   width: 1000px;
@@ -76,4 +75,12 @@
   justify-content: center;
   border: 1px solid #D0D0D0;
   float: right;
+}
+@media (max-width: 500px) {
+  #noticedetail_container{
+    width: 475px;
+  }
+  #noticedetail_innerctn{
+    width: 455px;
+  }
 }

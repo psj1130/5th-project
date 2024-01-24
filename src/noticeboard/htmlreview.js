@@ -129,7 +129,8 @@ function Htmlreview(props) {
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           댓글
         </Typography>
-        <button type='click' className='writeButton' onClick={() => {
+        <button type='click' className='writeButton'
+        onClick={() => {
           if (cookie) {
             navigate(`/htmlreview_p/?id=${props.id}`);
           } else if (!cookie) {

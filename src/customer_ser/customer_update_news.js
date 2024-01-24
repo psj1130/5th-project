@@ -59,11 +59,13 @@ function Customer_update_news(){
             <div id="datalist_title">
               <p>제목</p>
             </div>
-            <div id="datalist_regdt">
-              <p>등록일</p>
-            </div>
-            <div id="datalist_views">
-              <p>조회수</p>
+            <div id="datalist_regviw">
+              <div id="datalist_regdt">
+                <p>등록일</p>
+              </div>
+              <div id="datalist_views">
+                <p>조회수</p>
+              </div>
             </div>
           </div>
 
@@ -84,8 +86,10 @@ function Customer_update_news(){
                         {pdata.title}
                       </p>
                     </div>
-                    <div id="datalist_regdt">{pdata.regdt}</div>
-                    <div id="datalist_views">{pdata.views}</div>
+                    <div id="datalist_regviw">
+                      <div id="datalist_regdt">{pdata.regdt}</div>
+                      <div id="datalist_views">{pdata.views}</div>
+                    </div>
                   </div>
                 </NavLink>
               );

@@ -46,20 +46,22 @@
   padding-left: 20px;
 }
 #notice_searchdiv{
+  line-height: 44px;
   margin-left: 10px;
   text-align: center;
   color: white;
   font-size: 15px;
   width: 68px;
   height: 44px;
-  border: 1px solid #0062DF;
-  background-color: #0062DF;
+  border: 1px solid black;
+  background-color: black;
 }
 #notice_searchdiv:hover{
   text-decoration:underline; 
   color:#ffffff
 }
 #notice_data_list{
+  line-height: 44px;
   color: #666666;
   background-color: rgb(249, 250, 252);
   text-align: center;
@@ -78,6 +80,7 @@
   width: 100%;
 }
 #datalist_title{
+  margin-bottom: 5px;
   width: 600px;
 }
 #datalist_regdt{
@@ -88,4 +91,61 @@
 }
 #NavLinkstyle{
   text-decoration: none;
+}
+#datalist_regviw{
+  display: flex;
+}
+@media (max-width: 500px) {
+  #notice_body{
+    overflow-x: hidden;
+    width: 480px;
+  }
+  #notice_text{
+    display: none;
+  }
+  #notice_container{
+    width: 100%;
+  }
+  #notice_data_list{
+    display: block;
+    width: 100%;
+  }
+  #datalist_title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    width: 100%;
+  }
+  #datalist_regdt{
+    width: 50%;
+    font-size: 13px;
+  }
+  #datalist_views{
+    width: 50%;
+    font-size: 13px;
+  }
+  #notice_search{
+    justify-content: center;
+  }
+  #noticetext_search{
+    width: 100%;
+    padding-top: 10px;
+    height: 60px;
+  }
+  #notice_inner_container{
+    width: 100%;
+  }
+  #notice_data_list1{
+    padding-top: 10px;
+    height: 50px;
+    display: block;
+    border-bottom: 1px solid #eeeeee;
+  }
+  .notice_textstyle{
+    font-size: 13px;
+  }
+  #notice_searchdiv{
+    line-height: 44px;
+  }
 }
