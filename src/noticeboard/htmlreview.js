@@ -160,6 +160,11 @@ function Htmlreview(props) {
       <Toolbar>
         <Htmlreview_p id={props.id} />
         {/* <  type='click' className='writeButton' onClick={() => {
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          댓글
+        </Typography>
+        <button type='click' className='writeButton'
+        onClick={() => {
           if (cookie) {
             navigate(`/htmlreview_p/?id=${props.id}`);
           } else if (!cookie) {

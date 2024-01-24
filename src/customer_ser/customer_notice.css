@@ -1,0 +1,151 @@
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+#notice_body{
+  height: 1200px;
+  font-family: 'Pretendard-Regular';
+  background-color: rgb(233, 236, 241);
+}
+#notice_container{
+  margin: 0 auto;
+  height: 1000px;
+  width: 1000px;
+  background-color: white;
+}
+#notice_inner_container{
+  margin: 0 auto;
+  width: 900px;
+}
+#noticetext_search{
+  height: 80px;
+  padding-top: 40px;
+  display: flex;
+}
+#notice_text{
+  display: flex;
+  align-items: center;
+  font-size: 32px;
+  font-weight: 700;
+  width: 450px;
+  height: 48px;
+}
+#notice_search{
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  height: 48px;
+  flex: 1 0 auto;
+}
+#input_search{
+  border: 1px solid #E1E2E6;
+  width: 300px;
+  height: 44px;
+  padding-left: 20px;
+}
+#notice_searchdiv{
+  line-height: 44px;
+  margin-left: 10px;
+  text-align: center;
+  color: white;
+  font-size: 15px;
+  width: 68px;
+  height: 44px;
+  border: 1px solid black;
+  background-color: black;
+}
+#notice_searchdiv:hover{
+  text-decoration:underline; 
+  color:#ffffff
+}
+#notice_data_list{
+  line-height: 44px;
+  color: #666666;
+  background-color: rgb(249, 250, 252);
+  text-align: center;
+  display: flex;
+  width: 100%;
+  border-top: 1px solid #66666642;
+  border-bottom: 1px solid #66666642;
+}
+#notice_data_list1{
+  color: #666666 ;
+  display: flex;
+  flex: 1 0 auto;
+  align-items: center;
+  text-align: center;
+  height: 40px;
+  width: 100%;
+}
+#datalist_title{
+  margin-bottom: 5px;
+  width: 600px;
+}
+#datalist_regdt{
+  width: 150px;
+}
+#datalist_views{
+  flex: 1 0 auto;
+}
+#NavLinkstyle{
+  text-decoration: none;
+}
+#datalist_regviw{
+  display: flex;
+}
+@media (max-width: 500px) {
+  #notice_body{
+    overflow-x: hidden;
+    width: 480px;
+  }
+  #notice_text{
+    display: none;
+  }
+  #notice_container{
+    width: 100%;
+  }
+  #notice_data_list{
+    display: block;
+    width: 100%;
+  }
+  #datalist_title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    width: 100%;
+  }
+  #datalist_regdt{
+    width: 50%;
+    font-size: 13px;
+  }
+  #datalist_views{
+    width: 50%;
+    font-size: 13px;
+  }
+  #notice_search{
+    justify-content: center;
+  }
+  #noticetext_search{
+    width: 100%;
+    padding-top: 10px;
+    height: 60px;
+  }
+  #notice_inner_container{
+    width: 100%;
+  }
+  #notice_data_list1{
+    padding-top: 10px;
+    height: 50px;
+    display: block;
+    border-bottom: 1px solid #eeeeee;
+  }
+  .notice_textstyle{
+    font-size: 13px;
+  }
+  #notice_searchdiv{
+    line-height: 44px;
+  }
+}
