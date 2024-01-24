@@ -9,5 +9,12 @@
 }
 #searchresult_main{
   width: 100%;
-  margin-top: 300px;
+  height: auto;
+  margin-top: 50px;
+}
+#custom_input_searchbar{
+  width: 100%;
+}
+.MuiBox-root {
+  width: 130vh;
 }
