@@ -19,16 +19,16 @@ const Customer_list = () => {
           <div id="customer_list_div"><p>고객센터</p></div>
           <NavLink to={'customer_notice'} style={{ textDecoration: "none" }} activeClassName="active"><div id="customer_list_div1"><p>공지사항</p></div></NavLink>
           <NavLink to={'customer_update'} style={{ textDecoration: "none" }} activeClassName="active"><div id="customer_list_div1"><p>업데이트</p></div></NavLink>
-          <button id="bug_btn_style" style={{ textDecoration: "none" }}  onClick={() => {
+          <button id="bug_btn_style" style={{ textDecoration: "none" }}  
+          onClick={() => {
           if (cookie) {
-            console.log("버그수락");
             navigate(`/customer/customer_bug`);
           } else if (!cookie) {
-            console.log("버그거절");
             alert('로그인 후 이용해주세요 !');
             navigate('/customer/customer_notice');
           }
-        }}><div id="customer_list_div1"><p>버그제보</p></div></button>
+        }}
+        ><div id="customer_list_div1"><p>버그제보</p></div></button>
         </div>
       </div>
     </div>

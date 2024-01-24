@@ -138,27 +138,26 @@
   flex-direction: column;
   justify-content: space-around;
 }
+
 @media (max-width: 768px) {
   #stock_inner_container{
     display: block;
-    width: 600px;
+    width: 80vw;
   }
   #stock_detail_body{
-    width: 768px;
+    width: 100vw;
   }
   #stock_detail_container{
     margin: 0 auto;
-    width: 700px;
+    width: 90vw;
   }
   #stock_1div{
-    width: 600px;
+    width: 80vw; 
   }
   #stock_2div{
-    width: 600px;
+    width: 80vw; 
   }
   #stock_3div{
-    width: 600px;
+    width: 80vw; 
   }
-
-  
 }
