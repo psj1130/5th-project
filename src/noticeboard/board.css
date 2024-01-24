@@ -1,0 +1,546 @@
+/* PC (해상도 1024px)*/
+@media all and (min-width:1024px) {
+  /* 글 작성 * /
+  #SearchComponent_box {
+    width: 100%;
+    height: 100%;
+  }
+  /* 댓글 수정 */
+  .modal-content2 {
+    width: 80vh;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  #modal_btn {
+    width: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    /* background-color: #f4f4f4; */
+    border-bottom: 1px solid #ccc;
+    margin-top: auto;
+  }
+}
+
+/* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/
+@media all and (min-width:768px) and (max-width:1023px) {
+  #SearchComponent_box {
+    width: 80%;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin-left: 220px; */
+    /* border: 1px solid #ec1414; */
+  }
+  .MuiBox-root {
+    width: 90vh;
+  }
+  #custom_input_searchbar{
+    width: 70vh;
+    /* border: 1px solid #000; */
+  }
+  /* 커뮤니티 메인 */
+  #board_body {
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 3px solid #2400ee; */
+    margin-left: 10vh;
+  }
+
+  #board_box2 {
+    max-width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* border: 3px solid #0ae423; */
+  }
+
+  #board_datagrid_container {
+    width: 100%;
+    max-width: 90vw;
+    margin: 0 auto;
+    padding: 20px;
+    overflow-x: auto;
+  }
+
+  .board_datagrid_container {
+    overflow: hidden;
+  }
+
+  /* DataGrid에 대한 스타일 조정 */
+  .MuiDataGrid-main {
+    max-width: 100%;
+    height: auto;
+    /* border: 1px solid #000; */
+    /* 높이 자동 조정 (내용에 따라) */
+  }
+
+  /* DataGrid의 특정 열에 대한 스타일 조정 */
+  .MuiDataGrid-columnTitle,
+  .MuiDataGrid-cell {
+    white-space: nowrap;
+    /* 텍스트가 너무 길 경우 줄 바꿈을 방지하고 모든 텍스트를 한 줄에 표시합니다. */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* 텍스트가 너무 길 경우 생략 부호로 표시합니다. */
+  }
+
+  #board_title {
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    /* margin-left: 200px; */
+    /* border: 3px solid #000; */
+  }
+  /* 수정 삭제 닫기 부분 */
+  .MuiDataGrid-main {
+    width: 90vh;
+    transform: scaleX(0.8) scaleY(1);
+    /* border: 1px solid #e50000; */
+  }
+  #modal_container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid #000; */
+  }
+  .content{
+    /* border: 1px solid #000; */
+  }
+  #title_container2{
+    width: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid #be1515; */
+  }
+  
+  .modal-image-container{
+    width: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 3px solid #ff0000; */
+  }
+  #detail_container{
+    width: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid #000; */
+  }
+  #modal_btns{
+    width: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-bottom: none;
+    /* border: 1px solid #e90606; */
+  }
+  .htmlreview_main{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid #000; */
+  }
+  #htmlreview_p_container{
+    width: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* border: 1px solid #ee1313; */
+  }
+  #htmlreview_p_top{
+    width: 90vh;
+    /* margin-right: 10vh; */
+    /* border: 1px solid #91ff00; */
+  }
+  #htmlreview_p_main{
+    width: 90vh;
+    /* margin-right: 10vh; */
+    /* border: 1px solid #000; */
+  }
+  #plusBtns_btns{
+    /* border: 1px solid #000; */
+    width: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1vh;
+  }
+  
+  /* 글 작성 */
+  .htmlboard_p_body{
+    width: 90vh;
+    height: 190vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid #000; */
+    margin-left: 10vh;
+  }
+  #htmlboard_p_body_a {
+    width: 10vh;
+    margin: 0 auto;
+  }
+  
+  #htmlboard_p_container h2 {
+    font-size: 3vh;
+    font-weight: bold;
+  }
+  #htmlboard_p_top{
+    width: 90vh;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    /* border: 1px solid #000; */
+  }
+  #htmlboard_p_main{
+    width: 90vh;
+    /* height: 140vh; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 3px solid #000; */
+  }
+  #plusBtns{
+    width: 50vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 1vh;
+    /* border: 1px solid #000; */
+  }
+
+  /* 댓글 수정 */
+  .modal-content2 {
+    width: 90vh;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* border: 1px solid #000; */
+  }
+
+  #modal_btn {
+    width: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 10px;
+    /* background-color: #f4f4f4; */
+    border-bottom: 1px solid #ccc;
+    margin-top: auto;
+  }
+  #memo_container {
+    width: 90vh;
+    outline: none;
+    resize: none;
+    height: 500px;
+    /* margin-left: 20vh; */
+    /* border: 1px solid #00c8ff; */
+  }
+  #memo_container3 {
+    width: 90vh;
+    outline: none;
+    resize: none;
+    height: 500px;
+    /* margin-left: 20vh; */
+    /* border: 1px solid #fc0000; */
+  }
+
+  #review_num {
+    width: 90vh;
+    margin-left: auto;
+  }
+  #memo_container_a{
+    width: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin-left: -25px; */
+  }
+}
+
+/*모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/
+@media all and (max-width:767px) {
+  
+  #board_box{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid #000; */
+  }
+  #SearchComponent_box {
+    width: 10vh;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid #c60b0b; */
+  }
+  .MuiBox-root {
+    width: 70vh;
+    /* border: 1px solid #000; */
+  }
+  #custom_input_searchbar{
+    width: 50vw;
+    height: 5vh;
+    /* margin-left: 25vh; */
+  }
+  /* 커뮤니티 메인 */
+  #board_body {
+    max-width: 100% ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid #000; */
+    /* margin-left: 10vh; */
+  }
+
+  #board_box2 {
+    max-width: 70vh;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* border: 1px solid #000; */
+  }
+
+  #board_datagrid_container {
+    width: 100%;
+    max-width: 70vw; /* 뷰포트 너비에 따라 조정 */
+    margin: 0 auto;
+    padding: 10px; /* 원하는 값으로 조정 */
+    overflow-x: auto;
+  }
+
+  .board_datagrid_container {
+    overflow: hidden;
+  }
+
+  /* DataGrid에 대한 스타일 조정 */
+  .MuiDataGrid-main {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* DataGrid의 특정 열에 대한 스타일 조정 */
+  .MuiDataGrid-columnTitle,
+  .MuiDataGrid-cell {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  #board_title {
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* 중앙 정렬로 변경 */
+    flex-direction: column; /* 모바일에서 세로로 정렬 */
+  }
+  /* 수정 삭제 닫기 부분 */
+  .MuiDataGrid-main {
+    width: 100%;
+    /* margin-left: 30vh; */
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    transform: scaleX(0.9) scaleY(1);
+    /* border: 1px solid #0b1ef2; */
+  }
+  #modal_container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid #000; */
+  }
+ 
+  #title_container2{
+    width: 65vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid #000; */
+  }
+  .modal-image-container{
+    width: 65vh;
+    /* border: 3px solid #ff0000; */
+  }
+  #memo_container_a{
+    width: 65vh;
+    height: 45vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid #b5fd0b; */
+  }
+  .textarea-autosize{
+    width: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin-right: 35vh; */
+    /* border: 1px solid #e43b3b; */
+  }
+  #detail_container{
+    width: 65vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    /* border: 1px solid #000; */
+  }
+  #modal_btns{
+    width: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-bottom: none;
+    /* border: 1px solid #000; */
+  }
+  .htmlreview_main{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid #000; */
+  }
+  #htmlreview_p_container{
+    width: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* border: 1px solid #ee1313; */
+  }
+  #htmlreview_p_top{
+    width: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid #91ff00; */
+  }
+  #htmlreview_p_main{
+    width: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid #000;/ */
+  }
+  #plusBtns_btns{
+    /* border: 1px solid #000; */
+    width: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1vh;
+  }
+  /* 글 작성 */
+  .htmlboard_p_body{
+    width: 66vh;
+    /* height: 160vh; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid #000; */
+    /* margin-left: 10vh; */
+  }
+  #htmlboard_p_body_a {
+    width: 10vh;
+    margin: 0 auto;
+  }
+  
+  #htmlboard_p_container h2 {
+    font-size: 3vh;
+    font-weight: bold;
+  }
+  #htmlboard_p_top{
+    width: 65vh;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    /* border: 1px solid #000; */
+  }
+  #htmlboard_p_main{
+    width: 65vh;
+    /* height: 140vh; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 3px solid #000; */
+  }
+  #plusBtns{
+    width: 35vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 1vh;
+    /* border: 1px solid #000; */
+  }
+  /* 댓글 수정 */
+  .modal-content2 {
+    width: 70vh;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 10vh;
+  }
+
+  #modal_btn {
+    width: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    /* background-color: #f4f4f4; */
+    border-bottom: 1px solid #ccc;
+    margin-top: auto;
+  }
+
+  #memo_container3 {
+    width: 70vh;
+    outline: none;
+    resize: none;
+    height: 450px;
+    border: 1px solid #d3d3d3;
+  }
+
+  #review_num {
+    width: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    /* margin-left: auto; */
+    /* border: 1px solid #000; */
+  }
+}
