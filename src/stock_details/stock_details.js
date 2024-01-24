@@ -65,13 +65,9 @@ function Stock_detail (){
             <div id="stock_firlimit_div"><p>총 발행한도</p></div>
             <div id="stock_firlimit"><p>{pdata.total_limit}</p></div>
           </div>
-  
-           
-          
           <div>
             <div id="stock_subheading"><p>디지털 자산 소개</p></div>
             <div id="stock_subtext"><p>{processNewLines(pdata.intro_digital)}</p></div>
-            
           </div>
           
           <div>
