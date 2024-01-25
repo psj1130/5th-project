@@ -8,7 +8,6 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import './htmlboard.css';
 
-import { getCookie } from "../player/cookies";
 const cookie = getCookie("loginCookie");
 
 function Htmlreview_p(props) {
