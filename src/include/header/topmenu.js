@@ -19,11 +19,12 @@ function TopMenu() {
         <Link to='/'>메뉴</Link>
       </div>
       <div className="topmenu-list">
-        <Link to='/'>메뉴</Link>
-      </div>
-      <div className="topmenu-list">
         <Link to='/htmlboard'>커뮤니티</Link>
       </div>
+      <div className="topmenu-list">
+        <Link to='/customer/customer_notice'>고객지원</Link>
+      </div>
+      
     </div>
   );
 }

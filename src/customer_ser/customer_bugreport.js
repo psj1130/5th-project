@@ -75,14 +75,14 @@ function Customer_bugreport (){
         <div id="bug_innercontainer">
           <div id="bug_reporttext"><p>버그제보</p></div>
           <div id="bug_inputdiv1">
-            <p><span id="b_point">*</span> 문의 제목</p>
+            <div id="bug_titlediv"><p><span id="b_point">*</span>문의 제목</p></div>
             <input id="bug_input1" type="text"
             value={bugTitle}
             onChange={(e)=>setbugTitle(e.target.value)}
             />
           </div>
           <div id="bug_inputdiv2">
-            <p><span id="b_point">*</span> 문의 내용</p>
+            <div id="bug_contentdiv"><p><span id="b_point">*</span>문의 내용</p></div>
             <textarea id="bug_input2" type="text"
             value={bugContent}
             onChange={(e) => setbugContent(e.target.value)}

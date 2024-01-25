@@ -1,31 +1,200 @@
-/* ModalStyles.css */
-.MuiDialog-paper {
-  width: 90vw; /* 120% of the viewport width */
-  height: 90vh; /* 120% of the viewport height */
-  margin: 0;
+#board_body{
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
+#board_title{
+  width: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+#board_box{
+  width: 1200px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#modal_container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.5);
+  /* border: 3px solid #e10000; */
+}
+.modal-content img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+#modal_btns {
+  width: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 10px;
+  /* background-color: #f4f4f4; */
+  border-bottom: 1px solid #ccc;
+  margin-top: auto;
+}
+#submit_btn,
+#outlined_btn {
+  width: 100px;
+  height: 100%;
+  font-size: 14px;
+  cursor: pointer;
+}
+#submit_btn {
+  background-color: #000;
+  color: #fff;
+}
+#outlined_btn {
+  background-color: #333;
+  color: #fff;
+}
+.close-btn {
+  cursor: pointer;
+  font-size: 18px;
+  color: #555;
+}
+.close-btn:hover {
+  color: #333;
+}
+.modal-content img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+.modal-content .content {
+  width: 100%;
+  height: 100%;
+  flex-grow: 1;
   padding: 20px;
-  border-radius: 8px;
-}
-
-/* p {
-  margin-bottom: 10px;
-  font-size: 16px;
-}
-
-form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  align-items: center;
+  justify-content: center;
 }
-textarea {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
-} */
+.modal-content .title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+/* 모달창 끝 */
+#SearchComponent_box{
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+/* 모달창 전체 */
+#title_container1{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* border: 1px solid #000; */
+}
+#title_container2{
+  width: 1000px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 0 auto;
+  flex-direction: row;
+  /* margin-top: 1800px; */
+  /* border: 3px solid #000; */
+}
+#file-style::file-selector-button {
+  margin-left: 10px;
+  width: 150px;
+  height: 30px;
+  background: #fff;
+  border: 1px solid rgb(77, 77, 77);
+  border-radius: 10px;
+  cursor: pointer;
+}
+#file-style::file-selector-button:hover {
+  background: rgb(77, 77, 77);
+  color: #fff;
+}
+#img_container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+#detail_container{
+  width: 1000px;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  /* border: 1px solid #000; */
+}
+#memo_container{
+  width: 1000px;
+  outline: none;
+  resize: none;
+  /* margin-left: -20px; */
+  /* border: 1px solid #d3d3d3; */
+}
+#memo_container3{
+  width: 1000px;
+  outline: none;
+  resize: none;
+  /* margin-left: -20px; */
+  /* border: 1px solid #d3d3d3; */
+}
+#border3{
+  gap: 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* 추가 */
+#memo_container2{
+  width: 1200px;
+  border: 1px solid #000;
+  margin-top: 20px;
+}
+.modal-content2{
+  width: 1200px;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+#modal_btn2{
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 10px;
+  margin-top: auto;
+}
+/* ModalStyles.css */
 #imgupload{
   width: 200px;
   height: 40px;
@@ -33,12 +202,9 @@ textarea {
   align-items: center;
   justify-content: center;
   padding: 8px;
-  border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 14px;
 }
-
-
 button {
   padding: 12px 20px;
   border: none;
@@ -53,37 +219,38 @@ button {
     background-color: #333; /* hover 시 어둡게 변경 */
   }
 }
-
-/* Specific button styles */
 .editButton {
   margin-top: 10px;
   background-color: #000;
   color: #fff;
 }
-
 .closeButton {
   background-color: #333;
   color: #fff;
 }
-
 .writeButton {
   width: 80px;
   padding: 12px;
   background-color: #000;
   color: #fff;
 }
-
 .writeButton:hover {
   background-color: #333;
 }
-
 .userListPatch, .userListDelete {
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
+#plusBtns_btns{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  width: 1000px;
+  /* border: 1px solid #000; */
+}
 /* htmlboard_p 글작성 */
 #htmlboard_p_container{
   width: 100%;
@@ -95,75 +262,77 @@ button {
 }
 .htmlreview_main{
   width: 100%;
-  height: 600px;
+  height: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  gap: 10px;
   /* border: 3px solid #ff0000; */
 }
 #htmlreview_p_container{
-  width: 1200px;
-  height: 400px;
+  width: 1000px;
+  height: 230px;
   margin: 0 auto;
+  /* border: 3px solid #8d1818; */
+}
+#htmlreview_p_container h2{
+  height: 50px;
 }
 #htmlreview_p_top{
-  width: 1200px;
-  height: 80px;
+  width: 1000px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* flex-direction: row; */
-   /* border: 3px solid #8d1818; */
 }
 #htmlreview_p_main{
-  width: 1200px;
-  height: 250px;
+  width: 1000px;
+  height: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* border: 3px solid #000; */
-}
-
-#img_container {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px; /* 이미지와 내용 사이에 여백 추가 */
-}
+  
+} 
 #plusBtns{
-  width: 1200px;
+  width: 1000px;
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
   gap: 20px;
+  /* border: 1px solid #000; */
 }
 #plusBtn{
   width: 100px;
   margin-left: auto;
 }
 /* htmlboard_p css */
-
 .htmlboard_p_body{
   width: 100%;
-  height: 1400px;
+  height: 1200px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  /* border: 1px solid #000; */
 }
 #htmlboard_p_body_a {
-  width: 1200px;
+  width: 1000px;
   margin: 0 auto;
 }
-
+#memo_container_a{
+  width: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid #000; */
+}
 #htmlboard_p_container h2 {
   margin-bottom: 20px;
   font-size: 24px;
   font-weight: bold;
 }
-
 #htmlboard_p_top{
-  width: 1200px;
+  width: 1000px;
   height: 70px;
   display: flex;
   align-items: center;
@@ -171,9 +340,8 @@ button {
   flex-direction: row;
   /* border: 1px solid #000; */
 }
-
 #htmlboard_p_main{
-  width: 2000px;
+  width: 1000px;
   height: 900px;
   display: flex;
   align-items: center;
@@ -188,4 +356,24 @@ button {
   flex-direction: row;
   gap: 20px;
   /* border: 1px solid #000; */
+}
+#review_num{
+  width: 290px;
+  margin-left: auto ;
+}
+.board_datagrid{
+  border: 1px solid #000;
+}
+/* asdasdasdasdasdasd */
+.board_p_modal{
+  width: 100%;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  border: 1px solid #000;
+}
+
+/*  */
+#custom_input_searchbar{
+  width: 50vw;
 }

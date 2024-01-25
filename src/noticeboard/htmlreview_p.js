@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { useNavigate } from 'react-router';
+import { useSearchParams } from "react-router-dom";
+import { getCookie } from "../customer/cookies";
 import { API_URL } from '../config/serverurl';
+import axios from 'axios';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import './htmlboard.css';
-import { useNavigate } from 'react-router';
-import { useSearchParams } from "react-router-dom";
 
 import { getCookie } from "../player/cookies";
 const cookie = getCookie("loginCookie");
 
-function Htmlreview_p() {
+function Htmlreview_p(props) {
   const [searchParams, setSearchParams] = useSearchParams();
-  const rid = searchParams.get('id');
+  // const rid = searchParams.get('id');
+  const rid = props.id
   const [newData, setNewData] = useState({
     reviewid: rid,
     title: '',
@@ -26,16 +28,17 @@ function Htmlreview_p() {
     try {
       await axios.post(`${API_URL}/htmlreview`, newData);
       console.log('성공');
-      navigate('/htmlboard');
+      window.location.reload(); // "완료" 버튼 클릭 시 페이지 리로드
     } catch (err) {
       console.log(err);
     }
   };
 
   const handleClose = () => {
-    // 추가로 작성하고 싶은 닫기 버튼의 클릭 핸들러
-    navigate('/htmlboard');
+    window.location.reload();
+    navigate('/htmlboard'); // "닫기" 버튼 클릭 시 페이지 이동
   };
+
   return (
     <div className="htmlreview_main">
       <div id='htmlreview_p_container'>
@@ -66,14 +69,14 @@ function Htmlreview_p() {
             size="small"
             multiline
             maxRows={40}
-            minRows={11}
+            minRows={5}
             // style={{ width: '1200px', height: '400px',marginBottom: '20px' }}
             value={newData.content}
             onChange={(e) => setNewData({ ...newData, content: e.target.value })}
           />
         </div>
       </div>
-      <div id="plusBtns">
+      <div id="plusBtns_btns">
         <button id='submit_btn' variant="contained" onClick={handleAdd}>
           완료
         </button>

@@ -1,5 +1,5 @@
 {
-  "name": "1th-project",
+  "name": "5th-project",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -12,14 +12,17 @@
     "@mui/x-data-grid": "^6.18.5",
     "@nivo/funnel": "^0.84.0",
     "@nivo/waffle": "^0.84.0",
+    "@react-oauth/google": "^0.12.1",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "apexcharts": "^3.45.1",
     "axios": "^1.6.2",
     "chakra": "^0.0.3",
     "cleave.js": "^1.6.0",
     "framer-motion": "^10.17.12",
     "react": "^18.2.0",
+    "react-apexcharts": "^1.4.1",
     "react-cookie": "^6.1.1",
     "react-cookies": "^0.1.1",
     "react-dom": "^18.2.0",
@@ -56,6 +59,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "proxy": "http://localhost:3001"
+  }
 }
