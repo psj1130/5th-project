@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import './topmenu.css';
+import { getCookie } from '../../player/cookies';
 
 function TopMenu() {
+  const cookie = getCookie('loginCookie');
 
   return(
     <div id="topmeun-container">
@@ -10,13 +12,13 @@ function TopMenu() {
         <Link to='/'><span className='logo-style'>쩐의 전쟁</span></Link>
       </div>
       <div className="topmenu-list">
-        <Link to='/simulator'>메뉴</Link>
+        <Link to={cookie ? `/simulator/${cookie}` : `/login`}>모의 투자</Link>
       </div>
       <div className="topmenu-list">
-        <Link to='/'>메뉴</Link>
+        <Link to={`/mypage/${cookie}`}>마이페이지</Link>
       </div>
       <div className="topmenu-list">
-        <Link to='/'>메뉴</Link>
+        <Link to='/lucky'>오늘의 운세</Link>
       </div>
       <div className="topmenu-list">
         <Link to='/htmlboard'>커뮤니티</Link>

@@ -144,7 +144,7 @@ const CoinSummary = ({ code, name }) => {
             </div>
           </div>
         </div>
-        <ChartComp data={data}/>
+        <ChartComp code={code}/>
       </div>
     );
   }

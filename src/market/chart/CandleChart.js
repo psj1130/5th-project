@@ -1,53 +1,65 @@
 import React, { useEffect, useState } from 'react';
-import Chart from 'react-apexcharts';
+import axios from 'axios';
+import ReactApexChart from 'react-apexcharts';
 
-const ChartComp = ({ data }) => {
-  const [options, setOptions] = useState({
+const CandleChart = ({code}) => {
+  const [candleData, setCandleData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // 1월 12일부터의 데이터 가져오기
+        const response = await axios.get(
+          'https://api.upbit.com/v1/candles/days',
+          {
+            params: {
+              market: code,
+              to: '2024-01-25T00:00:00Z', // 현재 날짜 기준
+              count: 10,
+            },
+          }
+        );
+        const data = response.data;
+
+        // 캔들 차트 데이터 형식으로 가공
+        const chartData = data.map((candle) => ({
+          x: new Date(candle.timestamp),
+          y: [candle.opening_price, candle.high_price, candle.low_price, candle.trade_price],
+        }));
+
+        setCandleData(chartData);
+      } catch (error) {
+        console.error('API 호출 중 오류 발생:', error);
+      }
+    };
+
+    fetchData();
+  }, [code]);
+
+  const options = {
     chart: {
       type: 'candlestick',
+      height: 350,
+    },
+    title: {
+      text: 'BTC Candlestick Chart',
+      align: 'left',
     },
     xaxis: {
       type: 'datetime',
     },
-  });
-
-  const [series, setSeries] = useState([
-    {
-      data: [], // 초기에는 빈 배열로 시작
+    yaxis: {
+      tooltip: {
+        enabled: true,
+      },
     },
-  ]);
-
-  useEffect(() => {
-    // data가 변경될 때마다 series 업데이트
-    if (data) {
-      setSeries([
-        {
-          data: [
-            // 기존 데이터 유지
-            ...series[0].data,
-
-            // 새로운 데이터 추가
-            {
-              x: new Date(data.trade_timestamp),
-              y: [
-                data.opening_price,
-                data.high_price,
-                data.low_price,
-                data.trade_price,
-              ],
-            },
-          ],
-        },
-      ]);
-    }
-  }, [data, series]);
+  };
 
   return (
-    <div>
-      <h2>Real-time Candlestick Chart</h2>
-      <Chart options={options} series={series} type="candlestick" height={350} />
+    <div id="chart">
+      <ReactApexChart options={options} series={[{ data: candleData }]} type="candlestick" height={350} />
     </div>
   );
 };
 
-export default ChartComp;
+export default CandleChart;

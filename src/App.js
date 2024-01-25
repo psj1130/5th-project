@@ -23,7 +23,7 @@ import Customer from "./customer_ser/customer_service";
 import Stock_detail from "./stock_details/stock_details";
 
 // 메인페이지
-import Lucky from './lucky/lucky';
+import Lucky from './lucky/lucky.jsx';
 import Mainpage from './main/mainpage';
 import Intropage from './main/intropage';
 import MyPage from './user/mypage';
