@@ -10,7 +10,7 @@ import { API_URL } from '../config/serverurl';
 import { DataGrid } from '@mui/x-data-grid';
 import { Link } from 'react-router-dom';
 import { styled } from '@mui/system';
-import { getCookie } from '../customer/cookies';
+import { getCookie } from '../player/cookies';
 import { Box, Typography, TextField, TextareaAutosize, Button, Container, TableContainer, Toolbar } from '@mui/material';
 
 import './htmlboard.css';

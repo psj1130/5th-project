@@ -3,7 +3,13 @@ import './signup.css';
 import React, { useRef, useState } from "react";
 import { API_URL } from "../config/config";
 import { useNavigate } from "react-router";
-
+function generateRandomCode(n) {
+  let str = ''
+  for (let i = 0; i < n; i++) {
+    str += Math.floor(Math.random() * 10)
+  }
+  return str
+}
 const SignUpForm = () => {
   const [name, setName] = useState('');
   const [id, setId] = useState('');
@@ -67,21 +73,22 @@ const SignUpForm = () => {
           setContext('올바른 이메일 형식이 아닙니다.');
         } else if (validateEmail(email)){
           setContext('')
-        }else {
           const data = {
             id: id,
             name: name,
             email: email,
             password: password,
+            method:"local",
+            wallet_code:generateRandomCode(6)
           };
 
           try {
-            const res = await axios.post(`${API_URL}/signup`, data);
+            const res = await axios.post(`${API_URL}/auth/join`, data);
             if (res.data === 'success') {
               alert('회원가입을 축하드립니다 !');
-              navigate('/members/login');
+              navigate('/login');
             } else if (res.data === 'fail') {
-              alert('다시 확인해주세요 !');
+              alert('이미 가입한 이메일입니다.');
             }
           } catch (err) {
             console.log(err);

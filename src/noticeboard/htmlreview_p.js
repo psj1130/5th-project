@@ -7,7 +7,7 @@ import './htmlboard.css';
 import { useNavigate } from 'react-router';
 import { useSearchParams } from "react-router-dom";
 
-import { getCookie } from "../customer/cookies";
+import { getCookie } from "../player/cookies";
 const cookie = getCookie("loginCookie");
 
 function Htmlreview_p() {

@@ -49,14 +49,16 @@
   background-size: 16px;
   
 }
-.login-button{
-  width: 500px;
-  height: 60px;
+.login-button1{
+  width: 400px;
+  height: 35px;
   background-color: black;
+  padding-top: 15px;
   text-align: center;
-  font-size: 35px;
+  font-size: 17px;
   color: white;
-  border-radius: 20px;
+  border-radius: 8px;
+  font-family: 'Pretendard-Regular', sans-serif;
 }
 #signupcenter{
   text-align: center;
