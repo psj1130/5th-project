@@ -3,7 +3,6 @@ import './signup.css';
 import React, { useRef, useState } from "react";
 import { API_URL } from "../config/serverurl";
 import { useNavigate } from "react-router";
-
 function generateRandomCode(n) {
   let str = ''
   for (let i = 0; i < n; i++) {
@@ -49,16 +48,34 @@ const SignUpForm = () => {
         {context}
       </div>
       <div className="login-button" onClick={async () => {
-        if(!name || !password || !password2 || !email) {
-          setContext('필수정보를 입력해주세요 !')
-        } else {
-          if(password == password2) {
-            const data = {
-              email : email,
-              name: name,
-              password : password,
-              method: 'local',
-              wallet_code: generateRandomCode(6)
+        if (!name || !password || !password2 || !email) {
+          setContext('필수정보를 입력해주세요 !');
+        } else if (password !== password2) {
+          setContext('비밀번호가 일치하지 않습니다.');
+          pw_css.current.style.setProperty('border', '1px solid red');
+          pw2_css.current.style.setProperty('border', '1px solid red');
+        } else if (!/^(?=.*[a-zA-Z])(?=.*\d).+$/.test(password)) {
+          setContext('비밀번호는 숫자와 영문자를 모두 포함해야 합니다.');
+        } else if (!validateEmail(email)) {
+          setContext('올바른 이메일 형식이 아닙니다.');
+        } else if (validateEmail(email)){
+          setContext('')
+          const data = {
+            id: id,
+            name: name,
+            email: email,
+            password: password,
+            method:"local",
+            wallet_code:generateRandomCode(6)
+          };
+
+          try {
+            const res = await axios.post(`${API_URL}/auth/join`, data);
+            if (res.data === 'success') {
+              alert('회원가입을 축하드립니다 !');
+              navigate('/login');
+            } else if (res.data === 'fail') {
+              alert('이미 가입한 이메일입니다.');
             }
             await axios.post(`${API_URL}/auth/join`, data)
               .then(res => {

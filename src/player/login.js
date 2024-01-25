@@ -4,7 +4,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { setCookie } from "./cookies";
 import axios from "axios";
 import { API_URL } from "../config/serverurl";
-
+import Kakao from "./kakao"
+import { getCookie, delCookie } from "./cookies";
+const cookie = getCookie('loginCookie');
 const LoginForm = (props) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -67,7 +69,7 @@ const LoginForm = (props) => {
 
 function LoginPage() {
   const navigate = useNavigate();
-
+if(!cookie){
   return (
     <div id="login-page-wrapper">
       <div id="login-page-container">
@@ -83,13 +85,18 @@ function LoginPage() {
               <input type="hidden" id="enc_data" name="enc_data" />
               <input type="hidden" id="integrity_value" name="integrity_value" />
           </form> */}
-          <div onClick={() => {
+
+          <div className="login-button1" onClick={() => {
             navigate('/signup');
-          }}>이메일로 회원가입</div>
+          }}><b>이메일로 회원가입</b></div>
+          <Kakao/>
         </div>
       </div>
     </div>
   )
+}else{
+  window.location.replace("/")
+}
 }
 
 export default LoginPage;

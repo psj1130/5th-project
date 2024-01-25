@@ -23,6 +23,7 @@ import Customer from "./customer_ser/customer_service";
 import Stock_detail from "./stock_details/stock_details";
 
 // 메인페이지
+import Lucky from './lucky/lucky';
 import Mainpage from './main/mainpage';
 import Intropage from './main/intropage';
 import MyPage from './user/mypage';
@@ -65,6 +66,9 @@ function App() {
                  {/* 민원기 */}
                 <Route path="/customer/*"  element={<Customer />} />
                 <Route path="/Stock_detail/:code" element={<Stock_detail/>}/>
+                {/* 정성원 */}
+                <Route path="/lucky"  element={<Lucky />}/>
+               
               </Routes>
           </div>
           <Footer/>
