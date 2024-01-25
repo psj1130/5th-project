@@ -7,7 +7,7 @@ function TopMenu() {
   return(
     <div id="topmeun-container">
       <div className="topmenu-title-box">
-        <span className='logo-style'>쩐의 전쟁</span>
+        <Link to='/'><span className='logo-style'>쩐의 전쟁</span></Link>
       </div>
       <div className="topmenu-list">
         <Link to='/simulator'>메뉴</Link>
