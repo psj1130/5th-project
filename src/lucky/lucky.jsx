@@ -110,7 +110,6 @@ return (
   );
 };
 
-
 export default TodayFortune;
 
 
