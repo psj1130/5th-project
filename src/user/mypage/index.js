@@ -14,7 +14,6 @@ export default function MyPage() {
     <div className="MyPage__Wrapper">
       <UserSummary/>
       <div className="MyPage__Container">
-        <div>
           <ExchangeProvider>
             <SummaryProvider>
               <UserProvider>
@@ -24,7 +23,6 @@ export default function MyPage() {
               </UserProvider>
             </SummaryProvider>
           </ExchangeProvider>
-        </div>
       </div>
     </div>
   )

@@ -1,0 +1,18 @@
+.User__Summary__Wrapper {
+  width: 500px;
+}
+
+.User__Name {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: 'Pretendard-Regular';
+}
+
+#userchart {
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

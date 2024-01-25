@@ -52,7 +52,7 @@ const CoinPage = () => {
   }, [dispatch]);
 
   return (
-    <div id='simulator-wrapper'>
+    <div id='CoinList__Wrapper'>
       <CoinListContainer/>
     </div>
   )
