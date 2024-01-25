@@ -82,7 +82,7 @@ function SearchComponent() {
   return (
     <div id='searchresult_main'>
       {searchResults.length > 0 && (
-        <Typography variant="h5" component="div" id="searchresult_title">
+        <Typography variant="h5" component="div" id="searchresult_title2">
           검색 결과
         </Typography>
       )}
