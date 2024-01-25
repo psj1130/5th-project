@@ -31,7 +31,6 @@ import LiveChart from './market';
 
 // 테스트
 import GoogleLogin from './test/googleLogin';
-import GoogleRegister from './user/register/googleRegister';
 
 
 
@@ -60,7 +59,6 @@ function App() {
                 <Route path='/simulator/:id' element={<LiveChart/>}/>
                 <Route path='/mypage/:id' element={<MyPage/>}/>
                 <Route path='/test' element={<GoogleLogin/>}/>
-                <Route path='/success' element={<GoogleRegister/>}/>
                   
                  {/* 민원기 */}
                 <Route path="/customer/*"  element={<Customer />} />

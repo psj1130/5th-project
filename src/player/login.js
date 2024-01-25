@@ -55,6 +55,8 @@ const LoginForm = (props) => {
             id_css.current.style.setProperty('border', '1px solid red')
             pw_css.current.style.setProperty('border', '1px solid red')
             setContext('아이디 또는 비밀번호를 다시 확인해주세요 !');
+          }else if(res.data == '3') {
+            alert('구글 로그인을 이용해주세요 !');
           }
         })
         .catch((err) => {
