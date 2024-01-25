@@ -61,12 +61,8 @@ const SignUpForm = () => {
           pw2_css.current.style.setProperty('border', '1px solid red');
         } else if (!/^(?=.*[a-zA-Z])(?=.*\d).+$/.test(password)) {
           setContext('비밀번호는 숫자와 영문자를 모두 포함해야 합니다.');
-        } else if (!validateEmail(email)) {
-          setContext('올바른 이메일 형식이 아닙니다.');
-        } else if (validateEmail(email)){
-          setContext('')
+        } else {
           const data = {
-           
             name: name,
             email: email,
             password: password,
@@ -91,12 +87,9 @@ const SignUpForm = () => {
                   alert('다시 확인해주세요 !');
                 }
               })
-              .catch(err => {
-                console.log(err);
-              })
-          }catch{
-
-          } 
+          } catch(err) {
+            console.log(err);
+          }
         }
       }}>
         회원가입
