@@ -38,5 +38,6 @@
   border: 1px solid;
   display: flex;
   flex-direction: column;
+  background-color: #7a7a7a;
   justify-content: center;
 }

@@ -21,11 +21,9 @@ export default function Service() {
         <Link to='/' className='component-service-link'>더 보기</Link>
       </div>
       <ul id='service-list-box'>
-        <li>데</li>
-        <li>이</li>
-        <li>터</li>
-        <li>받</li>
-        <li>기</li>
+        {servicedata.map((item, index) => (
+          <li key={index}>{item.body}</li>
+        ))}
       </ul>
     </div>
   );

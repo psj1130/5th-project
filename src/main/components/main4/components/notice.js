@@ -21,11 +21,9 @@ export default function Notice() {
         <Link to='/' className='component-notice-link'>더 보기</Link>
       </div>
         <ul id='notice-list-box'>
-          <li>데</li>
-          <li>이</li>
-          <li>터</li>
-          <li>받</li>
-          <li>기</li>
+          {noticedata.map((item, index) => (
+            <li key={index}>{item.body}</li>
+          ))}
         </ul>
     </div>
   );
