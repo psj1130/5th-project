@@ -20,6 +20,11 @@ const SignUpForm = () => {
   const pw_css = useRef(document.getElementById('pw'));
   const pw2_css = useRef(document.getElementById('pw2'));
   const navigate = useNavigate();
+  const validateEmail = (email) => {
+    // 간단한 이메일 유효성 검사를 수행합니다.
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
   return (
     <div className="signup-form-container">
       <p><span>닉네임</span></p>
@@ -81,9 +86,6 @@ const SignUpForm = () => {
                 } else if(res.data == 'fail') {
                   alert('다시 확인해주세요 !');
                 }
-              })
-              .catch(err => {
-                console.log(err);
               })
           } catch(err) {
             console.log(err);

@@ -7,7 +7,6 @@ import axios from 'axios';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import './htmlboard.css';
-
 const cookie = getCookie("loginCookie");
 
 function Htmlreview_p(props) {
