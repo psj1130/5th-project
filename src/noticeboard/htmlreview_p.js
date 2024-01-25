@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { useSearchParams } from "react-router-dom";
-import { getCookie } from "../customer/cookies";
 import { API_URL } from '../config/serverurl';
 import axios from 'axios';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import './htmlboard.css';
-
 import { getCookie } from "../player/cookies";
 const cookie = getCookie("loginCookie");
 

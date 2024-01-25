@@ -20,6 +20,11 @@ const SignUpForm = () => {
   const pw_css = useRef(document.getElementById('pw'));
   const pw2_css = useRef(document.getElementById('pw2'));
   const navigate = useNavigate();
+  const validateEmail = (email) => {
+    // 간단한 이메일 유효성 검사를 수행합니다.
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
   return (
     <div className="signup-form-container">
       <p><span>닉네임</span></p>
@@ -61,7 +66,7 @@ const SignUpForm = () => {
         } else if (validateEmail(email)){
           setContext('')
           const data = {
-            id: id,
+           
             name: name,
             email: email,
             password: password,
@@ -89,10 +94,9 @@ const SignUpForm = () => {
               .catch(err => {
                 console.log(err);
               })
-          } else if(password != password2) {
-            pw_css.current.style.setProperty('border', '1px solid red');
-            pw2_css.current.style.setProperty('border', '1px solid red');
-          }
+          }catch{
+
+          } 
         }
       }}>
         회원가입

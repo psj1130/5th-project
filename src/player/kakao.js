@@ -3,7 +3,7 @@ import KakaoLogin from "react-kakao-login";
 import { API_URL } from "../config/contansts";
 import { useNavigate } from "react-router-dom";
 import { setCookie } from "./cookies";
-
+import "./kakao.css";
 const setTime = 3600000; //1시간
 const KakaoLoginButton =()=>{
   const navigate = useNavigate();
@@ -40,10 +40,20 @@ const KakaoLoginButton =()=>{
 
   return(
     <>
-      <KakaoLogin
+     <KakaoLogin
         token={kakaoClientId}
         onSuccess={kakaoOnSuccess}
         onFail={kakaoOnFailure}
+        render={({ onClick }) => (
+          <div
+            onClick={(e) => {
+              e.preventDefault();
+              onClick();
+            }}
+          >
+           <img src="../img/kakao.png" id="kakaoimg"/>
+          </div>
+        )}
       />
     </>
   )
