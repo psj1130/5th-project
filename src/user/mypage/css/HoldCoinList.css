@@ -49,7 +49,7 @@
   flex: 1;
 }
 .Hold__Coin__List .Coin__Average p {
-  text-align: right;
+  text-align: r;
 }
 .Hold__Coin__List .Coin__Average p span {
   font-size: 0.5rem;

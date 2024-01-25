@@ -3,9 +3,9 @@ import CoinPage from "./page";
 
 const Exchange = () => {
   return (
-    <div>
+    <>
       <CoinPage/>
-    </div>
+    </>
   )
 }
 

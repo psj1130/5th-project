@@ -3,80 +3,60 @@ import ReactApexChart from 'react-apexcharts';
 import { API_URL } from "../../../config/config";
 import axios from "axios";
 
-const UserDonut = ({userData}) => {
-  console.log(userData);
-  const [user, setUser] = useState();
-  const [data, setData] = useState([]);
-  const [donutData, setDonutData] = useState({
-    series: [],
-    options: {
-      chart: {
-        type: 'donut',
-      },
-      legend: {
-        position: 'bottom'
-      },
-      responsive: [{
-        breakpoint: 480,
-      }],
-      labels: [],
-      title: {
-        text: '투자 내역',
-        align: 'center'
-      }
-    },
-  })
+const UserDonut = ({ userData }) => {
+  const [series, setSeries] = useState([]);
+  const [labels, setLabels] = useState([]);
 
   useEffect(() => {
-    axios.get(`${API_URL}/user/wallet/get/${userData.wallet_code}`)
-      .then((res) => {
-        const data = res.data;
-        const a = data.map((b) => {
-          const c = {name : b.coin_name, price : b.totalprice}
-          return c;
-        })
-        console.log(a);
-        const d = [{name: '잔고', price: userData?.balance}];
-        setData(d.concat(a));
-        setDonutData({
-          series: d.concat(a).map(a => a.price),
-          options: {
-            chart: {
-              type: 'donut',
-            },
-            legend: {
-              position: 'bottom'
-            },
-            responsive: [{
-              breakpoint: 480,
-            }],
-            labels: d.concat(a).map(a => a.name),
-            title: {
-              text: '투자 내역',
-              align: 'center'
-            }
-          },
-        })
-      })
-      .catch((err) => {
-        console.log(err);
-      })
+    if (userData) {
+      axios.get(`${API_URL}/user/wallet/get/${userData.wallet_code}`)
+        .then((res) => {
+          const data = res.data;
+          const coinData = data.map((coin) => ({
+            name: coin.coin_name,
+            price: coin.totalprice
+          }));
 
-    setUser(userData);
+          const userBalanceData = [{
+            name: '잔고',
+            price: userData.balance
+          }];
+
+          setSeries([...userBalanceData, ...coinData].map((item) => item.price));
+          setLabels([...userBalanceData, ...coinData].map((item) => item.name));
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   }, [userData]);
 
-  console.log(user);
+  if (!userData) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div id="userchart">
-      {userData ? <ReactApexChart
-        options={donutData?.options}
-        series={donutData?.series}
-        type="donut"
+      <ReactApexChart
+        options={{
+          labels: labels,
+          legend: {
+            position: 'bottom'
+          },
+          responsive: [{
+            breakpoint: 480,
+          }],
+          title: {
+            text: '투자 내역',
+            align: 'center'
+          }
+        }}
+        series={series}
+        type='donut'
         width={500}
-      /> : null}
+      />
     </div>
-  )
-}
+  );
+};
 
 export default UserDonut;

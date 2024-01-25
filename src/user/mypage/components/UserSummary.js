@@ -3,6 +3,7 @@ import { API_URL } from "../../../config/config";
 import { useParams } from "react-router";
 import axios from "axios";
 import UserDonut from "./UserDonut";
+import '../css/UserSummary.css'
 
 const UserSummary = () => {
   const { id } = useParams();
