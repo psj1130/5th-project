@@ -7,3 +7,26 @@
   flex-direction: row;
   /* border: 1px solid #000; */
 }
+#searchresult_main{
+  width: 100%;
+  height: auto;
+  margin-top: 50px;
+}
+#custom_input_searchbar{
+  width: 100%;
+  height: 10%;
+  /* border: 1px solid #000; */
+}
+#searchresult_title2{
+  width: 100%;
+  /* height: 150px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid #000; */
+}
+
+
+/* .MuiBox-root {
+  width: 130vh;
+} */

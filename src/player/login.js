@@ -3,7 +3,10 @@ import './login.css'
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { API_URL } from "../config/serverurl";
-
+import Kakao from "./kakao";
+import { getCookie, delCookie } from "./cookies";
+import Google from "../test/googleLogin";
+const cookie = getCookie('loginCookie');
 const LoginForm = (props) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -18,7 +21,7 @@ const LoginForm = (props) => {
     <div className="login-form-container">
       <div className="login-input-container">
         <p>
-          <span>아이디</span>
+          <span>이메일</span>
         </p>
         <input ref={id_css} id='email' name='email' type="text" placeholder="아이디를 입력해 주세요." onChange={(e) => {
           setEmail(e.target.value);
@@ -49,6 +52,8 @@ const LoginForm = (props) => {
             id_css.current.style.setProperty('border', '1px solid red')
             pw_css.current.style.setProperty('border', '1px solid red')
             setContext('아이디 또는 비밀번호를 다시 확인해주세요 !');
+          }else if(res.data == '3') {
+            alert('구글 로그인을 이용해주세요 !');
           }
         })
         .catch((err) => {
@@ -56,34 +61,35 @@ const LoginForm = (props) => {
         })
       }}>로그인</div>
     </div>
+    
   )
 }
 
 function LoginPage() {
   const navigate = useNavigate();
-
+if(!cookie){
   return (
     <div id="login-page-wrapper">
       <div id="login-page-container">
         <div className="customer-h1">
-          <h1>로그인</h1>
+          <h1><b>쩐의 전쟁</b></h1>
         </div>
         <LoginForm/>
         <div className="other-container">
-          {/* <span >아이디/비밀번호 찾기</span>
-          <form name="form" id="form" action="https://nice.checkplus.co.kr/CheckPlusSafeModel/service.cb">
-              <input type="hidden" id="m" name="m" value="service" />
-              <input type="hidden" id="token_version_id" name="token_version_id" value="" />
-              <input type="hidden" id="enc_data" name="enc_data" />
-              <input type="hidden" id="integrity_value" name="integrity_value" />
-          </form> */}
-          <div onClick={() => {
-            navigate('/members/signup');
-          }}>이메일로 회원가입</div>
+          <div className="login-button1" onClick={() => {
+            navigate('/signup');
+          }}><b>회원가입</b></div>
+          
+          
         </div>
+        <Kakao/>
+        <Google/>
       </div>
     </div>
   )
+}else{
+  window.location.replace("/")
+}
 }
 
 export default LoginPage;

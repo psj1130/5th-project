@@ -24,7 +24,7 @@ function Login() {
                 </li>
               </>
   } else if(!cookie) {
-    context = <li className='login-style'><Link to='/members/login' onClick={() => {
+    context = <li className='login-style'><Link to='/login' onClick={() => {
       window.sessionStorage.setItem('BeforePage', window.location.pathname);
     }}>로그인</Link></li>
   }
@@ -36,7 +36,7 @@ function Login() {
         <img className="login-img-style" src="/main/login_icon.png" alt="icon" />
           {/* <Link
           className='login-main-text-style'
-          to='/members/login'>
+          to='/login'>
             로그인
           </Link> */}
           {context}

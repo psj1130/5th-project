@@ -3,6 +3,13 @@ import './signup.css';
 import React, { useRef, useState } from "react";
 import { API_URL } from "../config/serverurl";
 import { useNavigate } from "react-router";
+function generateRandomCode(n) {
+  let str = ''
+  for (let i = 0; i < n; i++) {
+    str += Math.floor(Math.random() * 10)
+  }
+  return str
+}
 
 function generateRandomCode(n) {
   let str = ''
@@ -21,6 +28,13 @@ const SignUpForm = () => {
   const pw_css = useRef(document.getElementById('pw'));
   const pw2_css = useRef(document.getElementById('pw2'));
   const navigate = useNavigate();
+
+  const validateEmail = (email) => {
+    // 간단한 이메일 유효성 검사를 수행합니다.
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
   return (
     <div className="signup-form-container">
       <p><span>닉네임</span></p>
@@ -34,7 +48,7 @@ const SignUpForm = () => {
       <div className="password-container">
         <div>
           <p><span>비밀번호</span></p>
-          <input ref={pw_css} id="pw" type="text" placeholder="비밀번호를 입력해주세요." onChange={(e) => {
+          <input ref={pw_css} id="password" type="password" name="password" placeholder="비밀번호를 입력해주세요." onChange={(e) => {
             setPassword(e.target.value);
           }}></input>
         </div>
@@ -49,16 +63,30 @@ const SignUpForm = () => {
         {context}
       </div>
       <div className="login-button" onClick={async () => {
-        if(!name || !password || !password2 || !email) {
-          setContext('필수정보를 입력해주세요 !')
+        if (!name || !password || !password2 || !email) {
+          setContext('필수정보를 입력해주세요 !');
+        } else if (password !== password2) {
+          setContext('비밀번호가 일치하지 않습니다.');
+          pw_css.current.style.setProperty('border', '1px solid red');
+          pw2_css.current.style.setProperty('border', '1px solid red');
+        } else if (!/^(?=.*[a-zA-Z])(?=.*\d).+$/.test(password)) {
+          setContext('비밀번호는 숫자와 영문자를 모두 포함해야 합니다.');
         } else {
-          if(password == password2) {
-            const data = {
-              email : email,
-              name: name,
-              password : password,
-              method: 'local',
-              wallet_code: generateRandomCode(6)
+          const data = {
+            name: name,
+            email: email,
+            password: password,
+            method:"local",
+            wallet_code:generateRandomCode(6)
+          };
+
+          try {
+            const res = await axios.post(`${API_URL}/auth/join`, data);
+            if (res.data === 'success') {
+              alert('회원가입을 축하드립니다 !');
+              navigate('/login');
+            } else if (res.data === 'fail') {
+              alert('이미 가입한 이메일입니다.');
             }
             await axios.post(`${API_URL}/auth/join`, data)
               .then(res => {
@@ -69,12 +97,8 @@ const SignUpForm = () => {
                   alert('다시 확인해주세요 !');
                 }
               })
-              .catch(err => {
-                console.log(err);
-              })
-          } else if(password != password2) {
-            pw_css.current.style.setProperty('border', '1px solid red');
-            pw2_css.current.style.setProperty('border', '1px solid red');
+          } catch(err) {
+            console.log(err);
           }
         }
       }}>

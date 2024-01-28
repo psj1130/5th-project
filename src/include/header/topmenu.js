@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import './topmenu.css';
+import { getCookie } from '../../player/cookies';
 
 function TopMenu() {
+  const cookie = getCookie('loginCookie');
 
   return(
     <div id="topmeun-container">
@@ -24,6 +26,7 @@ function TopMenu() {
       <div className="topmenu-list">
         <Link to='/'>고객센터</Link>
       </div>
+      
     </div>
   );
 }

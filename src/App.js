@@ -1,12 +1,8 @@
 import React from 'react';
 import './App.css';
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Router, Routes, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
-
-// import { BrowserRouter, Route, Routes, Router } from "react-router-dom"; 
-// 컴포넌트 불러오기
-// import LiveChart from './market';
 
 import Boarder from './include/board';
 import Header from './include/header';
@@ -23,9 +19,11 @@ import SearchComponent from './include/searchresult';
 import LoginPage from './player/login';
 import SignUpPage from './player/signup';
 
-
+import Customer from "./customer_ser/customer_service";
+import Stock_detail from "./stock_details/stock_details";
 
 // 메인페이지
+import Lucky from './lucky/lucky.jsx';
 import Mainpage from './main/mainpage';
 import Intropage from './main/intropage';
 import MyPage from './user/mypage';
@@ -34,7 +32,6 @@ import LiveChart from './market';
 
 // 테스트
 import GoogleLogin from './test/googleLogin';
-import GoogleRegister from './user/register/googleRegister';
 
 
 
@@ -44,9 +41,10 @@ function App() {
           <Header/>
           <div id='App_Main'>
               <Routes>
-                {/* <Route path='/' element={<Main/>}/> */}
-                <Route path='/members/login' element={<LoginPage/>}/>
-                <Route path='/members/signup' element={<SignUpPage/>}/>
+                <Route path='/login' element={<LoginPage/>}/>
+                <Route path='/signup' element={<SignUpPage/>}/>              
+
+                {/* 이동명 */}
                 <Route path='/include/boarder' element={<Boarder/>}/>
                 <Route path='/search/:keyword' element={<SearchComponent/>}/>
                 <Route path='/htmlboard' element={<Htmlboard/>}/>
@@ -62,7 +60,13 @@ function App() {
                 <Route path='/simulator/:id' element={<LiveChart/>}/>
                 <Route path='/mypage/:id' element={<MyPage/>}/>
                 <Route path='/test' element={<GoogleLogin/>}/>
-                <Route path='/success' element={<GoogleRegister/>}/>
+                  
+                 {/* 민원기 */}
+                <Route path="/customer/*"  element={<Customer />} />
+                <Route path="/Stock_detail/:code" element={<Stock_detail/>}/>
+                {/* 정성원 */}
+                <Route path="/lucky"  element={<Lucky />}/>
+               
               </Routes>
           </div>
           <Footer/>
