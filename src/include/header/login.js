@@ -2,16 +2,27 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import './login.css';
 import { getCookie, delCookie } from "../../player/cookies";
+import { API_URL } from '../../config/serverurl';
+import axios from 'axios';
 function Login() {
-  const cookie = getCookie('loginCookie');
+  const cookie = getCookie('user-cookie');
   let context = null;
 
+  const logout = async () => {
+    try {
+      await axios.get(`${API_URL}/auth/test`, { withCredentials: true });
+    } catch (error) {
+      console.error(error);
+    }
+    document.location.reload(true);
+  }
+
   if(cookie) {
-    context = <><li className='login-style'><p onClick={() => {
-      delCookie('loginCookie');
-      document.location.reload(true);
-    }}>로그아웃</p></li>
-    </>
+    context = <>
+                <li className='login-style'>
+                  <p onClick={logout}>로그아웃</p>
+                </li>
+              </>
   } else if(!cookie) {
     context = <li className='login-style'><Link to='/members/login' onClick={() => {
       window.sessionStorage.setItem('BeforePage', window.location.pathname);

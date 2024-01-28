@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react";
 import './login.css'
 import { Link, useNavigate } from "react-router-dom";
-import { setCookie } from "./cookies";
 import axios from "axios";
 import { API_URL } from "../config/serverurl";
 
@@ -40,15 +39,10 @@ const LoginForm = (props) => {
           pw_css.current.style.setProperty('border', '1px solid red')
           setContext('아이디 또는 비밀번호를 입력해주세요 !');
         }
-        await axios.post(`${API_URL}/auth/login`, { email: email, password: password})
+        await axios.post(`${API_URL}/auth/login`, { email: email, password: password}, { withCredentials: true })
         .then((res) => {
           if(res.data == '1') {
-            console.log('로그인 성공');
-            setCookie('loginCookie', email, {
-              path: '/',
-              secure: '/',
-              expires: new Date(Date.now() + setTime),
-            });
+            alert('로그인 성공');
             navigate(sessionStorage.getItem('BeforePage') ? sessionStorage.getItem('BeforePage') : '/');
             document.location.reload(true);
           }else if(res.data == '2') {
