@@ -5,7 +5,7 @@ export default function Luck() {
   return(
     <div id='luck-box'>
       <div id="luck-img-box">
-        <img src="/main/test.png" alt="png" />
+        <img src="/main/luck-select.png" alt="png" />
       </div>
       <div id="luck-detail-box">
         <p><span className='luck-logo-style'>쩐의 전쟁</span> 운세는 재미로 보는 운세입니다 !<br/>

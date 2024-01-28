@@ -11,6 +11,14 @@ function generateRandomCode(n) {
   return str
 }
 
+function generateRandomCode(n) {
+  let str = ''
+  for (let i = 0; i < n; i++) {
+    str += Math.floor(Math.random() * 10)
+  }
+  return str
+}
+
 const SignUpForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -20,11 +28,13 @@ const SignUpForm = () => {
   const pw_css = useRef(document.getElementById('pw'));
   const pw2_css = useRef(document.getElementById('pw2'));
   const navigate = useNavigate();
+
   const validateEmail = (email) => {
     // 간단한 이메일 유효성 검사를 수행합니다.
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
+
   return (
     <div className="signup-form-container">
       <p><span>닉네임</span></p>

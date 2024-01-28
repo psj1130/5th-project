@@ -1,73 +1,62 @@
 import React from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import {XAxis, CartesianGrid, ResponsiveContainer, BarChart, Bar } from 'recharts';
 
 const data = [
   {
-    name: 'Page A',
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
+    name: '비트코인',
+    uv: 1500,
+    pv: 1800,
+    amt: 1800,
   },
   {
-    name: 'Page B',
-    uv: 3000,
+    name: '리플',
+    uv: 1500,
     pv: 1398,
-    amt: 2210,
+    amt: 1600,
   },
   {
-    name: 'Page C',
-    uv: 2000,
+    name: '도지',
+    uv: 1500,
     pv: 800,
-    amt: 2290,
+    amt: 1700,
   },
   {
-    name: 'Page D',
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
+    name: '이더리움',
+    uv: 1200,
+    pv: 1300,
+    amt: 1200,
   },
   {
-    name: 'Page E',
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
+    name: '샌드박스',
+    uv: 1200,
+    pv: 1500,
+    amt: 1400,
   },
   {
-    name: 'Page F',
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    name: 'Page G',
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-];
+    name: '솔라',
+    uv: 1500,
+    pv: 1500,
+    amt: 1500,
+  }
+]
 
 const Recharts = () => {
   return (
     <ResponsiveContainer width="100%" height="100%">
-      <LineChart
-        width={500}
-        height={300}
-        data={data}
-        margin={{
-          top: 5,
-          right: 30,
-          left: 20,
-          bottom: 5,
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
-        <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
-      </LineChart>
+      <BarChart
+  width={730}
+  height={250}
+  data={data}
+  margin={{ top: 15, right: 30, left: 20, bottom: 5 }}
+>
+  <CartesianGrid strokeDasharray="3 3" />
+  <XAxis dataKey="name">
+  </XAxis>
+  <Bar dataKey="pv" fill="#D1180B">
+  </Bar>
+  <Bar dataKey="uv" fill="#0019f4">
+  </Bar>
+</BarChart>
     </ResponsiveContainer>
   );
 };
