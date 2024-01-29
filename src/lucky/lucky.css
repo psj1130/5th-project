@@ -14,11 +14,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+margin-top: 70px;
+  margin-bottom: 130px;
 }
 
 .fortune-card:hover {
-  border: 2px solid black;
-  box-shadow: 0 0 10px rgba(213, 213, 219, 0.5);
+  /* border: 2px solid black; */
+  /* box-shadow: 0 0 10px rgba(213, 213, 219, 0.5); */
 }
 
 .fortune-card:active {
@@ -67,6 +69,12 @@
 
 #luckyh1 {
   text-align: center;
+margin-top: 50px;
+  font-size: 35px;
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 #luckyp{
   margin: 20px;

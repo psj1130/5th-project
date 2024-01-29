@@ -3,6 +3,13 @@ import './signup.css';
 import React, { useRef, useState } from "react";
 import { API_URL } from "../config/config";
 import { useNavigate } from "react-router";
+function generateRandomCode(n) {
+  let str = ''
+  for (let i = 0; i < n; i++) {
+    str += Math.floor(Math.random() * 10)
+  }
+  return str
+}
 
 
 const SignUpForm = () => {
@@ -57,7 +64,10 @@ const SignUpForm = () => {
           pw2_css.current.style.setProperty('border', '1px solid red');
         } else if (!/^(?=.*[a-zA-Z])(?=.*\d).+$/.test(password)) {
           setContext('비밀번호는 숫자와 영문자를 모두 포함해야 합니다.');
-        } else {
+        } else if (!validateEmail(email)) {
+          setContext('올바른 이메일 형식이 아닙니다.');
+        } else if (validateEmail(email)){
+          setContext('')
           const data = {
             name: name,
             email: email,

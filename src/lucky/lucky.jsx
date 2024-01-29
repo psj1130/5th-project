@@ -36,7 +36,7 @@ const TodayFortune = () => {
     try {
       const fortunesFromDB = await getFortunesFromDatabase();
       if (selectedCardIndex === index) {
-        // 이미 선택된 카드를 다시 클릭하면 초기화
+        // 이미 선택된 카드를 다시 클릭하면 초기화123
         setSelectedCardIndex(null);
       } else {
         const availableFortunes = fortunes
@@ -78,7 +78,7 @@ const TodayFortune = () => {
 
   return (
     <div>
-      <h1 id='luckyh1'>{name}님의 오늘의 운세!</h1>
+      <h1 id='luckyh1'><b>{name}</b>님의 오늘의 운세!</h1>
       <div className="fortune-cards-container">
         {fortunes && fortunes.slice(0,5).sort(() => Math.random()-0.5).map((fortune, index) => (
           <div
