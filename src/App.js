@@ -31,7 +31,7 @@ import MyPage from './user/mypage';
 import LiveChart from './market';
 
 // 테스트
-import GoogleLogin from './test/googleLogin';
+import GoogleLogin from './player/googleLogin';
 
 
 
