@@ -5,7 +5,7 @@ import axios from "axios";
 import { API_URL } from "../config/config";
 import Kakao from "./kakao";
 import { getCookie } from "./cookies";
-import Google from "../test/googleLogin";
+import Google from "./googleLogin";
 const cookie = getCookie('loginCookie');
 const LoginForm = (props) => {
   const [email, setEmail] = useState();
