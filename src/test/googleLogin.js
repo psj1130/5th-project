@@ -69,9 +69,9 @@ const GoogleLogin = () => {
   return (
     <div>
       <div>
-        <button onClick={() => {
+        {/* <button onClick={() => {
           window.location.href = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${clientid}&redirect_uri=http://localhost:3000/success&response_type=code&scope=email+profile`;
-        }}>구글 로그인 하기</button>
+        }}>구글 로그인 하기</button> */}
         {/* <button type="click" onClick={ async () => {
           await axios.get(`${API_URL}/auth/googlelogin`, {
             headers: {"Access-Control-Allow-Origin" : "http://localhost:3000"}

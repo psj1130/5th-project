@@ -6,7 +6,7 @@
 }
 
 #login-page-container {
-  width: 440px;
+  width: 350px;
   
 }
 .customer-h1 {
@@ -22,7 +22,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
 }
 .login-input-container {
   display: flex;
@@ -63,7 +63,7 @@
   font-family: 'Pretendard-Regular', sans-serif;
 }
 .other-container {
-  margin: 20px 0;
+  margin: 10px 0;
   text-align: center;
   display: flex;
   gap: 20px;

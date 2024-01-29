@@ -9,10 +9,19 @@
   text-align: center;
   align-items: center;
 }
+#intro-text-bg {
+  width: 400px;
+  height: 400px;
+  background-image: url('./intro-money.png');
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
 .intro-logo-style {
   color: white;
-  font-size: 76px;
+  font-size: 86px;
   font-family: 'SBAggroB';
 }
  
@@ -40,8 +49,7 @@
  line-height: 42px;
  padding: 0;
  border: none;
- z-index: 1;
-  -webkit-transition: all 0.3s linear;
+-webkit-transition: all 0.3s linear;
  transition: all 0.3s linear;
  cursor: pointer;
  border-radius: 35px;
@@ -55,8 +63,6 @@
  position: absolute;
  content: "";
  left: 0;
- width: 100%;
- height: 50%;
  right: 0;
  z-index: -1;
  background: #000;

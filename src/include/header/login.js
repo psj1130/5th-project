@@ -2,16 +2,27 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import './login.css';
 import { getCookie, delCookie } from "../../player/cookies";
+import { API_URL } from '../../config/serverurl';
+import axios from 'axios';
 function Login() {
-  const cookie = getCookie('loginCookie');
+  const cookie = getCookie('user-cookie');
   let context = null;
 
+  const logout = async () => {
+    try {
+      await axios.get(`${API_URL}/auth/test`, { withCredentials: true });
+    } catch (error) {
+      console.error(error);
+    }
+    document.location.reload(true);
+  }
+
   if(cookie) {
-    context = <><li className='login-style'><p onClick={() => {
-      delCookie('loginCookie');
-      document.location.reload(true);
-    }}>로그아웃</p></li>
-    </>
+    context = <>
+                <li className='login-style'>
+                  <p onClick={logout}>로그아웃</p>
+                </li>
+              </>
   } else if(!cookie) {
     context = <li className='login-style'><Link to='/login' onClick={() => {
       window.sessionStorage.setItem('BeforePage', window.location.pathname);
@@ -39,12 +50,12 @@ function Login() {
           </label>
             <div id="side-menu">
               <ul id='side-menu-container'>
-                <li><Link to='#'>메뉴1</Link></li>
-                <li><Link to='#'>메뉴2</Link></li>
-                <li><Link to='#'>메뉴3</Link></li>
-                <li><Link to='#'>메뉴4</Link></li>
-                <li><Link to='#'>메뉴5</Link></li>
-                <li><Link to='#'>메뉴6</Link></li>
+                <li><Link to='#'>홈</Link></li>
+                <li><Link to='#'>차트</Link></li>
+                <li><Link to='#'>종목 상세</Link></li>
+                <li><Link to='#'>운세</Link></li>
+                <li><Link to='#'>커뮤니티</Link></li>
+                <li><Link to='#'>고객센터</Link></li>
                 <li><Link to='/members/login'>로그인</Link></li>
               </ul>
             </div>

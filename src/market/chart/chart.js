@@ -3,14 +3,10 @@ import './chart.css';
 import { useExchangeState} from '../../market/context/ExchangeContext';
 import CandleChart from "./CandleChart";
 
-const ChartComp = ({data}) => {
+const ChartComp = ({code}) => {
   return (
     <div>
-      {/* {data ? (
-        <p>Loading...</p>
-      ) : ( */}
-        <CandleChart data={data} />
-      {/* )} */}
+        <CandleChart code={code} />
     </div>
   );
 };

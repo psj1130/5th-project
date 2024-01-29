@@ -41,6 +41,11 @@
     color: #333;
 }
 
+.mypage_coin {
+    font-family: 'PuradakGentleGothicR';
+    font-size: 20px;
+}
+
 /* PC (해상도 1024px) */
 @media all and (min-width:1024px) {
   

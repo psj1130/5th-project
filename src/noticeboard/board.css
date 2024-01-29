@@ -15,17 +15,15 @@
     flex-direction: column;
   }
 
-  #modal_btn {
+  /* #modal_btn {
     width: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
     padding: 10px;
-    /* background-color: #f4f4f4; */
-    border-bottom: 1px solid #ccc;
     margin-top: auto;
-  }
+  } */
 }
 
 /* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/

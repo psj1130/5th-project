@@ -3,9 +3,13 @@ import ReactApexChart from 'react-apexcharts';
 import { API_URL } from "../../../config/config";
 import axios from "axios";
 
+
+
 const UserDonut = ({ userData }) => {
   const [series, setSeries] = useState([]);
   const [labels, setLabels] = useState([]);
+  const root = document.querySelector('#root');
+  let screenwidth = 500;
 
   useEffect(() => {
     if (userData) {
@@ -28,12 +32,15 @@ const UserDonut = ({ userData }) => {
         .catch((err) => {
           console.log(err);
         });
+
     }
   }, [userData]);
 
   if (!userData) {
     return <div>Loading...</div>;
   }
+
+  
 
   return (
     <div id="userchart">
@@ -53,7 +60,7 @@ const UserDonut = ({ userData }) => {
         }}
         series={series}
         type='donut'
-        width={500}
+        width={550}
       />
     </div>
   );

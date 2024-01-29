@@ -1,11 +1,11 @@
 import React, { useState, useRef } from "react";
 import './login.css'
 import { Link, useNavigate } from "react-router-dom";
-import { setCookie } from "./cookies";
 import axios from "axios";
 import { API_URL } from "../config/serverurl";
-import Kakao from "./kakao"
+import Kakao from "./kakao";
 import { getCookie, delCookie } from "./cookies";
+import Google from "../test/googleLogin";
 const cookie = getCookie('loginCookie');
 const LoginForm = (props) => {
   const [email, setEmail] = useState();
@@ -42,15 +42,10 @@ const LoginForm = (props) => {
           pw_css.current.style.setProperty('border', '1px solid red')
           setContext('아이디 또는 비밀번호를 입력해주세요 !');
         }
-        await axios.post(`${API_URL}/auth/login`, { email: email, password: password})
+        await axios.post(`${API_URL}/auth/login`, { email: email, password: password}, { withCredentials: true })
         .then((res) => {
           if(res.data == '1') {
-            console.log('로그인 성공');
-            setCookie('loginCookie', email, {
-              path: '/',
-              secure: '/',
-              expires: new Date(Date.now() + setTime),
-            });
+            alert('로그인 성공');
             navigate(sessionStorage.getItem('BeforePage') ? sessionStorage.getItem('BeforePage') : '/');
             document.location.reload(true);
           }else if(res.data == '2') {
@@ -66,6 +61,7 @@ const LoginForm = (props) => {
         })
       }}>로그인</div>
     </div>
+    
   )
 }
 
@@ -76,23 +72,18 @@ if(!cookie){
     <div id="login-page-wrapper">
       <div id="login-page-container">
         <div className="customer-h1">
-          <h1>로그인</h1>
+          <h1><b>쩐의 전쟁</b></h1>
         </div>
         <LoginForm/>
         <div className="other-container">
-          {/* <span >아이디/비밀번호 찾기</span>
-          <form name="form" id="form" action="https://nice.checkplus.co.kr/CheckPlusSafeModel/service.cb">
-              <input type="hidden" id="m" name="m" value="service" />
-              <input type="hidden" id="token_version_id" name="token_version_id" value="" />
-              <input type="hidden" id="enc_data" name="enc_data" />
-              <input type="hidden" id="integrity_value" name="integrity_value" />
-          </form> */}
-
           <div className="login-button1" onClick={() => {
             navigate('/signup');
-          }}><b>이메일로 회원가입</b></div>
-          <Kakao/>
+          }}><b>회원가입</b></div>
+          
+          
         </div>
+        <Kakao/>
+        <Google/>
       </div>
     </div>
   )

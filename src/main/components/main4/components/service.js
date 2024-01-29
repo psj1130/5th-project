@@ -1,9 +1,20 @@
 import React from 'react';
 import './service.css';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import axios from "axios";
+import { API_URL } from '../../../../config/config';
 
 export default function Service() {
   
+  axios.get(`${API_URL}/추후 요청`)
+  .then((res) => {
+    const serviceedata = res.data;
+    console.log("전달 받은 notice data: ", serviceedata);
+  })
+  .catch((err) => {
+    console.error("에러발생:", err);
+  })
+
   return(
     <div id="service-box">
       <div id="service-title">
