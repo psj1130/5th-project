@@ -1,12 +1,12 @@
 import React from "react";
-import {  NavLink, Link, Route, Routes } from "react-router-dom";
+import {  NavLink, Route, Routes } from "react-router-dom";
 import { useNavigate } from 'react-router';
 import './customer.css';
 import Customer_update_news from "./customer_update_news";
 import Customer_notice from "./customer_notice";
 import Customer_noticedetail from './customer_detail';
 import Customer_bugreport from "./customer_bugreport";
-import { getCookie } from '../customer/cookies';
+import { getCookie } from '../player/cookies';
 
 const Customer_list = () => { 
   const cookie = getCookie('loginCookie');

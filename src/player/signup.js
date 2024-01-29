@@ -56,12 +56,9 @@ const SignUpForm = () => {
           pw2_css.current.style.setProperty('border', '1px solid red');
         } else if (!/^(?=.*[a-zA-Z])(?=.*\d).+$/.test(password)) {
           setContext('비밀번호는 숫자와 영문자를 모두 포함해야 합니다.');
-        } else if (!validateEmail(email)) {
-          setContext('올바른 이메일 형식이 아닙니다.');
-        } else if (validateEmail(email)){
+        } else {
           setContext('')
           const data = {
-            id: id,
             name: name,
             email: email,
             password: password,
@@ -89,12 +86,12 @@ const SignUpForm = () => {
               .catch(err => {
                 console.log(err);
               })
-          } else if(password != password2) {
-            pw_css.current.style.setProperty('border', '1px solid red');
-            pw2_css.current.style.setProperty('border', '1px solid red');
+            } catch(err) {
+              console.log(err)
           }
         }
-      }}>
+      }
+    }>
         회원가입
       </div>
     </div>
