@@ -17,15 +17,15 @@ const Customer_list = () => {
       <div id="customer_list_container">
         <div id="cutomer_list_item">
           <div id="customer_list_div"><p>고객센터</p></div>
-          <NavLink to={'customer_notice'} style={{ textDecoration: "none" }} activeClassName="active"><div id="customer_list_div1"><p>공지사항</p></div></NavLink>
-          <NavLink to={'customer_update'} style={{ textDecoration: "none" }} activeClassName="active"><div id="customer_list_div1"><p>업데이트</p></div></NavLink>
+          <NavLink to={'notice'} style={{ textDecoration: "none" }} activeClassName="active"><div id="customer_list_div1"><p>공지사항</p></div></NavLink>
+          <NavLink to={'update'} style={{ textDecoration: "none" }} activeClassName="active"><div id="customer_list_div1"><p>업데이트</p></div></NavLink>
           <button id="bug_btn_style" style={{ textDecoration: "none" }}  
           onClick={() => {
           if (cookie) {
             navigate(`/customer/customer_bug`);
           } else if (!cookie) {
             alert('로그인 후 이용해주세요 !');
-            navigate('/customer/customer_notice');
+            navigate('/customer/notice');
           }
         }}
         ><div id="customer_list_div1"><p>버그제보</p></div></button>
@@ -42,10 +42,10 @@ function Customer_service() {
         <div id="customer_container">
           <Customer_list id="customer_list" />
           <Routes>
-            <Route path="/customer_notice" element={<Customer_notice />} />
-            <Route path="/customer_update" element={<Customer_update_news />} />
-            <Route path="/customer_detail/:id" element={<Customer_noticedetail />} />
-            <Route path="/customer_bug" element={<Customer_bugreport />} />
+            <Route path="/notice" element={<Customer_notice />} />
+            <Route path="/update" element={<Customer_update_news />} />
+            <Route path="/detail/:id" element={<Customer_noticedetail />} />
+            <Route path="/bug" element={<Customer_bugreport />} />
           </Routes>
         </div>
       </div>

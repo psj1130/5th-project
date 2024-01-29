@@ -2,9 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { API_URL } from "../config/config";
 import axios from "axios";
-import GoogleLoginButton from "./googleLoginbutton";
-
-const clientid = '1087352918812-0sng7c0ne7imi2npab9fev8vj2ivvg16.apps.googleusercontent.com'
+import GoogleLoginButton from "../player/googleLoginbutton";
 
 const GoogleLogin = () => {
   const [naverLoginButton, setNaverLoginButton] = useState();
@@ -61,22 +59,12 @@ const GoogleLogin = () => {
 			if(naverlogin.status == 200){
 				console.log('if 들어옴');
 				alert("로그인성공!");
-				// setIslogin(true);// 로컬스토리지에 저장. 브라우저닫아도 유지
-				// navigate('/'); 
 			}
 	}
 
   return (
     <div>
       <div>
-        {/* <button onClick={() => {
-          window.location.href = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${clientid}&redirect_uri=http://localhost:3000/success&response_type=code&scope=email+profile`;
-        }}>구글 로그인 하기</button> */}
-        {/* <button type="click" onClick={ async () => {
-          await axios.get(`${API_URL}/auth/googlelogin`, {
-            headers: {"Access-Control-Allow-Origin" : "http://localhost:3000"}
-          })
-        }}>구글 로그인 하기</button> */}
 				<GoogleLoginButton />
       </div>
       <div>

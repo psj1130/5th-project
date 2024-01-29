@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { useSearchParams } from "react-router-dom";
 import { getCookie } from "../player/cookies";
-import { API_URL } from '../config/serverurl';
+import { API_URL } from '../config/config';
 import axios from 'axios';
 import TextField from '@mui/material/TextField';
 import './htmlboard.css';
@@ -10,7 +10,7 @@ import './htmlboard.css';
 const cookie = getCookie("loginCookie");
 
 function Htmlreview_p(props) {
-  const [searchParams, setSearchParams] = useSearchParams();
+  // const [searchParams, setSearchParams] = useSearchParams();
   // const rid = searchParams.get('id');
   const rid = props.id
   const [newData, setNewData] = useState({

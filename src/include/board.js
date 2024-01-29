@@ -1,5 +1,5 @@
-import Headermenu from "./headermenu";
-import Header from "./header";
+// import Headermenu from "./headermenu";
+// import Header from "./header";
 import Searchbar from "./searchbar";
 import { Link } from "react-router-dom";
 import './board.css';

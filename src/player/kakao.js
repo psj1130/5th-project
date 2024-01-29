@@ -1,6 +1,6 @@
 import axios from "axios";
 import KakaoLogin from "react-kakao-login";
-import { API_URL } from "../config/contansts";
+import { API_URL } from "../config/config";
 import { useNavigate } from "react-router-dom";
 import { setCookie } from "./cookies";
 import "./kakao.css";

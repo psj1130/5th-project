@@ -1,7 +1,5 @@
 import React from 'react';
 import './main4.css';
-import { Link } from 'react-router-dom'
-
 import Notice from './components/notice';
 import Service from './components/service';
 

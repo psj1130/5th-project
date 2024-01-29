@@ -1,10 +1,10 @@
 // TodayFortune.jsx
-import { getCookie, delCookie } from "../player/cookies";
+import { getCookie } from "../player/cookies";
 import React, { useState } from 'react';
 import './lucky.css';
 import axios from 'axios';
 import useAsync from '../customHook/useAsync';
-import { API_URL } from '../config/serverurl';
+import { API_URL } from '../config/config';
 
 
 async function getLucky() {
@@ -12,7 +12,7 @@ async function getLucky() {
   console.log(res,"1");
   return res.data;
 }
-const cookie = getCookie('loginCookie');
+const cookie = getCookie('user-cookie');
 
 const TodayFortune = () => {
   
@@ -99,7 +99,7 @@ return (
                 transform: `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`,
               }}
             >
-              {selectedCardIndex === index ? fortune.title : <b>쩐의 전쟁</b>}
+              {selectedCardIndex === index ? fortune.content : <b>쩐의 전쟁</b>}
             </div>
           </div>
         ))}

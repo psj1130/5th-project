@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import './customer_bugreport.css';
 import axios from "axios";
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
-import { API_URL } from "../config/serverurl";
+import { API_URL } from "../config/config";
 import useAsync from '../customHook/useAsync';
 
 function Customer_bugreport (){
