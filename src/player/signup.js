@@ -1,15 +1,8 @@
 import axios from "axios";
 import './signup.css';
 import React, { useRef, useState } from "react";
-import { API_URL } from "../config/serverurl";
+import { API_URL } from "../config/config";
 import { useNavigate } from "react-router";
-function generateRandomCode(n) {
-  let str = ''
-  for (let i = 0; i < n; i++) {
-    str += Math.floor(Math.random() * 10)
-  }
-  return str
-}
 
 
 const SignUpForm = () => {

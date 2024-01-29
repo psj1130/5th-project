@@ -1,10 +1,10 @@
 import React, { useState, useRef } from "react";
 import './login.css'
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { API_URL } from "../config/serverurl";
+import { API_URL } from "../config/config";
 import Kakao from "./kakao";
-import { getCookie, delCookie } from "./cookies";
+import { getCookie } from "./cookies";
 import Google from "./googleLogin";
 const cookie = getCookie('loginCookie');
 const LoginForm = (props) => {
@@ -31,7 +31,7 @@ const LoginForm = (props) => {
         <p>
           <span>비밀번호</span>
         </p>
-        <input ref={pw_css} id="password" name='password' type="text" placeholder="비밀번호를 입력해 주세요." onChange={(e) => {
+        <input ref={pw_css} id="password" name='password' type="password" placeholder="비밀번호를 입력해 주세요." onChange={(e) => {
           setPassword(e.target.value);
         }}></input>
       </div>

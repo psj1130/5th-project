@@ -3,13 +3,15 @@ import React, { useState } from 'react';
 import './lucky.css';
 import axios from 'axios';
 import useAsync from '../customHook/useAsync';
-import { API_URL } from '../config/serverurl';
+import { API_URL } from '../config/config';
+
 
 async function getLucky() {
   const res = await axios.get(`${API_URL}/lucky`);
   console.log(res,"1");
   return res.data;
 }
+const cookie = getCookie('user-cookie');
 
 const TodayFortune = () => {
   const [state] = useAsync(() => getLucky(), []);

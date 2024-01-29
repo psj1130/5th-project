@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import { DataGrid } from '@mui/x-data-grid';
-import { API_URL } from '../config/serverurl';
+import { API_URL } from '../config/config';
 import { styled } from '@mui/system';
 import { getCookie } from '../player/cookies';
 import { Box, Typography, TextField, TextareaAutosize, Button, Container, TableContainer, Toolbar } from '@mui/material';

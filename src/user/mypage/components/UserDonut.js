@@ -8,8 +8,8 @@ import axios from "axios";
 const UserDonut = ({ userData }) => {
   const [series, setSeries] = useState([]);
   const [labels, setLabels] = useState([]);
-  const root = document.querySelector('#root');
-  let screenwidth = 500;
+  // const root = document.querySelector('#root');
+  // let screenwidth = 500;
 
   useEffect(() => {
     if (userData) {

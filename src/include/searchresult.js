@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { API_URL } from '../config/serverurl';
+import { API_URL } from '../config/config';
 import { Box, Typography } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
-import { useParams, Link as RouterLink } from 'react-router-dom';
+import { useParams, Link} from 'react-router-dom';
 import './searchresult.css';
-import { Link } from 'react-router-dom';
 
 function SearchComponent() {
   const [searchResults, setSearchResults] = useState([]);

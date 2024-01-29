@@ -2,8 +2,6 @@ import React, { useCallback, useEffect, useState } from 'react';
 import Cleave from 'cleave.js/react';
 import { useUserState, useUserDispatch } from '../context/ExchangeContext';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
-import { API_URL } from '../../config/config';
 
 const TradeForm = ({ type, orderbookData, code }) => {
   const { id } = useParams();

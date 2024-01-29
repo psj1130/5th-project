@@ -1,8 +1,8 @@
 import React from "react";
 import './customer_detail.css'
 import axios from "axios";
-import { Link, Navigate, useParams } from 'react-router-dom';
-import { API_URL } from "../config/serverurl";
+import { Link, useParams } from 'react-router-dom';
+import { API_URL } from "../config/config";
 import useAsync from '../customHook/useAsync';
 //
 async function getNoticedetail(id) {

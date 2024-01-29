@@ -3,7 +3,7 @@ import axios from "axios";
 import './stock_details.css';
 
 import { Link, Navigate, useParams } from 'react-router-dom';
-import { API_URL } from "../config/serverurl";
+import { API_URL } from "../config/config";
 import useAsync from '../customHook/useAsync';
 
 async function getStockdetail(code) {

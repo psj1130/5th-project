@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import '../css/Coin.css';
 
 const HoldCoin = ({ data, name, realtimePrice }) => {

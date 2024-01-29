@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import './customer_notice.css'
 import axios from "axios";
 import { NavLink, useParams } from 'react-router-dom';
-import { API_URL } from "../config/serverurl";
+import { API_URL } from "../config/config";
 import useAsync from '../customHook/useAsync';
 
 function Customer_update_news(){
