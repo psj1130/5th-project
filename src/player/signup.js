@@ -97,11 +97,15 @@ const SignUpForm = () => {
                   alert('다시 확인해주세요 !');
                 }
               })
-          } catch(err) {
-            console.log(err);
+              .catch(err => {
+                console.log(err);
+              })
+            } catch(err) {
+              console.log(err)
           }
         }
-      }}>
+      }
+    }>
         회원가입
       </div>
     </div>

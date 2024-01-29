@@ -1,5 +1,5 @@
 import React from "react";
-import {  NavLink, Link, Route, Routes } from "react-router-dom";
+import {  NavLink, Route, Routes } from "react-router-dom";
 import { useNavigate } from 'react-router';
 import './customer.css';
 import Customer_update_news from "./customer_update_news";
