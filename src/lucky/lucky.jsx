@@ -11,7 +11,7 @@ async function getLucky() {
   console.log(res,"1");
   return res.data;
 }
-const cookie = getCookie('user-cookie');
+
 
 const TodayFortune = () => {
   const [state] = useAsync(() => getLucky(), []);
@@ -19,7 +19,8 @@ const TodayFortune = () => {
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
   const [selectedCardIndex, setSelectedCardIndex] = useState(null);
-  const cookie = getCookie('loginCookie');
+  // const cookie = getCookie('loginCookie');
+  const cookie = getCookie('user-cookie');
   let name = cookie ? cookie : "이용자";
 
   const getFortunesFromDatabase = async () => {

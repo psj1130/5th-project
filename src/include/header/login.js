@@ -53,7 +53,7 @@ function Login() {
           <ul id='side-menu-container'>
             <li><Link to='/main'>홈</Link></li>
             <li><Link to={`/simulator/${cookie}`}>차트</Link></li>
-            <li><Link to=''>종목 상세</Link></li>
+            {/* <li><Link to=''>종목 상세</Link></li> */}
             <li><Link to='/lucky'>운세</Link></li>
             <li><Link to='/htmlboard'>커뮤니티</Link></li>
             <li><Link to='/customer/*'>고객센터</Link></li>

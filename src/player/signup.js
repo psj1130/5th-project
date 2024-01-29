@@ -4,6 +4,13 @@ import React, { useRef, useState } from "react";
 import { API_URL } from "../config/config";
 import { useNavigate } from "react-router";
 
+function generateRandomCode(n) {
+  let str = ''
+  for (let i = 0; i < n; i++) {
+    str += Math.floor(Math.random() * 10)
+  }
+  return str
+}
 
 const SignUpForm = () => {
   const [name, setName] = useState('');
