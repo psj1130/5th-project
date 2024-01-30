@@ -73,7 +73,7 @@ function Customer_bugreport (){
     <div id="bug_body">
       <div id="bug_container">
         <div id="bug_innercontainer">
-          <div id="bug_reporttext"><p>버그제보</p></div>
+          <div id="bug_reporttext"><p>제보문의</p></div>
           <div id="bug_inputdiv1">
             <div id="bug_titlediv"><p><span id="b_point">*</span>문의 제목</p></div>
             <input id="bug_input1" type="text"

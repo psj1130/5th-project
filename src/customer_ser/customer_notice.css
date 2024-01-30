@@ -95,16 +95,17 @@
 #datalist_regviw{
   display: flex;
 }
-@media (max-width: 500px) {
+@media (max-width: 780px) {
   #notice_body{
     overflow-x: hidden;
-    width: 480px;
+    width: 100%;
   }
   #notice_text{
     display: none;
   }
   #notice_container{
     width: 100%;
+    height: 100%;
   }
   #notice_data_list{
     display: block;

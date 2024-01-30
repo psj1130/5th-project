@@ -5,7 +5,7 @@ import {
   useExchangeState,
 } from '../context/ExchangeContext';
 import ChartComp from '../chart/chart';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const CoinSummary = ({ code, name }) => {
   const dispatch = useSummaryDispatch();
@@ -75,11 +75,13 @@ const CoinSummary = ({ code, name }) => {
               {name}
               <span>{code}</span>
             </h3>
-            <Link to={`/coin/detail/${code}`}>
+
+            <NavLink to={`/stock_detail/${code}`} id='detail_Nav'>
               <div>
                   상세정보
               </div>
-            </Link>
+            </NavLink>
+
             <div>
               <button className='Name_button' type='click' onClick={() => {
                 document.querySelector('.Coin__List__Container').style.display = 'block';
@@ -87,6 +89,9 @@ const CoinSummary = ({ code, name }) => {
               }} ><i className='xi-bars'></i></button>
             </div>
           </div>
+
+          
+
           <div className="Info">
             <div className={`Price ${change}`}>
               <h4>

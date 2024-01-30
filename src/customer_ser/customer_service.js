@@ -1,5 +1,5 @@
 import React from "react";
-import {  NavLink, Route, Routes } from "react-router-dom";
+import {  Link, Route, Routes } from "react-router-dom";
 import { useNavigate } from 'react-router';
 import './customer.css';
 import Customer_update_news from "./customer_update_news";
@@ -17,15 +17,16 @@ const Customer_list = () => {
       <div id="customer_list_container">
         <div id="cutomer_list_item">
           <div id="customer_list_div"><p>고객센터</p></div>
-          <NavLink to={'notice'} style={{ textDecoration: "none" }} activeClassName="active"><div id="customer_list_div1"><p>공지사항</p></div></NavLink>
-          <NavLink to={'update'} style={{ textDecoration: "none" }} activeClassName="active"><div id="customer_list_div1"><p>업데이트</p></div></NavLink>
+          <Link to={'notice'} style={{ textDecoration: "none" }} activeClassName="active"><div id="customer_list_div1"><p>공지사항</p></div></Link>
+          <Link to={'update'} style={{ textDecoration: "none" }} activeClassName="active"><div id="customer_list_div1"><p>업데이트</p></div></Link>
+          {/* <NavLink to={'bug'} style={{ textDecoration: "none" }} activeClassName="active"><div id="customer_list_div1"><p>제보문의</p></div></NavLink> */}
           <button id="bug_btn_style" style={{ textDecoration: "none" }}  
           onClick={() => {
           if (cookie) {
-            navigate(`/customer/customer_bug`);
+            navigate(`/customer/bug`);
           } else if (!cookie) {
             alert('로그인 후 이용해주세요 !');
-            navigate('/customer/notice');
+            navigate('/members/login');
           }
         }}
         ><div id="customer_list_div1"><p>버그제보</p></div></button>
@@ -35,8 +36,9 @@ const Customer_list = () => {
   );
 };
 
+
 function Customer_service() {
-  return (
+  return(
     <>
       <div id="customer_body">
         <div id="customer_container">
@@ -50,7 +52,7 @@ function Customer_service() {
         </div>
       </div>
     </>
-  );
+  )
 }
 
 export default Customer_service;

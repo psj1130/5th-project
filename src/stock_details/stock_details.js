@@ -42,7 +42,7 @@ function Stock_detail (){
               <div id="stock_img_korname_code">
                 <div ><img id="stock_img" src={pdata.img_url}/></div>
                 <div id="stock_korname"><p>{pdata.kor_name}</p></div>
-                <div id="stock_code"><p>{pdata.code}/KRW</p></div>
+                <div id="stock_code"><p>{pdata.code}</p></div>
               </div>
               <div id="stock_infotext"><p>정보</p></div>
             </div>

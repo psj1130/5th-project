@@ -38,54 +38,54 @@ function Customer_notice(){
   if (!pdata) return null;
 
   return(
-    <div id="notice_body">
-      <div id="notice_container">
-        <div id="notice_inner_container">
-          <div id="noticetext_search">
-            <div id="notice_text"><p>공지사항</p></div>
-            <div id="notice_search">
-              <div >
-                <input id="input_search" type="text" placeholder="검색어를 입력해주세요." />
-              </div>
-              <div id="notice_searchdiv" onClick={handleSearch}>
-                <p>검색</p>
-              </div>
-            </div>
-          </div>
-  
-          <div id="notice_data_list">
-            <div id="datalist_title"><p>제목</p></div>
-            <div id="datalist_regviw">
-              <div id="datalist_regdt"><p>등록일</p></div>
-              <div id="datalist_views"><p>조회수</p></div>
-            </div>
-          </div>
-          {pdata.map((item) => (
-            <NavLink
-              id="aaa"
-              to={`/customer/customer_detail/${item.id}`}
-              onClick={() => handleLinkClick(item.id)}
-              key={item.id}
-              style={{ textDecoration: 'none' }}
-            >
-              <div id="notice_data_list1">
-                <div id="datalist_title">
-                  
-                    <p id="datalist_title">
-                      {item.title}
-                    </p>
-                  
+      <div id="notice_body">
+        <div id="notice_container">
+          <div id="notice_inner_container">
+            <div id="noticetext_search">
+              <div id="notice_text"><p>공지사항</p></div>
+              <div id="notice_search">
+                <div >
+                  <input id="input_search" type="text" placeholder="검색어를 입력해주세요." />
                 </div>
-                <div id="datalist_regviw">
-                  <div id="datalist_regdt">{item.regdt}</div>
-                  <div id="datalist_views">{item.views}</div>
+                <div id="notice_searchdiv" onClick={handleSearch}>
+                  <p>검색</p>
                 </div>
               </div>
-            </NavLink>
-          ))}
+            </div>
+    
+            <div id="notice_data_list">
+              <div id="datalist_title"><p>제목</p></div>
+              <div id="datalist_regviw">
+                <div id="datalist_regdt"><p>등록일</p></div>
+                <div id="datalist_views"><p>조회수</p></div>
+              </div>
+            </div>
+            {pdata.map((item) => (
+              <NavLink
+                id="aaa"
+                to={`/customer/detail/${item.id}`}
+                onClick={() => handleLinkClick(item.id)}
+                key={item.id}
+                style={{ textDecoration: 'none' }}
+              >
+                <div id="notice_data_list1">
+                  <div id="datalist_title">
+                    
+                      <p id="datalist_title">
+                        {item.title}
+                      </p>
+                    
+                  </div>
+                  <div id="datalist_regviw">
+                    <div id="datalist_regdt">{item.regdt}</div>
+                    <div id="datalist_views">{item.views}</div>
+                  </div>
+                </div>
+              </NavLink>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
   );
 }
 
