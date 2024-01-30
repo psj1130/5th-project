@@ -10,7 +10,7 @@ function Login() {
 
   const logout = async () => {
     try {
-      await axios.get(`${API_URL}/auth/test`, { withCredentials: true });
+      await axios.delete(`${API_URL}/auth/logout`, { withCredentials: true });
     } catch (error) {
       console.error(error);
     }
