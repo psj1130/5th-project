@@ -2,10 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion';
 import './background.css';
-import '../../../font.css'
+import '../../../font.css';
+import { getCookie } from '../../../player/cookies';
 
 function Background() {
   
+  const cookie = getCookie('user-cookie');
+
   return(
     <div id="background-container">
       <div className="background-intro-box">
@@ -48,7 +51,7 @@ function Background() {
               ease: [0, 0.71, 0.2, 1.01]
             }}
             className='background-btn back-btn-style'>
-            <Link to='#'>시작하기</Link>
+            <Link to={cookie ? `/simulator/${cookie}` : '/login'}>시작하기</Link>
           </motion.button>
         </div>
       </div>
