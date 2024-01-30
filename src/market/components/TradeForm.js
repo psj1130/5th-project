@@ -24,6 +24,7 @@ const TradeForm = ({ type, orderbookData, code }) => {
   }, [orderbookData]);
 
   const [totalPrice, setTotalPrice] = useState(0);
+  
   useEffect(() => {
     setTotalPrice(inputPrice * inputVolume);
   }, [inputPrice, inputVolume]);
@@ -65,6 +66,7 @@ const TradeForm = ({ type, orderbookData, code }) => {
         userDispatch({
           type: 'TRADE_BID',
           data: {
+            id: id,
             coin: {
               totalPrice: totalPrice,
               code: fnCodeStr(1),

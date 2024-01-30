@@ -15,7 +15,7 @@ const CandleChart = ({code}) => {
             params: {
               market: code,
               to: '2024-01-25T00:00:00Z', // 현재 날짜 기준
-              count: 10,
+              count: 1000,
             },
           }
         );

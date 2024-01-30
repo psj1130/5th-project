@@ -255,6 +255,7 @@ const fnAsk = (coin, askCoin, code) => {
         if (list.code === askCoin.code) {
           list.totalPrice += askCoin.totalPrice;
           list.volume += askCoin.volume;
+          axios.patch(`${API_URL}/user/wallet/moreask/${code}`, list);
           return list;
         } else {
           return list;
@@ -281,6 +282,10 @@ const fnBid = (state, bidCoin) => {
         coin: state.coin,
       };
     } else {
+      const data = {
+        cash : state.cash += bidCoin.totalPrice
+      }
+      axios.patch(`${API_URL}/user/bid/${state.id}`, data);
       return {
         cash: (state.cash += bidCoin.totalPrice),
         coin: state.coin.reduce((acc, cur) => {
@@ -288,7 +293,11 @@ const fnBid = (state, bidCoin) => {
             if (cur.volume !== bidCoin.volume) {
               cur.volume -= bidCoin.volume;
               cur.totalPrice -= bidCoin.totalPrice;
+              axios.patch(`${API_URL}/user/wallet/bid/${state.wallet_code}`, cur);
               acc.push(cur);
+            } else if(cur.volume === bidCoin.volume) {
+              axios.delete(`${API_URL}/user/wallet/delete/${state.wallet_code}`, {
+                data : bidCoin });
             }
           } else {
             acc.push(cur);
