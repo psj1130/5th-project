@@ -11,7 +11,7 @@ function Login() {
 
   const logout = async () => {
     try {
-      await axios.delete(`${API_URL}/auth/logout`, {withCredentials: true});
+      await axios.delete(`${API_URL}/auth/logout`, { withCredentials: true });
     } catch (error) {
       console.error(error);
     }
