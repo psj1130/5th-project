@@ -9,7 +9,6 @@ function Login() {
   const cookie = getCookie('user-cookie');
   let context = null;
   let mypage = null;
-  let loginout = null;
 
   const logout = async () => {
     try {

@@ -19,7 +19,7 @@ export default function Main3() {
         </div>
         <div className="main3-box">
           <div id="main3-title-box">
-            <Link to='/' className='component-link'>더 보기</Link>
+            <Link to='/lucky' className='component-link'>더 보기</Link>
           </div>
             <div id="luck-container">
               <Luck/>
