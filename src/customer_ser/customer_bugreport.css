@@ -5,12 +5,14 @@
   font-style: normal;
 }
 #bug_body{
-  height: 800px;
+  padding-bottom: 30px;
+  height: 100%;
   font-family: 'Pretendard-Regular';
   background-color: rgb(233, 236, 241);
 }
 #bug_container{
-  height: 800px;
+  padding-bottom: 30px;
+  height: 100%;
   width: 800px;
   padding-left: 80px;
   padding-right: 80px;
@@ -80,7 +82,7 @@
 #bug_contentdiv{
   margin-top: 10px;
 }
-@media (max-width: 500px) {
+@media (max-width: 780px) {
   #bug_reporttext{
     display: none;
   }

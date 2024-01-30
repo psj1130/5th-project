@@ -93,3 +93,7 @@
 .Selected .Others > div:nth-child(n+2) {
     padding-left: 30px;
 }
+#s_detail_div{
+    color: black;
+    font-weight: bolder;
+}

@@ -75,18 +75,19 @@ const CoinSummary = ({ code, name }) => {
               {name}
               <span>{code}</span>
             </h3>
-            <Link to={`/coin/detail/${code}`}>
-              <div>
+            <Link to={`/stock_detail/${code}`}>
+              <div id='s_detail_div'>
                   상세정보
               </div>
             </Link>
-            <div>
+            
+          </div>
+          <div>
               <button className='Name_button' type='click' onClick={() => {
                 document.querySelector('.Coin__List__Container').style.display = 'block';
                 
               }} ><i className='xi-bars'></i></button>
             </div>
-          </div>
           <div className="Info">
             <div className={`Price ${change}`}>
               <h4>
