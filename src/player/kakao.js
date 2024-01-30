@@ -19,17 +19,17 @@ const KakaoLoginButton =()=>{
 
   const kakaoLogin = async (userData) => {
 		console.log("kakaoLogin(): ", userData);
-		const res = await axios.post(`${API_URL}/api/user/kakao-login`, {userData});
+		const res = await axios.post(`${API_URL}/auth/kakaologin`, {userData});
 		console.log(res.data,userData.properties.nickname);
 
 		if(res.status == 200){
-			console.log('로그인성공!');
-			// alert("로그인성공!");
-      setCookie('loginCookie', userData.properties.nickname, {
-        path: '/',
-        secure: '/',
-        expires: new Date(Date.now() + setTime),
-      });
+			// console.log('로그인성공!');
+			alert("로그인성공!");
+      // setCookie('user-cookie', userData.id, {
+      //   path: '/',
+      //   secure: '/',
+      //   expires: new Date(Date.now() + setTime),
+      // });
 			window.location.replace("/")
 		}
 	}

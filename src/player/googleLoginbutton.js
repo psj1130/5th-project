@@ -17,9 +17,9 @@ const GoogleLoginButton = () => {
             await axios.post(`${API_URL}/auth/googlelogin`, { token: res.credential })
               .then((result) => {
                 console.log(res.status); 
-                if (res.status=200) {
-                  console.log('로그인성공!');
-                  // alert("로그인성공!");
+                if (result.status=200) {
+                  // console.log('로그인성공!');
+                  alert("로그인성공!");
                   // setCookie('loginCookie',res.email,{
                   //   path: '/',
                   //   secure: '/',

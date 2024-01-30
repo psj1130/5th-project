@@ -5,7 +5,7 @@ import HoldCoin from './HoldCoin';
 
 const HoldCoinList = () => {
   const marketState = useExchangeState();
-  console.log(marketState);
+  // console.log(marketState);
   const { data: markets } = marketState.market;
   // console.log(markets);
 
