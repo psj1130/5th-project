@@ -16,6 +16,23 @@
   align-items: center;
 }
 
+#login-desktop-container > li {
+  width: 100px;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#login-desktop-container > li > a {
+  color: white;
+}
+
+#login-desktop-container > li > p {
+  cursor: pointer;
+}
+
 .login-main-text-style{
   font-size: 16px;
   font-family: 'Pretendard-Regular';
@@ -25,7 +42,16 @@
 .login-img-style{
   width: 18px;
   height: 18px;
-  margin-right: 10px;
+  margin: 0 10px;
+}
+
+.logout-style {
+  display: flex;
+  flex-direction: row;
+}
+
+.logout-style > a{
+  color: white
 }
 
 .login-style > a {
@@ -34,6 +60,13 @@
 
 #login-mobile-container {
   display: none;
+}
+
+/* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/ 
+@media all and (min-width:768px) and (max-width:1023px) {
+  #login-desktop-container {
+   font-size: 14px;
+  }
 }
 
 /* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/ 
@@ -106,6 +139,9 @@
     top: 0px;
     padding: 60px 20px 20px 20px;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   
   #check_box:checked + label + #side-menu {
@@ -114,7 +150,7 @@
 
   #side-menu-container {
     width: 100%;
-    height: 700px;
+    height: 380px;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -127,7 +163,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
   }
 
   #side-menu-container > li > a{
@@ -135,6 +170,45 @@
     font-size: 30px;
     font-family: 'ONE-Mobile-Title';
     color:  white;
+  }
+
+  #side-menu-container > li > p{
+    margin-right: 25px;
+    font-size: 30px;
+    font-family: 'ONE-Mobile-Title';
+    color:  white;
+  }
+
+  #side-menu-bottom {
+    width: 100%;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  #side-menu-bottom > li{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: end;
+  }
+
+  #side-menu-bottom > li > a{
+    margin-right: 25px;
+    font-size: 30px;
+    font-family: 'ONE-Mobile-Title';
+    color:  white;
+  }
+
+  #side-menu-bottom > li > p{
+    margin-right: 25px;
+    font-size: 30px;
+    font-family: 'ONE-Mobile-Title';
+    color:  white;
+    cursor: pointer;
   }
 
 }
