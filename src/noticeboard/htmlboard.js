@@ -98,7 +98,7 @@ function Html() {
                   handleEdit(params);
                 } else {
                   alert('로그인 후 이용해주세요 !');
-                  navigate('/members/login');
+                  navigate('/login');
                 }
               }}
             >
@@ -206,7 +206,7 @@ function Html() {
                 navigate('/htmlboard_p');
               } else if (!cookie) {
                 alert('로그인 후 이용해주세요 !');
-                navigate('/members/login');
+                navigate('/login');
               }
             }}> 글 작성 </button>
           </Toolbar>
