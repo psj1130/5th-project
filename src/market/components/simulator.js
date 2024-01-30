@@ -18,19 +18,35 @@ const Simulator = () => {
 
   useEffect(() => {
     const getUser = async () => {
+      let coinData = null
       const res = await axios.get(`${API_URL}/user/data/${id}`)
+      const coin = await axios.get(`${API_URL}/user/wallet/get/${res.data.wallet_code}`);
       console.log(res.data);
+      if(coin) {
+        coinData = coin.data.map(c => {
+          const data = {
+            code: c.coin_name,
+            fullcode: c.fullcode,
+            totalPrice: c.totalprice,
+            volume: c.volume
+          }
+          return data;
+        })
+      }
       setUser(res.data);
       userDispatch({
         type:'USER_REGISTER',
         data: {
+          id : id,
           cash: res.data.balance,
-          // coin: res.data.coin[0]
+          // coin: {},
+          coin: coinData,
+          wallet_code: res.data.wallet_code
         }
       })
     }
     getUser();
-  }, [])
+  }, [userDispatch]);
 
   useEffect(() => {
     getMarket(dispatch);

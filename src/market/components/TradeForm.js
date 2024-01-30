@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 
 const TradeForm = ({ type, orderbookData, code }) => {
   const { id } = useParams();
+  const [wallet, setWallet] = useState();
   const typeToStr = useCallback(() => {
     if (type === 'ASK') {
       return '매수';
@@ -23,6 +24,7 @@ const TradeForm = ({ type, orderbookData, code }) => {
   }, [orderbookData]);
 
   const [totalPrice, setTotalPrice] = useState(0);
+  
   useEffect(() => {
     setTotalPrice(inputPrice * inputVolume);
   }, [inputPrice, inputVolume]);
@@ -41,7 +43,7 @@ const TradeForm = ({ type, orderbookData, code }) => {
 
   const { cash } = userState;
   // console.log(userState);
-  const trade = useCallback(() => {
+  const trade = useCallback( async () => {
     if (type === 'ASK') {
       const confirm = window.confirm('매수하시겠습니까?');
       if(confirm) {
@@ -64,6 +66,7 @@ const TradeForm = ({ type, orderbookData, code }) => {
         userDispatch({
           type: 'TRADE_BID',
           data: {
+            id: id,
             coin: {
               totalPrice: totalPrice,
               code: fnCodeStr(1),

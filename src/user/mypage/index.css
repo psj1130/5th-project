@@ -1,0 +1,47 @@
+.MyPage__Wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  margin-top: 100px;
+  gap: 40px;
+}
+
+.MyPage__Container {
+  width: 50%;
+  min-height: 700px;
+  display: flex;
+  /* align-items: center; */
+}
+
+.Exchange__wrapper {
+  display: flex;
+}
+
+#CoinList__Wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* PC (해상도 1024px) */
+@media all and (min-width:1024px) {
+  
+} 
+
+/* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px) */
+@media all and (min-width:768px) and (max-width:1023px) {
+  .MyPage__Wrapper {
+    gap: 0;
+  }
+}
+
+/* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/ 
+@media all and (max-width:767px) {
+  .MyPage__Wrapper {
+    flex-direction: column;
+  }
+  .MyPage__Container {
+    width: 100%;
+  }
+}
