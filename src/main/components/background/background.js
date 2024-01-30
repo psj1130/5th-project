@@ -51,7 +51,7 @@ function Background() {
               ease: [0, 0.71, 0.2, 1.01]
             }}
             className='background-btn back-btn-style'>
-            <Link to={`/simulator/${cookie}`}>시작하기</Link>
+            <Link to={cookie ? `/simulator/${cookie}` : '/login'}>시작하기</Link>
           </motion.button>
         </div>
       </div>
