@@ -13,10 +13,12 @@ const GoogleLoginButton = () => {
     <>
       <GoogleOAuthProvider clientId={clientId}>
         <GoogleLogin
+          width={'350px'}
+          height={'55px'}
           onSuccess={async (res) => {
-            await axios.post(`${API_URL}/auth/googlelogin`, { token: res.credential })
+            await axios.post(`${API_URL}/auth/googlelogin`, { token: res.credential }, { withCredentials: true })
               .then((result) => {
-                console.log(res.status); 
+                console.log(res.status);
                 if (result.status=200) {
                   // console.log('로그인성공!');
                   alert("로그인성공!");
@@ -35,7 +37,7 @@ const GoogleLoginButton = () => {
           onFailure={(err) => {
             console.log(err);
           }}
-          
+          useOneTap
         />
       </GoogleOAuthProvider>
     </>

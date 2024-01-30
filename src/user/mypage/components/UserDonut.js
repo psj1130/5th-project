@@ -53,10 +53,10 @@ const UserDonut = ({ userData }) => {
           responsive: [{
             breakpoint: 480,
           }],
-          title: {
-            text: '투자 내역',
-            align: 'center'
-          }
+          // title: {
+          //   text: '투자 내역',
+          //   align: 'center'
+          // }
         }}
         series={series}
         type='donut'
