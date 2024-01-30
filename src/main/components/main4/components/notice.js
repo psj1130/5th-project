@@ -12,7 +12,7 @@ export default function Notice( props ) {
     <div id="notice-box">
       <div id="notice-title">
         <p>업데이트</p>
-        <Link to='/' className='component-notice-link'>더 보기</Link>
+        <Link to='/customer/update' className='component-notice-link'>더 보기</Link>
       </div>
       <ul id='notice-list-box'>
         {filterdata.map((item, index) => (

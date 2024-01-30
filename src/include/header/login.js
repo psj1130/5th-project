@@ -9,7 +9,6 @@ function Login() {
   const cookie = getCookie('user-cookie');
   let context = null;
   let mypage = null;
-  let loginout = null;
 
   const logout = async () => {
     try {
@@ -28,7 +27,7 @@ function Login() {
 
   if (cookie) {
     context = <>
-      <li><i className='xi-profile-o'/><Link to=''>마이페이지</Link></li>
+      <li><i className='xi-profile-o'/><Link to='/mypage/:id'>마이페이지</Link></li>
       <li><i className='xi-unlock-o'/><p onClick={logout}>로그아웃</p></li>
     </>
 

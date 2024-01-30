@@ -14,7 +14,7 @@ export default function Service( props ) {
     <div id="service-box">
       <div id="service-title">
         <p>공지사항</p>
-        <Link to='/' className='component-service-link'>더 보기</Link>
+        <Link to='/customer/notice' className='component-service-link'>더 보기</Link>
       </div>
       <ul id='service-list-box'>
         {filterdata.map((item, index) => (
