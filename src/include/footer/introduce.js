@@ -17,9 +17,7 @@ export default function Introduce() {
           {data.map((item, id) => (
             <tr className='tr-box' key={id}>
               <td>{item.title}</td>
-                <span className='td-body-style'>
-                  <td>{item.body}</td>
-                </span>
+              <td id='introduce-td-02'>{item.body}</td>
             </tr>
           ))}
         </tbody>
