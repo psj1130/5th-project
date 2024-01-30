@@ -5,7 +5,7 @@ import axios from "axios";
 import { API_URL } from "../config/config";
 import Kakao from "./kakao";
 import { getCookie } from "./cookies";
-import Google from "./googleLogin";
+import Google from "./snsLogin";
 const cookie = getCookie('loginCookie');
 const LoginForm = (props) => {
   const [email, setEmail] = useState();
@@ -79,8 +79,6 @@ if(!cookie){
           <div className="login-button1" onClick={() => {
             navigate('/signup');
           }}><b>회원가입</b></div>
-          
-          
         </div>
         <Kakao/>
         <Google/>

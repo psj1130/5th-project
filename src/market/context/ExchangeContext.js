@@ -283,11 +283,11 @@ const fnBid = (state, bidCoin) => {
       };
     } else {
       const data = {
-        cash : state.cash += bidCoin.totalPrice
+        cash : state.cash + bidCoin.totalPrice
       }
       axios.patch(`${API_URL}/user/bid/${state.id}`, data);
       return {
-        cash: (state.cash += bidCoin.totalPrice),
+        cash: (state.cash + bidCoin.totalPrice),
         coin: state.coin.reduce((acc, cur) => {
           if (cur.code === bidCoin.code) {
             if (cur.volume !== bidCoin.volume) {

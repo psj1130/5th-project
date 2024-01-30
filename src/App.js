@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-import { Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
 import Boarder from './include/board';
@@ -31,9 +31,7 @@ import MyPage from './user/mypage';
 import LiveChart from './market';
 
 // 테스트
-import GoogleLogin from './player/googleLogin';
-
-
+import Loading from './include/loading.js';
 
 function App() {
   return (
@@ -59,11 +57,12 @@ function App() {
                 {/* 박성종 */}
                 <Route path='/simulator/:id' element={<LiveChart/>}/>
                 <Route path='/mypage/:id' element={<MyPage/>}/>
-                <Route path='/test' element={<GoogleLogin/>}/>
+                <Route path='/loading' element={<Loading/>}/>
                   
                  {/* 민원기 */}
                 <Route path="/customer/*"  element={<Customer />} />
                 <Route path="/Stock_detail/:code" element={<Stock_detail/>}/>
+
                 {/* 정성원 */}
                 <Route path="/lucky"  element={<Lucky />}/>
                

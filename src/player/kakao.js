@@ -19,22 +19,17 @@ const KakaoLoginButton =()=>{
 
   const kakaoLogin = async (userData) => {
 		console.log("kakaoLogin(): ", userData);
-		const res = await axios.post(`${API_URL}/auth/kakaologin`, {userData});
+		const res = await axios.post(`${API_URL}/auth/kakaologin`, {userData}, { withCredentials: true });
 		console.log(res.data,userData.properties.nickname);
 
 		if(res.status == 200){
-			// console.log('로그인성공!');
 			alert("로그인성공!");
-      // setCookie('user-cookie', userData.id, {
-      //   path: '/',
-      //   secure: '/',
-      //   expires: new Date(Date.now() + setTime),
-      // });
 			window.location.replace("/")
 		}
 	}
 
   const kakaoOnFailure = (error) => {
+    alert('다시 시도해 주세요 !');
     console.log(error);
   };
 
@@ -46,6 +41,7 @@ const KakaoLoginButton =()=>{
         onFail={kakaoOnFailure}
         render={({ onClick }) => (
           <div
+            className="kakao-login"
             onClick={(e) => {
               e.preventDefault();
               onClick();

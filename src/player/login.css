@@ -3,6 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-bottom: 100px;
 }
 
 #login-page-container {
@@ -81,13 +82,14 @@
   display: block;
 } */
 .kakao-login {
-  background-color: #FEE500;
+  /* background-color: #FEE500;
   color: #391B1B;
   margin-top: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5px;
+  gap: 5px; */
+  cursor: pointer;
 }
 .kakao-login p{
   
@@ -119,4 +121,12 @@
 #fail-login {
   text-align: center;
   color: red;
+}
+
+.google-login-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
 }
