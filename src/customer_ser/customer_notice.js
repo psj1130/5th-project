@@ -63,7 +63,7 @@ function Customer_notice(){
           {pdata.map((item) => (
             <NavLink
               id="aaa"
-              to={`/customer/customer_detail/${item.id}`}
+              to={`/customer/detail/${item.id}`}
               onClick={() => handleLinkClick(item.id)}
               key={item.id}
               style={{ textDecoration: 'none' }}

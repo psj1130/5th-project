@@ -21,7 +21,7 @@ function TopMenu() {
         <Link to='/htmlboard'>커뮤니티</Link>
       </div>
       <div className="topmenu-list">
-        <Link to='/customer'>고객센터</Link>
+        <Link to='/customer/notice'>고객센터</Link>
       </div>
       
     </div>

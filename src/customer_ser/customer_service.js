@@ -8,9 +8,16 @@ import Customer_noticedetail from './customer_detail';
 import Customer_bugreport from "./customer_bugreport";
 import { getCookie } from '../player/cookies';
 
+// export function getCookie(name) {
+//   const value = `; ${document.cookie}`;
+//   const parts = value.split(`; ${name}=`);
+//   if (parts.length === 2) return parts.pop().split(';').shift();
+// }
+
 const Customer_list = () => { 
-  const cookie = getCookie('loginCookie');
   const navigate = useNavigate();
+
+  const cookie = getCookie('user-cookie');
 
   return (
     <div id="customer_list_body">
@@ -22,10 +29,10 @@ const Customer_list = () => {
           <button id="bug_btn_style" style={{ textDecoration: "none" }}  
           onClick={() => {
           if (cookie) {
-            navigate(`/customer/customer_bug`);
+            navigate(`/customer/bug`);
           } else if (!cookie) {
             alert('로그인 후 이용해주세요 !');
-            navigate('/customer/notice');
+            navigate('/login');
           }
         }}
         ><div id="customer_list_div1"><p>버그제보</p></div></button>

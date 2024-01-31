@@ -75,7 +75,7 @@ function Customer_update_news(){
               return (
                 <NavLink
                   id="NavLinkstyle"
-                  to={`/customer/customer_detail/${pdata.id}`}
+                  to={`/customer/detail/${pdata.id}`}
                   onClick={() => handleLinkClick(pdata.id)}
                   key={pdata.id}
                   style={{ textDecoration: 'none' }}
