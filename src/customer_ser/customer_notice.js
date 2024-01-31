@@ -60,7 +60,9 @@ function Customer_notice(){
               <div id="datalist_views"><p>조회수</p></div>
             </div>
           </div>
-          {pdata.map((item) => (
+          {pdata.map((item) => {
+            if (item.title.includes("공지")) {
+              return(
             <NavLink
               id="aaa"
               to={`/customer/detail/${item.id}`}
@@ -82,7 +84,7 @@ function Customer_notice(){
                 </div>
               </div>
             </NavLink>
-          ))}
+          )}})}
         </div>
       </div>
     </div>

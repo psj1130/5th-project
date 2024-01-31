@@ -26,9 +26,9 @@ function Cutomer_noticedetail() {
     categoryText = "업데이트";
   }
 
-  let listLink = "customer_notice"; // 기본값 설정
+  let listLink = "notice"; // 기본값 설정
   if (pdata.title.includes("업데이트")) {
-    listLink = "customer_update";
+    listLink = "update";
   }
   console.log("카테고리텍스트", categoryText);
   return(
