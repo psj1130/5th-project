@@ -27,12 +27,12 @@ function Login() {
 
   if (cookie) {
     context = <>
-      <li><i className='xi-profile-o'/><Link to='/mypage/:id'>마이페이지</Link></li>
+      <li><i className='xi-profile-o'/><Link to={`/mypage/${cookie}`}>마이페이지</Link></li>
       <li><i className='xi-unlock-o'/><p onClick={logout}>로그아웃</p></li>
     </>
 
     mypage = <>
-      <li><Link to='/mypage/:id'>마이페이지</Link></li>
+      <li><Link to={`/mypage/${cookie}`}>마이페이지</Link></li>
       <li><p onClick={logout}>로그아웃</p></li>
     </>
 

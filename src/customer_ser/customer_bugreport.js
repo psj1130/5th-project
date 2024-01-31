@@ -102,9 +102,11 @@ function Customer_bugreport (){
             
           </div>
           <div>
-            <div id="bug_sendbtn"
-            onClick={()=> handlebugreportSubmit()}
-            ><p>전송</p></div>
+            <Link to={'/customer/notice'} style={{textDecoration: 'none'}}>
+              <div id="bug_sendbtn"
+              onClick={()=> handlebugreportSubmit()}
+              ><p>전송</p></div>
+            </Link>
           </div>
         </div>
       </div>
