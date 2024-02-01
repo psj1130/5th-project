@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import './customer_bugreport.css';
 import axios from "axios";
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { API_URL } from "../config/config";
 
 function Customer_bugreport (){
@@ -10,6 +10,8 @@ function Customer_bugreport (){
   const [previewImg, setPreviewImg] = useState("");
   const imgRef = useRef();
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const navigate = useNavigate();
 
   const InsertImg = async(e)=>{
     if(e && e.target){
@@ -64,6 +66,12 @@ function Customer_bugreport (){
       axios.post(`${API_URL}/bug/resend`,data)
       .then(async (res)=>{
         console.log("재송신",res);
+        alert('신고가 접수되었습니다. 감사합니다!');
+        navigate('/customer/notice');
+      })
+      .catch(err => {
+        console.log("에러발생", err);
+        alert('신고가 되지 않았습니다!')
       })
     })
   };
@@ -101,11 +109,11 @@ function Customer_bugreport (){
             
           </div>
           <div>
-            <Link to={'/customer/notice'} style={{textDecoration: 'none'}}>
+            <p to={'/customer/notice'} style={{textDecoration: 'none'}}>
               <div id="bug_sendbtn"
               onClick={()=> handlebugreportSubmit()}
               ><p>전송</p></div>
-            </Link>
+            </p>
           </div>
         </div>
       </div>

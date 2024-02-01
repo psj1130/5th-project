@@ -16,9 +16,6 @@ function Boarder(){
             </div>
           </div>
         </div>
-        {/* <div id="Headermenu_main">
-          <Headermenu/>
-        </div> */}
       </div>
     </>
   )
