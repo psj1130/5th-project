@@ -7,7 +7,7 @@ import axios from 'axios';
 import TextField from '@mui/material/TextField';
 import './htmlboard.css';
 
-const cookie = getCookie("loginCookie");
+const cookie = getCookie("user-cookie");
 
 function Htmlreview_p(props) {
   // const [searchParams, setSearchParams] = useSearchParams();
