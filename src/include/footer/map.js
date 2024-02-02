@@ -7,7 +7,7 @@ export default function Map() {
     // 'kakao' 객체 로드
     const script = document.createElement('script');
     script.async = true;
-    script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=8444586da5f410a4b35e293ba65ab7e6&libraries=services,drawing`;
+    script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=23c908ac0cbd297f4b9f55f0835f2a9f&libraries=services,drawing`;
     document.head.appendChild(script);
 
     script.onload = () => {
