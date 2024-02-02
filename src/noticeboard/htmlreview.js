@@ -35,9 +35,8 @@ function Htmlreview(props) {
   const [editedTitle, setEditedTitle] = useState(''); // 수정된 제목 상태
   const [editedContent, setEditedContent] = useState(''); // 수정된 내용 상태
   const [editMode, setEditMode] = useState(false);
-  const cookie = getCookie('loginCookie');
+  const cookie = getCookie('user-cookie');
   const navigate = useNavigate();
-
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
