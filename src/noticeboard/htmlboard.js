@@ -35,7 +35,7 @@ function Html() {
   const [views, setViews] = useState(''); //수정된 조회수 상태
   const [editMode, setEditMode] = useState(false);
 
-  const cookie = getCookie('loginCookie');
+  const cookie = getCookie('user-cookie');
   const navigate = useNavigate();
 // 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
