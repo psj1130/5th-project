@@ -23,7 +23,12 @@ const KakaoLoginButton =()=>{
 		console.log(res.data,userData.properties.nickname);
 
 		if(res.status == 200){
-			alert("로그인성공!");
+			// setCookie('user-cookie',res.email,{
+      //   path: '/',
+      //   secure: '/',
+      //   expires: new Date(Date.now() + setTime),
+      // });
+      alert('로그인 성공 !');
 			window.location.replace("/")
 		}
 	}

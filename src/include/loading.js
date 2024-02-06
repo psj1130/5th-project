@@ -5,9 +5,11 @@ import { useEffect } from "react";
 import { API_URL } from "../config/config";
 import axios from 'axios';
 import { useNavigate } from "react-router";
+import { setCookie } from "../player/cookies";
 
 const Loading = () => {
   const navigate = useNavigate();
+  const setTime = 3600000; //1시간
   useEffect(() => {
     userAccessToken();
   })
@@ -37,7 +39,11 @@ const Loading = () => {
 			await axios.post(`${API_URL}/auth/naverlogin`, memberRes.data.response, {withCredentials: true })
         .then((res) => {
           if(res.status == 200) {
-            alert('로그인 성공 !');
+            setCookie('user-cookie',res.email,{
+              path: '/',
+              secure: '/',
+              expires: new Date(Date.now() + setTime),
+            });
             navigate('/');
             document.location.reload(true);
           }

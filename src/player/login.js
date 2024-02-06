@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { API_URL } from "../config/config";
 import Kakao from "./kakao";
-import { getCookie } from "./cookies";
+import { setCookie, getCookie } from "./cookies";
 import Google from "./snsLogin";
 const cookie = getCookie('loginCookie');
 const LoginForm = (props) => {
@@ -46,6 +46,11 @@ const LoginForm = (props) => {
         .then((res) => {
           if(res.data == '1') {
             alert('로그인 성공');
+            // setCookie('user-cookie',res.email,{
+            //   path: '/',
+            //   secure: '/',
+            //   expires: new Date(Date.now() + setTime),
+            // });
             navigate(sessionStorage.getItem('BeforePage') ? sessionStorage.getItem('BeforePage') : '/');
             document.location.reload(true);
           }else if(res.data == '2') {

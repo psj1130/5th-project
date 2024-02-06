@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 import './login.css';
-import { getCookie } from "../../player/cookies";
+import { delCookie, getCookie } from "../../player/cookies";
 import { API_URL } from '../../config/config';
 import axios from 'axios';
 
@@ -17,6 +17,7 @@ function Login() {
         .then((res) => {
           if(res.status == 200) {
           // document.location.href('/');
+          delCookie('user-cookie');
           navigate('/login');
           }
         })
