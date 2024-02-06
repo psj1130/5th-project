@@ -22,7 +22,7 @@ const GoogleLoginButton = () => {
                 if (result.status=200) {
                   // console.log('로그인성공!');
                   alert("로그인성공!");
-                  // setCookie('loginCookie',res.email,{
+                  // setCookie('user-cookie',res.email,{
                   //   path: '/',
                   //   secure: '/',
                   //   expires: new Date(Date.now() + setTime),
@@ -35,9 +35,10 @@ const GoogleLoginButton = () => {
               })
           }}
           onFailure={(err) => {
-            console.log(err);
+            alert('로그인에 실패했습니다 !');
           }}
-          useOneTap
+          // useOneTap
+          po
         />
       </GoogleOAuthProvider>
     </>
